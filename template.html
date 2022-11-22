@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="template.css">
+    <title>Notification Templatest</title>
+  </head>
+  <body> 
+    <div class="container">
+        <form id="form"> 
+        <label for="template">Template</label>
+          <select id="template" name="template">
+            <option value="Simple Table">Simple Table</option>
+            <option value="Informational">Informational</option>
+            <option value="Alert">Alert</option>
+          </select>
+      
+          <label for="row">Headers</label>
+          <input type="text" id="row" name="row" placeholder="Amount of Headers needed">
+      
+          <label for="row">Rows</label>
+          <input type="text" id="row" name="row" placeholder="Amount of Rows needed">
+      
+          <input type="submit" value="Submit">
+      
+        </form>
+      </div>
+    <table class="styled-table">
+        <caption>Simple Table</caption>
+      <tr>
+        <th style="font-size: xx-large; padding:5px 10px; border: 1px solid;">Column Header</th>
+        <th style="font-size: xx-large; padding:5px 10px; border: 1px solid;">Column Header</th>
+      </tr>
+      <tr>
+        <td id ="rows"style="padding: 5px 10px; border-top-width: 0; border-left-width: 0; border: 1px solid;">Row 1 Column 1</td>
+          <td
+          style="
+            padding: 5px 10px;
+            border-top-width: 0;
+            border-left-width: 0;
+            border: 1px solid;
+          "
+        >
+          Row 1 Column 2
+        </td>
+      </tr>
+      <tr>
+        <td
+          style="
+            padding: 5px 10px;
+            border-top-width: 0;
+            border-left-width: 0;
+            border: 1px solid;
+          "
+        >
+          Row 2 Column 1
+        </td>
+        <td
+          style="
+            padding: 5px 10px;
+            border-top-width: 0;
+            border-left-width: 0;
+            border: 1px solid;
+          "
+        >
+          Row 2 Column 2
+        </td>
+      </tr>
+    </table>
+    <div id="userTemplate">
+
+    </div>
+
+    <script src="template.js"></script> 
+  </body>
+</html>
