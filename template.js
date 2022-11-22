@@ -5,6 +5,9 @@ var form = document.getElementById("form");
 form.addEventListener("submit", handleSubmit);
 var userTemp = document.getElementById("userTemplate")
 
+function bigger(){
+
+}
 
 function handleSubmit(event) {
   event.preventDefault();
@@ -12,6 +15,7 @@ function handleSubmit(event) {
   var row = parseInt(event.target[2].value)
   let count = 0;
   let rowCount = 0;
+  let afterCount = 0;
   var userTemp = document.getElementById("userTemplate")
   var table1 = document.createElement("table")
   table1.style = 'border-collapse: collapse; margin: 0 auto; font-size: 0.9em; font-family: sans-serif; min-width: 400px; box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);'
@@ -29,13 +33,20 @@ function handleSubmit(event) {
       const element = arr[i];
       headerActual.innerHTML = element;
       headerThing.appendChild(headerActual)
-       
   }
   }
   var afterHeadTr = document.createElement("tr")
   table1.appendChild(afterHeadTr)
 
-  while (row > count) {
+  while (row > rowCount) {
+    rowCount ++
+    if(afterCount < count){
+      afterCount++
+      console.log(afterCount, "1")
+    } else if(afterCount >= count){
+      afterCount = 0
+      console.log(afterCount, "2")
+    } 
     var rowActual = document.createElement("td")
     rowActual.style = "padding: 5px 10px; border-top-width: 0; border-left-width: 0; border: 1px solid;"
     arr2.push(
@@ -44,8 +55,19 @@ function handleSubmit(event) {
     for (let j = 0; j < arr2.length; j++) {
       const elementRow = arr2[j];
       rowActual.innerHTML = elementRow;
-      afterHeadTr.appendChild(rowActual)
-      console.log(afterHeadTr)
+      console.log(afterCount, "3")
+      if(rowCount > count && afterCount == 0 ){
+        var newTr = document.createElement("tr")
+         newTr.appendChild(rowActual)
+         table1.appendChild(newTr)
+        } else if(rowCount > count && afterCount < count ){
+           newTr.appendChild(rowActual)
+           table1.appendChild(newTr)
+          }
+       else {
+        // table1.appendChild(afterHeadTr)
+        afterHeadTr.appendChild(rowActual)
+      }
   }
     }
   }
