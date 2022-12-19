@@ -4,75 +4,387 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="template.css">
+    <link rel="stylesheet" href="template.css" />
     <title>Notification Templatest</title>
   </head>
-  <body> 
+  <body>
     <div class="container">
-        <form id="form"> 
+      <form id="form">
         <label for="template">Template</label>
-          <select id="template" name="template">
-            <option value="Simple Table">Simple Table</option>
-            <option value="Informational">Informational</option>
-            <option value="Alert">Alert</option>
-          </select>
-      
-          <label for="row">Headers</label>
-          <input type="text" id="row" name="row" placeholder="Amount of Headers needed">
-      
-          <label for="row">Rows</label>
-          <input type="text" id="row" name="row" placeholder="Amount of Rows needed">
-      
-          <input type="submit" value="Submit">
-      
-        </form>
-      </div>
-    <table class="styled-table">
-        <caption>Simple Table</caption>
+        <select onchange="handleChange(event)" id="template" name="template">
+          <option value="Simple Table">Simple Table</option>
+          <option value="Simple Email Notification">
+            Simple Email Notification
+          </option>
+          <option value="Alert">Alert</option>
+        </select>
+
+        <label id="colLabel" for="column">Columns</label>
+        <input
+          style="display: visible"
+          type="text"
+          class=""
+          id="table-choice-columns"
+          name="row"
+          placeholder="Amount of Columns needed"
+        />
+
+        <label id="rowLabel" for="row">Rows</label>
+        <input
+          style="display: visible"
+          type="text"
+          class=""
+          id="table-choice-rows"
+          name="row"
+          placeholder="Amount of Rows needed"
+        />
+
+        <label for="row">Header Text Color</label>
+        <input
+          type="color"
+          id="row"
+          name="row"
+          placeholder="Header text color (hex code or name)"
+        />
+        <label id="cellLabel" for="row">Cell Text Color</label>
+        <input
+          style="display: visible"
+          type="color"
+          id="table-choice-cells"
+          name="row"
+          placeholder="Cell text color (hex code or name)"
+        />
+
+        <label for="row">Background Color</label>
+        <input
+          type="color"
+          id="row"
+          name="row"
+          placeholder="Background color selector"
+        />
+
+        <label for="row">Linear Gradient Background Color</label>
+        <select id="template" name="template">
+          <option value="Yes">Yes</option>
+          <option value="No">No</option>
+        </select>
+
+        <label for="row">Text Color</label>
+        <input
+          type="color"
+          id="row"
+          name="row"
+          placeholder="informational text/body text color"
+        />
+
+        <input type="submit" value="Submit" />
+      </form>
+    </div>
+
+    <div id="table-div"></div>
+    <table
+      role="presentation"
+      id="emailNotification"
+      style="
+        display: none;
+        width: 100%;
+        border-collapse: collapse;
+        border: 0;
+        border-spacing: 0;
+        background: #ffffff;
+      "
+    >
       <tr>
-        <th style="font-size: xx-large; padding:5px 10px; border: 1px solid;">Column Header</th>
-        <th style="font-size: xx-large; padding:5px 10px; border: 1px solid;">Column Header</th>
-      </tr>
-      <tr>
-        <td id ="rows"style="padding: 5px 10px; border-top-width: 0; border-left-width: 0; border: 1px solid;">Row 1 Column 1</td>
-          <td
-          style="
-            padding: 5px 10px;
-            border-top-width: 0;
-            border-left-width: 0;
-            border: 1px solid;
-          "
-        >
-          Row 1 Column 2
-        </td>
-      </tr>
-      <tr>
-        <td
-          style="
-            padding: 5px 10px;
-            border-top-width: 0;
-            border-left-width: 0;
-            border: 1px solid;
-          "
-        >
-          Row 2 Column 1
-        </td>
-        <td
-          style="
-            padding: 5px 10px;
-            border-top-width: 0;
-            border-left-width: 0;
-            border: 1px solid;
-          "
-        >
-          Row 2 Column 2
+        <td align="center" style="padding: 0">
+          <table
+            role="presentation"
+            style="
+              width: 602px;
+              border-collapse: collapse;
+              border: 1px solid #cccccc;
+              border-spacing: 0;
+              text-align: left;
+            "
+          >
+            <tr>
+              <td
+                align="center"
+                style="padding: 40px 0 30px 0; background: #70bbd9"
+              >
+                <img
+                  src="https://assets.codepen.io/210284/h1.png"
+                  alt=""
+                  width="300"
+                  style="height: auto; display: block"
+                />
+              </td>
+            </tr>
+            <tr>
+              <td style="padding: 36px 30px 42px 30px">
+                <table
+                  role="presentation"
+                  style="
+                    width: 100%;
+                    border-collapse: collapse;
+                    border: 0;
+                    border-spacing: 0;
+                  "
+                >
+                  <tr>
+                    <td style="padding: 0 0 36px 0; color: #153643">
+                      <h1
+                        id="emailHeader"
+                        style="
+                          font-size: 24px;
+                          margin: 0 0 20px 0;
+                          font-family: Arial, sans-serif;
+                        "
+                      >
+                        Header
+                      </h1>
+                      <p
+                        class="mainText"
+                        style="
+                          margin: 0 0 12px 0;
+                          font-size: 16px;
+                          line-height: 24px;
+                          font-family: Arial, sans-serif;
+                        "
+                      >
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                        In tempus adipiscing felis, sit amet blandit ipsum
+                        volutpat sed. Morbi porttitor, eget accumsan et dictum,
+                        nisi libero ultricies ipsum, posuere neque at erat.
+                      </p>
+                      <p
+                        style="
+                          margin: 0;
+                          font-size: 16px;
+                          line-height: 24px;
+                          font-family: Arial, sans-serif;
+                        "
+                      >
+                        <a
+                          href="http://www.example.com"
+                          style="color: #ee4c50; text-decoration: underline"
+                          >In tempus felis blandit</a
+                        >
+                      </p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td style="padding: 0">
+                      <table
+                        role="presentation"
+                        style="
+                          width: 100%;
+                          border-collapse: collapse;
+                          border: 0;
+                          border-spacing: 0;
+                        "
+                      >
+                        <tr>
+                          <td
+                            style="
+                              width: 260px;
+                              padding: 0;
+                              vertical-align: top;
+                              color: #153643;
+                            "
+                          >
+                            <p
+                              style="
+                                margin: 0 0 25px 0;
+                                font-size: 16px;
+                                line-height: 24px;
+                                font-family: Arial, sans-serif;
+                              "
+                            >
+                              <img
+                                src="https://assets.codepen.io/210284/left.gif"
+                                alt=""
+                                width="260"
+                                style="height: auto; display: block"
+                              />
+                            </p>
+                            <p
+                              class="mainText2"
+                              style="
+                                margin: 0 0 12px 0;
+                                font-size: 16px;
+                                line-height: 24px;
+                                font-family: Arial, sans-serif;
+                              "
+                            >
+                              Lorem ipsum dolor sit amet, consectetur adipiscing
+                              elit. In tempus adipiscing felis, sit amet blandit
+                              ipsum volutpat sed. Morbi porttitor, eget accumsan
+                              dictum, est nisi libero ultricies ipsum, in
+                              posuere mauris neque at erat.
+                            </p>
+                            <p
+                              style="
+                                margin: 0;
+                                font-size: 16px;
+                                line-height: 24px;
+                                font-family: Arial, sans-serif;
+                              "
+                            >
+                              <a
+                                href="http://www.example.com"
+                                style="
+                                  color: #ee4c50;
+                                  text-decoration: underline;
+                                "
+                                >Blandit ipsum volutpat sed</a
+                              >
+                            </p>
+                          </td>
+                          <td
+                            style="
+                              width: 20px;
+                              padding: 0;
+                              font-size: 0;
+                              line-height: 0;
+                            "
+                          >
+                            &nbsp;
+                          </td>
+                          <td
+                            style="
+                              width: 260px;
+                              padding: 0;
+                              vertical-align: top;
+                              color: #153643;
+                            "
+                          >
+                            <p
+                              style="
+                                margin: 0 0 25px 0;
+                                font-size: 16px;
+                                line-height: 24px;
+                                font-family: Arial, sans-serif;
+                              "
+                            >
+                              <img
+                                src="https://assets.codepen.io/210284/right.gif"
+                                alt=""
+                                width="260"
+                                style="height: auto; display: block"
+                              />
+                            </p>
+                            <p
+                              class="mainText3"
+                              style="
+                                margin: 0 0 12px 0;
+                                font-size: 16px;
+                                line-height: 24px;
+                                font-family: Arial, sans-serif;
+                              "
+                            >
+                              Morbi porttitor, eget est accumsan dictum, nisi
+                              libero ultricies ipsum, in posuere mauris neque at
+                              erat. Lorem ipsum dolor sit amet, consectetur
+                              adipiscing elit. In tempus adipiscing felis, sit
+                              amet blandit ipsum volutpat sed.
+                            </p>
+                            <p
+                              style="
+                                margin: 0;
+                                font-size: 16px;
+                                line-height: 24px;
+                                font-family: Arial, sans-serif;
+                              "
+                            >
+                              <a
+                                href="http://www.example.com"
+                                style="
+                                  color: #ee4c50;
+                                  text-decoration: underline;
+                                "
+                                >In tempus felis blandit</a
+                              >
+                            </p>
+                          </td>
+                        </tr>
+                      </table>
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+            <tr>
+              <td style="padding: 30px; background: #ee4c50">
+                <table
+                  role="presentation"
+                  style="
+                    width: 100%;
+                    border-collapse: collapse;
+                    border: 0;
+                    border-spacing: 0;
+                    font-size: 9px;
+                    font-family: Arial, sans-serif;
+                  "
+                >
+                  <tr>
+                    <td style="padding: 0; width: 50%" align="left">
+                      <p
+                        style="
+                          margin: 0;
+                          font-size: 14px;
+                          line-height: 16px;
+                          font-family: Arial, sans-serif;
+                          color: #ffffff;
+                        "
+                      >
+                        &reg; Someone, Somewhere 2021<br />
+                      </p>
+                    </td>
+                    <td style="padding: 0; width: 50%" align="right">
+                      <table
+                        role="presentation"
+                        style="
+                          border-collapse: collapse;
+                          border: 0;
+                          border-spacing: 0;
+                        "
+                      >
+                        <tr>
+                          <td style="padding: 0 0 0 10px; width: 38px">
+                            <a
+                              href="http://www.twitter.com/"
+                              style="color: #ffffff"
+                              ><img
+                                src="https://assets.codepen.io/210284/tw_1.png"
+                                alt="Twitter"
+                                width="38"
+                                style="height: auto; display: block; border: 0"
+                            /></a>
+                          </td>
+                          <td style="padding: 0 0 0 10px; width: 38px">
+                            <a
+                              href="http://www.facebook.com/"
+                              style="color: #ffffff"
+                              ><img
+                                src="https://assets.codepen.io/210284/fb_1.png"
+                                alt="Facebook"
+                                width="38"
+                                style="height: auto; display: block; border: 0"
+                            /></a>
+                          </td>
+                        </tr>
+                      </table>
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+          </table>
         </td>
       </tr>
     </table>
-    <div id="userTemplate">
+    <div id="button"></div>
 
-    </div>
-
-    <script src="template.js"></script> 
+    <script src="template.js"></script>
   </body>
 </html>
