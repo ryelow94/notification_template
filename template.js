@@ -1,5 +1,4 @@
 let arr = [];
-let arr2 = [];
 
 var form = document.getElementById("form");
 form.addEventListener("submit", handleSubmit );
@@ -8,32 +7,80 @@ var userTemp = document.getElementById("userTemplate");
 let count = 0; 
 
 function handleChange(event){
-  if(event.target.value !== "Simple Table") {
+  // if(event.target.value === "none"){
+  //   var textColorLabel = document.getElementById("textColorLabel")
+  //   var textColor = document.getElementById("table-choice-textColor")
+  //   var rows = document.getElementById("table-choice-rows")
+  //   var columns = document.getElementById("table-choice-columns")
+  //   var rowLabel = document.getElementById("rowLabel")
+  //   var columnLabel = document.getElementById("colLabel")
+  //   var cellLabel = document.getElementById("cellLabel")
+  //   var cells = document.getElementById("table-choice-cells")
+  //   var bgColorLabel = document.getElementById("bgColorLabel")
+  //   var bgColor = document.getElementById("table-choice-bg")
+  //   bgColorLabel.style = "display:none"
+  //   bgColor.style = "display:none"
+  //   cellLabel.style = "display:none"
+  //   cells.style = "display:none"
+  //   rowLabel.style="display:none"
+  //   columnLabel.style="display:none"
+  //   rows.style="display:none"
+  //   columns.style = "display:none"
+  //   textColorLabel.style = "display:none"
+  //   textColor.style = "display:none"
+  // }
+  if(event.target.value === "Simple Table") {
     var rows = document.getElementById("table-choice-rows")
     var columns = document.getElementById("table-choice-columns")
     var rowLabel = document.getElementById("rowLabel")
     var columnLabel = document.getElementById("colLabel")
     var cellLabel = document.getElementById("cellLabel")
     var cells = document.getElementById("table-choice-cells")
-    cellLabel.style = "display:none"
-    cells.style = "display:none"
-    rowLabel.style="display:none"
-    columnLabel.style="display:none"
-    rows.style="display:none"
-    columns.style = "display:none"
-  } else {
-    var rows = document.getElementById("table-choice-rows")
-    var columns = document.getElementById("table-choice-columns")
-    var rowLabel = document.getElementById("rowLabel")
-    var columnLabel = document.getElementById("colLabel")
-    var cellLabel = document.getElementById("cellLabel")
-    var cells = document.getElementById("table-choice-cells")
+    var bgColorLabel = document.getElementById("bgColorLabel")
+    var bgColor = document.getElementById("table-choice-bg")
+    var textColorLabel = document.getElementById("textColorLabel")
+    var textColor = document.getElementById("table-choice-textColor") 
+    var linearLabel = document.getElementById("linearLabel")
+    var linear = document.getElementById("table-choice-linear")
+    linearLabel.style = "display:visible"
+    linear.style = "display:visible"
+    textColorLabel.style = "display:none"
+    textColor.style = "display:none"
+    bgColorLabel.style = "display:visible"
+    bgColor.style = "display:visible"
     cellLabel.style = "display:visible"
     cells.style = "display:visible"
     rowLabel.style="display:visible"
     columnLabel.style="display:visible"
     rows.style="display:visible"
     columns.style = "display:visible"
+  }  if(event.target.value === "Alert") {
+    
+  } if(event.target.value === "Simple Email Notification"){
+    var rows = document.getElementById("table-choice-rows")
+    var columns = document.getElementById("table-choice-columns")
+    var rowLabel = document.getElementById("rowLabel")
+    var columnLabel = document.getElementById("colLabel")
+    var cellLabel = document.getElementById("cellLabel")
+    var cells = document.getElementById("table-choice-cells")
+    var bgColorLabel = document.getElementById("bgColorLabel")
+    var bgColor = document.getElementById("table-choice-bg")
+    var textColorLabel = document.getElementById("textColorLabel")
+    var textColor = document.getElementById("table-choice-textColor")
+    var linearLabel = document.getElementById("linearLabel")
+    var linear = document.getElementById("table-choice-linear")
+    textColorLabel.style= "display:visible"
+    textColor.style = "display:visible"
+    linearLabel.style = "display:none"
+    linear.style = "display:none"
+    bgColorLabel.style = "display:none"
+    bgColor.style = "display:none"
+    cellLabel.style = "display:none"
+    cells.style = "display:none"
+    rowLabel.style="display:none"
+    columnLabel.style="display:none"
+    rows.style="display:none"
+    columns.style = "display:none"
   }
 }
 
@@ -145,8 +192,6 @@ function handleSubmit(event) {
         await navigator.clipboard.writeText(x.outerHTML)
 
       }
-
-
       break;
     case "Simple Email Notification":
       var emailNot = document.getElementById("emailNotification")
@@ -167,9 +212,11 @@ function handleSubmit(event) {
       clearBtnDiv.appendChild(clear) 
       clear.addEventListener("click", function(){
         count = 0;
-        clearAll(tableDiv)
+        emailNot.style = "display:none;"
         clearAll(clearBtnDiv)
-        form.addEventListener("submit", handleSubmit );
+        form.addEventListener("submit", function handleSubmit (){} );
+        form.reset()
+
       })
       var copyToClipBoard = document.createElement("button")
       clear.after(copyToClipBoard)

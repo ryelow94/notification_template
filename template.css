@@ -1,6 +1,7 @@
 input[type=text], select, textarea {
     width: 100%; /* Full width */
     padding: 12px; /* Some padding */ 
+    height: 5em;
     border: 1px solid #ccc; /* Gray border */
     border-radius: 4px; /* Rounded borders */
     box-sizing: border-box; /* Make sure that padding and width stays in place */
@@ -70,9 +71,9 @@ input[type=text], select, textarea {
   
   /* Add a background color and some padding around the form */
   .container {
-    display: flex;
+    /* display:flex;
     justify-content: center;
-    align-items: center;
+    align-items: center; */
     border-radius: 5px;
     background-color: #f2f2f2;
     padding: 20px;
@@ -94,17 +95,21 @@ caption {
     padding: 10px 0;
   }
 
-  #table-div{
+  /* #table-div{
     display: flex;
     justify-content: center;
     align-items: center;
     overflow-x:auto;
-  } 
+  }  */
 
-  /* #form{
-    margin-left:1em;
-    margin-right:0em;
-  } */
+  #form{
+    padding: 0;
+    margin: 0;
+    outline: none;
+    font-family: Roboto, Arial, sans-serif;
+    font-size: 13px;
+    color: #666;
+  }
 
 .hideMe{
   display: none;
