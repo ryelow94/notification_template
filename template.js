@@ -75,7 +75,7 @@ function LightenDarkenColor(col, amt) {
 }
 function handleSubmit(event) {
   event.preventDefault();
-  form.removeEventListener("submit", handleSubmit)
+  form.removeEventListener("submit", function handleSubmit(){})
   var templateChoice = event.target[0].value;
   switch (templateChoice) {
     case "Simple Table":
@@ -160,6 +160,26 @@ function handleSubmit(event) {
       mainText2.style = `color:${event.target[7].value};`
       mainText3.style = `color:${event.target[7].value};`
       console.log(emailNot)
+      var clear = document.createElement("button")
+      clear.setAttribute("id", "clear")
+      clear.textContent = "Clear"
+      var clearBtnDiv = document.getElementById("button")
+      clearBtnDiv.appendChild(clear) 
+      clear.addEventListener("click", function(){
+        count = 0;
+        clearAll(tableDiv)
+        clearAll(clearBtnDiv)
+        form.addEventListener("submit", handleSubmit );
+      })
+      var copyToClipBoard = document.createElement("button")
+      clear.after(copyToClipBoard)
+      copyToClipBoard.textContent = "Copy HTML to clipboard"
+      copyToClipBoard.setAttribute("id", "copy")
+
+      copyToClipBoard.onclick = async () => {
+        await navigator.clipboard.writeText(emailNot.outerHTML)
+
+      }
       break;
     case "Alert":
       break;
