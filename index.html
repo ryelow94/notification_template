@@ -3,12 +3,13 @@
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width initial-scale = 1.0" />
     <link rel="stylesheet" href="template.css" />
     <title>Notification Templatest</title>
   </head>
-  <body>
-    <div class="container">
+  <body id="body">
+    <div id="topDiv" style="display: flex; justify-content:center"><h1 id="headerH1"> Notification Template Generator</h1></div> 
+     <div class="container"> 
       <form id="form">
         <label for="template">Template</label>
         <select onchange="handleChange(event)" id="template" name="template">

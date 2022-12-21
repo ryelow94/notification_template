@@ -1,122 +1,135 @@
 input[type=text], select, textarea {
-    width: 100%; /* Full width */
-    padding: 12px; /* Some padding */ 
-    height: 5em;
-    border: 1px solid #ccc; /* Gray border */
-    border-radius: 4px; /* Rounded borders */
-    box-sizing: border-box; /* Make sure that padding and width stays in place */
-    margin-top: 6px; /* Add a top margin */
-    margin-bottom: 16px; /* Bottom margin */
-    resize: vertical /* Allow the user to vertically resize the textarea (not horizontally) */
-  }
+  width: 100%; /* Full width */
+  padding: 12px; /* Some padding */ 
+  height: 5em;
+  border: 1px solid #ccc; /* Gray border */
+  border-radius: 4px; /* Rounded borders */
+  box-sizing: border-box; /* Make sure that padding and width stays in place */
+  margin-top: 6px; /* Add a top margin */
+  margin-bottom: 16px; /* Bottom margin */
+  resize: vertical /* Allow the user to vertically resize the textarea (not horizontally) */
+}
 
-  input[type=color] {
-    width: 100%; /* Full width */
-    cursor:pointer;
-    height: 5em;
-    padding: 12px; /* Some padding */ 
-    border: 1px solid #ccc; /* Gray border */
-    border-radius: 4px; /* Rounded borders */
-    box-sizing: border-box; /* Make sure that padding and width stays in place */
-    margin-top: 6px; /* Add a top margin */
-    margin-bottom: 16px; /* Bottom margin */
-    resize: vertical /*Allow the user to vertically resize the textarea (not horizontally) */
+input[type=color] {
+  width: 100%; /* Full width */
+  cursor:pointer;
+  height: 5em;
+  padding: 12px; /* Some padding */ 
+  border: 1px solid #ccc; /* Gray border */
+  border-radius: 4px; /* Rounded borders */
+  box-sizing: border-box; /* Make sure that padding and width stays in place */
+  margin-top: 6px; /* Add a top margin */
+  margin-bottom: 16px; /* Bottom margin */
+  resize: vertical /*Allow the user to vertically resize the textarea (not horizontally) */
 
-  }
-  
-  /* Style the submit button with a specific background color etc */
-  input[type=submit] {
-    background-color: #04AA6D;
-    color: white;
-    padding: 12px 20px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-  }
+}
 
-  #button{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 15px;
-  }
+/* Style the submit button with a specific background color etc */
+input[type=submit] {
+  background-color: #04AA6D;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+} 
 
-  #clear {
-    background-color: red;
-    color: white;
-    padding: 12px 20px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    text-align: center;
-    justify-content: center;
-  } 
+body {
+  background-color: #3f4e7b;
+}
 
-  #copy {
-    background-color: green;
-    color: white;
-    padding: 12px 20px;
-    margin-left: 10px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    text-align: center;
-    justify-content: center;
-  }
-  
-  /* When moving the mouse over the submit button, add a darker green color */
-  input[type=submit]:hover {
-    background-color: #45a049;
-  }
-  
-  /* Add a background color and some padding around the form */
-  .container {
-    /* display:flex;
-    justify-content: center;
-    align-items: center; */
-    border-radius: 5px;
-    background-color: #f2f2f2;
-    padding: 20px;
-    margin-bottom: 15px;
-    width: 100%;
-  }
-  .styled-table {
-    border-collapse: collapse;
-    margin: 0 auto;
-    margin-bottom: 20px;
-    font-size: 0.9em;
-    font-family: sans-serif;
-    min-width: 400px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+#button{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 15px;
+}
+
+#clear {
+  background-color: red;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  text-align: center;
+  justify-content: center;
+} 
+
+#copy {
+  background-color: green;
+  color: white;
+  padding: 12px 20px;
+  margin-left: 10px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  text-align: center;
+  justify-content: center;
+}
+
+/* When moving the mouse over the submit button, add a darker green color */
+input[type=submit]:hover {
+  background-color: #45a049;
+}
+
+/* Add a background color and some padding around the form */
+.container {
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: center;
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  margin-bottom: 15px;
+  width: 100%;
+  padding-top:3em ;
+}
+.styled-table {
+  border-collapse: collapse;
+  margin: 0 auto;
+  margin-bottom: 20px;
+  font-size: 0.9em;
+  font-family: sans-serif;
+  min-width: 400px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
 }
 caption {
-    font-size: 1.6em;
-    font-weight: 400;
-    padding: 10px 0;
-  }
-
-  /* #table-div{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow-x:auto;
-  }  */
-
-  #form{
-    padding: 0;
-    margin: 0;
-    outline: none;
-    font-family: Roboto, Arial, sans-serif;
-    font-size: 13px;
-    color: #666;
-  }
-
-.hideMe{
-  display: none;
+  font-size: 1.6em;
+  font-weight: 400;
+  padding: 10px 0;
 }
-.showMe{
-  display: visible;
+
+/* #table-div{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow-x:auto;
+}  */
+
+#form{
+  margin: 0;
+  padding: 0;
+  outline: none;
+  font-family: Roboto, Arial, sans-serif;
+  font-size: 13px;
+  color: #666;
+  width: 100%;
 }
+
+#headerH1{
+  text-align: center;
+  color:aliceblue
+}
+@media  screen and (max-width: 768px) {
+  body {
+    width:845px;
+  }
+}
+
+
+
+
+
   
 
   

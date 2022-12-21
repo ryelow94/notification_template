@@ -195,7 +195,7 @@ function handleSubmit(event) {
       break;
     case "Simple Email Notification":
       var emailNot = document.getElementById("emailNotification")
-      emailNot.style = "display:visible; margin: auto"
+      emailNot.style = "display:visible; margin: 0 auto"
       var emailHeader = document.getElementById("emailHeader")
       var mainText = document.querySelector(".mainText")
       var mainText2 = document.querySelector(".mainText2")
