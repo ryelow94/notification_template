@@ -6,7 +6,8 @@ input[type=text], select {
   box-sizing: border-box; /* Make sure that padding and width stays in place */
   margin-top: 6px; /* Add a top margin */
   margin-bottom: 16px; /* Bottom margin */
-  resize: vertical /* Allow the user to vertically resize the textarea (not horizontally) */
+  resize: vertical; /* Allow the user to vertically resize the textarea (not horizontally) */
+  background-color: #f1f1f5; ;
 } 
 
 textarea{
@@ -19,6 +20,8 @@ textarea{
   margin-bottom: 16px; /* Bottom margin */
   resize: vertical; /* Allow the user to vertically resize the textarea (not horizontally) */
   word-wrap: break-word;
+  background-color: #ededf1; ;
+  /* background-color: #ff9442; */
 
 }
 
@@ -32,7 +35,7 @@ input[type=color] {
   box-sizing: border-box; /* Make sure that padding and width stays in place */
   margin-top: 6px; /* Add a top margin */
   margin-bottom: 16px; /* Bottom margin */ 
- 
+  background-color: #ededf1; ;
   resize: vertical /*Allow the user to vertically resize the textarea (not horizontally) */
 
 }
@@ -41,11 +44,12 @@ label{
   padding-left: 12px;
   padding-top: 5px;
   margin: 5px;
+  font-weight: 700;
 }
 
 /* Style the submit button with a specific background color etc */
 input[type=submit] {
-  background-color: #04AA6D;
+  background-color: #EF700C;
   color: white;
   padding: 12px;
   border: none;
@@ -57,8 +61,8 @@ input[type=submit] {
 } 
 
 body {
-  background-color: #f4f6fd;
-  /* background: linear-gradient(#5c6a9a 10%, #384f9a 100%); */
+  background-color: #cacace;
+  /* background: linear-gradient(#cacace 20%, #f2f2f6 80%); */
 }
 
 #button{
@@ -69,7 +73,7 @@ body {
 }
 
 #clear {
-  background-color: red;
+  background-color: #EF700C;
   color: white;
   padding: 12px 20px;
   border: none;
@@ -80,7 +84,7 @@ body {
 } 
 
 #copy {
-  background-color: green;
+  background-color: #EF700C;
   color: white;
   padding: 12px 20px;
   margin-left: 10px;
@@ -93,7 +97,14 @@ body {
 
 /* When moving the mouse over the submit button, add a darker green color */
 input[type=submit]:hover {
-  background-color: #45a049;
+  background-color: #FF8338;
+}
+#copy:hover{
+  background-color: #FF8338;
+}
+
+#clear:hover {
+  background-color: #FF8338;
 }
 
 /* Add a background color and some padding around the form */
@@ -114,7 +125,6 @@ input[type=submit]:hover {
   font-size: 0.9em;
   font-family: sans-serif;
   min-width: 400px;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
 }
 caption {
   font-size: 1.6em;
@@ -122,12 +132,10 @@ caption {
   padding: 10px 0;
 }
 
-/* #table-div{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  overflow-x:auto;
-}  */
+#topDiv{
+background-color: #EF700C;
+background: linear-gradient( #ec7b25 0%, #EF700C 100%);
+} 
 
 #form{
   margin-bottom: 20px;
@@ -137,13 +145,15 @@ caption {
  justify-content: center;
   font-family: Roboto, Arial, sans-serif;
   font-size: 18px;
-  color: rgb(17, 29, 41);
+  color: #356F6F;
   width: 100%;
 }
 
 #headerH1{
   text-align: center;
-  color:rgb(30, 57, 83);
+  color:#356F6F;
+  font-weight: 700;
+  font-family: Roboto, Arial, sans-serif;
 }
 
 
