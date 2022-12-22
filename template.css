@@ -1,4 +1,4 @@
-input[type=text], select, textarea {
+input[type=text], select {
   width: 100%; /* Full width */
   padding: 12px; /* Some padding */ 
   border: 1px solid #ccc; /* Gray border */
@@ -7,6 +7,19 @@ input[type=text], select, textarea {
   margin-top: 6px; /* Add a top margin */
   margin-bottom: 16px; /* Bottom margin */
   resize: vertical /* Allow the user to vertically resize the textarea (not horizontally) */
+} 
+
+textarea{
+  max-width: 100%; /* Full width */
+  padding: 12px; /* Some padding */ 
+  border: 1px solid #ccc; /* Gray border */
+  border-radius: 4px; /* Rounded borders */
+  box-sizing: border-box; /* Make sure that padding and width stays in place */
+  margin-top: 6px; /* Add a top margin */
+  margin-bottom: 16px; /* Bottom margin */
+  resize: vertical; /* Allow the user to vertically resize the textarea (not horizontally) */
+  word-wrap: break-word;
+
 }
 
 input[type=color] {
@@ -39,7 +52,7 @@ input[type=submit] {
   box-sizing: border-box;
   border-radius: 4px;
   cursor: pointer;
-  width: 100%;
+  width: 10%;
   align-items: center;
 } 
 
@@ -131,12 +144,15 @@ caption {
 #headerH1{
   text-align: center;
   color:rgb(30, 57, 83);
-
 }
+
+
 @media  screen and (max-width: 768px) {
-  body {
-    width:845px;
+  #body {
+  width: 845px;
   }
+ 
+ 
 }
 
 

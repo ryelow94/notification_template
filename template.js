@@ -3,32 +3,57 @@ let arr = [];
 var form = document.getElementById("form");
 form.addEventListener("submit", handleSubmit );
 var userTemp = document.getElementById("userTemplate");
+var hideSubmit = document.getElementById("submit")
+var initialForm = document.getElementById("template")
 
 let count = 0; 
-
+//initial screen before template option is selected hides all form inputs
+if(template.value === "none"){
+  var textColorLabel = document.getElementById("textColorLabel")
+  var textColor = document.getElementById("table-choice-textColor")
+  var rows = document.getElementById("table-choice-rows")
+  var columns = document.getElementById("table-choice-columns")
+  var rowLabel = document.getElementById("rowLabel")
+  var columnLabel = document.getElementById("colLabel")
+  var cellLabel = document.getElementById("cellLabel")
+  var cells = document.getElementById("table-choice-cells")
+  var bgColorLabel = document.getElementById("bgColorLabel")
+  var bgColor = document.getElementById("table-choice-bg")
+  var textContentLabel = document.getElementById("textContentLabel")
+    var textContent = document.getElementById("table-choice-textContent")
+    var textContentLabelL = document.getElementById("textContentLabelL")
+    var textContentL = document.getElementById("table-choice-textContentL")
+    var textContentLabelR = document.getElementById("textContentLabelR")
+    var textContentR = document.getElementById("table-choice-textContentR")
+    var linearLabel = document.getElementById("linearLabel")
+    var linear = document.getElementById("table-choice-linear") 
+    var headerLabel = document.getElementById("headerLabel")
+    var headerColor = document.getElementById("table-choice-header")
+    headerLabel.style = "display:none;"
+    headerColor.style = "display:none;"
+    linearLabel.style = "display:none"
+    linear.style = "display:none"
+    textContentLabel.style= "display:none"
+    textContent.style= "display:none"
+    textContentLabelL.style= "display:none"
+    textContentL.style= "display:none"
+    textContentLabelR.style= "display:none"
+    textContentR.style= "display:none"
+  bgColorLabel.style = "display:none"
+  bgColor.style = "display:none"
+  cellLabel.style = "display:none"
+  cells.style = "display:none"
+  rowLabel.style="display:none"
+  columnLabel.style="display:none"
+  rows.style="display:none"
+  columns.style = "display:none"
+  textColorLabel.style = "display:none"
+  textColor.style = "display:none"
+  hideSubmit.style = "display:none"
+}
+//when template options change, hide/show certain form inputs
 function handleChange(event){
-  // if(event.target.value === "none"){
-  //   var textColorLabel = document.getElementById("textColorLabel")
-  //   var textColor = document.getElementById("table-choice-textColor")
-  //   var rows = document.getElementById("table-choice-rows")
-  //   var columns = document.getElementById("table-choice-columns")
-  //   var rowLabel = document.getElementById("rowLabel")
-  //   var columnLabel = document.getElementById("colLabel")
-  //   var cellLabel = document.getElementById("cellLabel")
-  //   var cells = document.getElementById("table-choice-cells")
-  //   var bgColorLabel = document.getElementById("bgColorLabel")
-  //   var bgColor = document.getElementById("table-choice-bg")
-  //   bgColorLabel.style = "display:none"
-  //   bgColor.style = "display:none"
-  //   cellLabel.style = "display:none"
-  //   cells.style = "display:none"
-  //   rowLabel.style="display:none"
-  //   columnLabel.style="display:none"
-  //   rows.style="display:none"
-  //   columns.style = "display:none"
-  //   textColorLabel.style = "display:none"
-  //   textColor.style = "display:none"
-  // }
+  hideSubmit.style = "display: visible"
   if(event.target.value === "Simple Table") {
     var rows = document.getElementById("table-choice-rows")
     var columns = document.getElementById("table-choice-columns")
@@ -41,7 +66,25 @@ function handleChange(event){
     var textColorLabel = document.getElementById("textColorLabel")
     var textColor = document.getElementById("table-choice-textColor") 
     var linearLabel = document.getElementById("linearLabel")
-    var linear = document.getElementById("table-choice-linear")
+    var linear = document.getElementById("table-choice-linear") 
+    var headerLabel = document.getElementById("headerLabel")
+    var headerColor = document.getElementById("table-choice-header")
+    headerLabel.style = "display:visible;"
+    headerColor.style = "display:visible;"
+    //text content
+    var textContentLabel = document.getElementById("textContentLabel")
+    var textContent = document.getElementById("table-choice-textContent")
+    var textContentLabelL = document.getElementById("textContentLabelL")
+    var textContentL = document.getElementById("table-choice-textContentL")
+    var textContentLabelR = document.getElementById("textContentLabelR")
+    var textContentR = document.getElementById("table-choice-textContentR")
+    textContentLabel.style= "display:none"
+    textContent.style= "display:none"
+    textContentLabelL.style= "display:none"
+    textContentL.style= "display:none"
+    textContentLabelR.style= "display:none"
+    textContentR.style= "display:none"
+
     linearLabel.style = "display:visible"
     linear.style = "display:visible"
     textColorLabel.style = "display:none"
@@ -55,6 +98,10 @@ function handleChange(event){
     rows.style="display:visible"
     columns.style = "display:visible"
   }  if(event.target.value === "Alert") {
+    var headerLabel = document.getElementById("headerLabel")
+    var headerColor = document.getElementById("table-choice-header")
+    headerLabel.style = "display:visible;"
+    headerColor.style = "display:visible;"
     
   } if(event.target.value === "Simple Email Notification"){
     var rows = document.getElementById("table-choice-rows")
@@ -68,7 +115,23 @@ function handleChange(event){
     var textColorLabel = document.getElementById("textColorLabel")
     var textColor = document.getElementById("table-choice-textColor")
     var linearLabel = document.getElementById("linearLabel")
-    var linear = document.getElementById("table-choice-linear")
+    var linear = document.getElementById("table-choice-linear") 
+    var headerLabel = document.getElementById("headerLabel")
+    var headerColor = document.getElementById("table-choice-header")
+    headerLabel.style = "display:visible;"
+    headerColor.style = "display:visible;"
+    var textContentLabel = document.getElementById("textContentLabel")
+    var textContent = document.getElementById("table-choice-textContent")
+    var textContentLabelL = document.getElementById("textContentLabelL")
+    var textContentL = document.getElementById("table-choice-textContentL")
+    var textContentLabelR = document.getElementById("textContentLabelR")
+    var textContentR = document.getElementById("table-choice-textContentR")
+    textContentLabel.style= "display:visible"
+    textContent.style= "display:visible"
+    textContentLabelL.style= "display:visible"
+    textContentL.style= "display:visible"
+    textContentLabelR.style= "display:visible"
+    textContentR.style= "display:visible"
     textColorLabel.style= "display:visible"
     textColor.style = "display:visible"
     linearLabel.style = "display:none"
@@ -83,14 +146,15 @@ function handleChange(event){
     columns.style = "display:none"
   }
 }
-
+//clears the form and makes the submit button visible again
 function clearAll(parent) {
   while (parent.firstChild) {
       parent.removeChild(parent.firstChild);
       
   }
+  hideSubmit.style = "display:visible"
 }
-
+//makes a lighter color of the background color selected for linear gradient
 function LightenDarkenColor(col, amt) {
   
   var usePound = false;
@@ -120,8 +184,12 @@ function LightenDarkenColor(col, amt) {
   return (usePound?"#":"") + (g | (b << 8) | (r << 16)).toString(16);
 
 }
+
+//submitting the form
 function handleSubmit(event) {
   event.preventDefault();
+  
+  hideSubmit.style = "display:none"
   form.removeEventListener("submit", function handleSubmit(){})
   var templateChoice = event.target[0].value;
   switch (templateChoice) {
@@ -138,8 +206,9 @@ function handleSubmit(event) {
         console.log(lighterColor)
       }
 
-      if((!rn || !cn || !headerColor) || (isNaN(parseInt(rn)) || isNaN(parseInt(cn)))){
+      if((!rn || !cn ) || (isNaN(parseInt(rn)) || isNaN(parseInt(cn)))){
         alert("Enter numeric values for both fields")
+        hideSubmit.style = "display:visible"
         return;
       }
       var tableDiv = document.getElementById("table-div")
@@ -204,6 +273,9 @@ function handleSubmit(event) {
       mainText.style = `color:${event.target[7].value};`
       mainText2.style = `color:${event.target[7].value};`
       mainText3.style = `color:${event.target[7].value};`
+      mainText.textContent = `${event.target[8].value}`
+      mainText2.textContent = `${event.target[9].value};`
+      mainText3.textContent = `${event.target[10].value};`
       console.log(emailNot)
       var clear = document.createElement("button")
       clear.setAttribute("id", "clear")
@@ -232,6 +304,7 @@ function handleSubmit(event) {
       break;
     default:
       alert("Please select a template option from the dropdown menu.");
+      
   }
 }
 

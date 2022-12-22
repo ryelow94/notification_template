@@ -78,13 +78,39 @@
           name="row"
           placeholder="informational text/body text color"
         />
+        <label id="textContentLabel" for="row">Text Content Below Header</label>
+        <textarea 
+        wrap="hard"
+        rows="10" cols="5"
+        id="table-choice-textContent"
+        name="row"
+        placeholder="notification body text content"
+        ></textarea> 
+        <label id="textContentLabelL" for="row">Text Content Left</label>
+        <textarea 
+        wrap="hard"
+        rows="10" cols="5"
+        id="table-choice-textContentL"
+        name="row"
+        placeholder="notification body text content"
+        ></textarea> 
+        <label id="textContentLabelR" for="row">Text Content Right</label>
+        <textarea
+        wrap="hard"
+        rows="10" cols="5"
+        id="table-choice-textContentR"
+        name="row"
+        placeholder="notification body text content"
+        ></textarea>
+        
 
-        <input type="submit" value="Submit" />
+        <input id="submit" type="submit" value="Submit" />
       </form>
      
-    
+    <div id="table-div"></div> 
 
-    <div id="table-div"></div>
+    <div id="emailDiv"> 
+
     <table
       role="presentation"
       id="emailNotification"
@@ -147,13 +173,15 @@
                       >
                         Header
                       </h1>
-                      <p
+                      <p 
+                        id="textContentMain"
                         class="mainText"
                         style="
                           margin: 0 0 12px 0;
                           font-size: 16px;
                           line-height: 24px;
                           font-family: Arial, sans-serif;
+                          word-break:break-word
                         "
                       >
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit.
@@ -213,12 +241,14 @@
                               />
                             </p>
                             <p
+                              id="textContentLeft"
                               class="mainText2"
                               style="
                                 margin: 0 0 12px 0;
                                 font-size: 16px;
                                 line-height: 24px;
                                 font-family: Arial, sans-serif;
+                                word-break:break-word
                               "
                             >
                               Lorem ipsum dolor sit amet, consectetur adipiscing
@@ -278,14 +308,17 @@
                                 style="height: auto; display: block"
                               />
                             </p>
-                            <p
+                            <p 
+                              id="textContentRight"
                               class="mainText3"
                               style="
                                 margin: 0 0 12px 0;
                                 font-size: 16px;
                                 line-height: 24px;
+                                word-break:break-word;
                                 font-family: Arial, sans-serif;
                               "
+                
                             >
                               Morbi porttitor, eget est accumsan dictum, nisi
                               libero ultricies ipsum, in posuere mauris neque at
@@ -342,7 +375,7 @@
                           color: #ffffff;
                         "
                       >
-                        &reg; Someone, Somewhere 2021<br />
+                        &reg; Someone, Somewhere 2022<br />
                       </p>
                     </td>
                     <td style="padding: 0; width: 50%" align="right">
@@ -388,7 +421,10 @@
         </td>
       </tr>
     </table>
+  </div>
+  
     <div id="button"></div>
+
     </div>
 
     <script src="template.js"></script>
