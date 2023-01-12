@@ -25,6 +25,13 @@ textarea{
 
 }
 
+.added{
+  font-size: small;
+  padding-left: 18px;
+  margin-top: 2px; /* Add a top margin */
+  margin-bottom: 2px; /* Bottom margin */ 
+}
+
 input[type=color] {
   width: 100%; /* Full width */
   cursor:pointer;
@@ -59,6 +66,23 @@ input[type=submit] {
   width: 10%;
   align-items: center;
 } 
+#submitCustom {
+  background-color: #EF700C;
+  color: white;
+  padding: 12px;
+  border: none;
+  box-sizing: border-box;
+  border-radius: 4px;
+  cursor: pointer;
+  width: 10%;
+  align-items: center;
+  margin-bottom: 1%;
+
+} 
+
+#submitCustom:hover {
+  background-color: #FF8338;
+}
 
 body {
   background-color: #cacace;

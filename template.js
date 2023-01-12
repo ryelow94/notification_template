@@ -2,13 +2,29 @@ let arr = [];
 
 var form = document.getElementById("form");
 form.addEventListener("submit", handleSubmit );
+var customSubmitButton = document.getElementById("submitCustom")
+ customSubmitButton.addEventListener("click", customHeader)
 var userTemp = document.getElementById("userTemplate");
 var hideSubmit = document.getElementById("submit")
 var initialForm = document.getElementById("template")
 
 let count = 0; 
+
+function customHeader(){
+  var inputHeader = document.getElementById("table-choice-text")
+  var inputSelect = document.getElementById("table-choice-system")
+  var option = document.createElement("option")
+  option.value = inputHeader.value.toLowerCase()
+  option.text = inputHeader.value
+  inputSelect.add(option)
+  var added = document.createElement("p")
+  added.setAttribute("class","added")
+  added.textContent="Added Custom Value"
+  customSubmitButton.after(added)
+  
+}
 //initial screen before template option is selected hides all form inputs
-if(template.value === "none"){
+if(initialForm.value === "none"){
   var textColorLabel = document.getElementById("textColorLabel")
   var textColor = document.getElementById("table-choice-textColor")
   var rows = document.getElementById("table-choice-rows")
@@ -29,6 +45,18 @@ if(template.value === "none"){
     var linear = document.getElementById("table-choice-linear") 
     var headerLabel = document.getElementById("headerLabel")
     var headerColor = document.getElementById("table-choice-header")
+    var headerText = document.getElementById("table-choice-text");
+    var submitCustom = document.getElementById("submitCustom");
+    var headerSystem = document.getElementById("headerSystem");
+    var tableChoiceSystem= document.getElementById("table-choice-system");
+    var headerLabel = document.getElementById("headerLabel")
+    var headerTextLabel = document.getElementById("headerTextLabel")
+    headerTextLabel.style = "display:none"
+    headerLabel.style = "display:none"
+    headerSystem.style="display:none"
+    tableChoiceSystem.style="display:none"
+    headerText.style = 'display:none'
+    submitCustom.style = "display:none"
     headerLabel.style = "display:none;"
     headerColor.style = "display:none;"
     linearLabel.style = "display:none"
@@ -50,10 +78,12 @@ if(template.value === "none"){
   textColorLabel.style = "display:none"
   textColor.style = "display:none"
   hideSubmit.style = "display:none"
-}
+} 
+
 //when template options change, hide/show certain form inputs
 function handleChange(event){
   hideSubmit.style = "display: visible"
+
   if(event.target.value === "Simple Table") {
     var rows = document.getElementById("table-choice-rows")
     var columns = document.getElementById("table-choice-columns")
@@ -67,9 +97,13 @@ function handleChange(event){
     var textColor = document.getElementById("table-choice-textColor") 
     var linearLabel = document.getElementById("linearLabel")
     var linear = document.getElementById("table-choice-linear") 
-    var headerLabel = document.getElementById("headerLabel")
+    var headerTextLabel = document.getElementById("headerTextLabel")
     var headerColor = document.getElementById("table-choice-header")
-    headerLabel.style = "display:visible;"
+    var headerText = document.getElementById("table-choice-text");
+    var submitCustom = document.getElementById("submitCustom");
+    headerText.style = 'display:none'
+    submitCustom.style = "display:none"
+    headerTextLabel.style = "display:none"
     headerColor.style = "display:visible;"
     //text content
     var textContentLabel = document.getElementById("textContentLabel")
@@ -78,6 +112,12 @@ function handleChange(event){
     var textContentL = document.getElementById("table-choice-textContentL")
     var textContentLabelR = document.getElementById("textContentLabelR")
     var textContentR = document.getElementById("table-choice-textContentR")
+    var headerSystem = document.getElementById("headerSystem")
+    var textSystem = document.getElementById("table-choice-system")
+    var headerLabel = document.getElementById("headerLabel");
+    headerLabel.style="display:visible"
+    headerSystem.style="display:none"
+    textSystem.style="display:none"
     textContentLabel.style= "display:none"
     textContent.style= "display:none"
     textContentLabelL.style= "display:none"
@@ -116,9 +156,9 @@ function handleChange(event){
     var textColor = document.getElementById("table-choice-textColor")
     var linearLabel = document.getElementById("linearLabel")
     var linear = document.getElementById("table-choice-linear") 
-    var headerLabel = document.getElementById("headerLabel")
+    var headerTextLabel = document.getElementById("headerTextLabel")
     var headerColor = document.getElementById("table-choice-header")
-    headerLabel.style = "display:visible;"
+    headerTextLabel.style = "display:visible;"
     headerColor.style = "display:visible;"
     var textContentLabel = document.getElementById("textContentLabel")
     var textContent = document.getElementById("table-choice-textContent")
@@ -126,6 +166,14 @@ function handleChange(event){
     var textContentL = document.getElementById("table-choice-textContentL")
     var textContentLabelR = document.getElementById("textContentLabelR")
     var textContentR = document.getElementById("table-choice-textContentR")
+    var headerText = document.getElementById("table-choice-text");
+    var submitCustom = document.getElementById("submitCustom");
+    var headerSystem = document.getElementById("headerSystem")
+    var textSystem = document.getElementById("table-choice-system")
+    headerSystem.style="display:visible"
+    textSystem.style="display:visible"
+    headerText.style = 'display:visible'
+    submitCustom.style = "display:visible"
     textContentLabel.style= "display:visible"
     textContent.style= "display:visible"
     textContentLabelL.style= "display:visible"
@@ -153,6 +201,60 @@ function clearAll(parent) {
       
   }
   hideSubmit.style = "display:visible"
+  var textColorLabel = document.getElementById("textColorLabel")
+  var textColor = document.getElementById("table-choice-textColor")
+  var rows = document.getElementById("table-choice-rows")
+  var columns = document.getElementById("table-choice-columns")
+  var rowLabel = document.getElementById("rowLabel")
+  var columnLabel = document.getElementById("colLabel")
+  var cellLabel = document.getElementById("cellLabel")
+  var cells = document.getElementById("table-choice-cells")
+  var bgColorLabel = document.getElementById("bgColorLabel")
+  var bgColor = document.getElementById("table-choice-bg")
+  var textContentLabel = document.getElementById("textContentLabel")
+    var textContent = document.getElementById("table-choice-textContent")
+    var textContentLabelL = document.getElementById("textContentLabelL")
+    var textContentL = document.getElementById("table-choice-textContentL")
+    var textContentLabelR = document.getElementById("textContentLabelR")
+    var textContentR = document.getElementById("table-choice-textContentR")
+    var linearLabel = document.getElementById("linearLabel")
+    var linear = document.getElementById("table-choice-linear") 
+    var headerLabel = document.getElementById("headerLabel")
+    var headerColor = document.getElementById("table-choice-header")
+    var headerText = document.getElementById("table-choice-text");
+    var submitCustom = document.getElementById("submitCustom");
+    var headerSystem = document.getElementById("headerSystem");
+    var tableChoiceSystem= document.getElementById("table-choice-system");
+    var headerLabel = document.getElementById("headerLabel")
+    var headerTextLabel = document.getElementById("headerTextLabel")
+    headerTextLabel.style = "display:none"
+    headerLabel.style = "display:none"
+    headerSystem.style="display:none"
+    tableChoiceSystem.style="display:none"
+    headerText.style = 'display:none'
+    submitCustom.style = "display:none"
+    headerLabel.style = "display:none;"
+    headerColor.style = "display:none;"
+    linearLabel.style = "display:none"
+    linear.style = "display:none"
+    textContentLabel.style= "display:none"
+    textContent.style= "display:none"
+    textContentLabelL.style= "display:none"
+    textContentL.style= "display:none"
+    textContentLabelR.style= "display:none"
+    textContentR.style= "display:none"
+  bgColorLabel.style = "display:none"
+  bgColor.style = "display:none"
+  cellLabel.style = "display:none"
+  cells.style = "display:none"
+  rowLabel.style="display:none"
+  columnLabel.style="display:none"
+  rows.style="display:none"
+  columns.style = "display:none"
+  textColorLabel.style = "display:none"
+  textColor.style = "display:none"
+  hideSubmit.style = "display:none"
+  form.reset();
 }
 //makes a lighter color of the background color selected for linear gradient
 function LightenDarkenColor(col, amt) {
@@ -188,6 +290,68 @@ function LightenDarkenColor(col, amt) {
 //submitting the form
 function handleSubmit(event) {
   event.preventDefault();
+  if(event.target[13].value===""){
+    alert("no header value entered")
+    var textColorLabel = document.getElementById("textColorLabel")
+  var textColor = document.getElementById("table-choice-textColor")
+  var rows = document.getElementById("table-choice-rows")
+  var columns = document.getElementById("table-choice-columns")
+  var rowLabel = document.getElementById("rowLabel")
+  var columnLabel = document.getElementById("colLabel")
+  var cellLabel = document.getElementById("cellLabel")
+  var cells = document.getElementById("table-choice-cells")
+  var bgColorLabel = document.getElementById("bgColorLabel")
+  var bgColor = document.getElementById("table-choice-bg")
+  var textContentLabel = document.getElementById("textContentLabel")
+    var textContent = document.getElementById("table-choice-textContent")
+    var textContentLabelL = document.getElementById("textContentLabelL")
+    var textContentL = document.getElementById("table-choice-textContentL")
+    var textContentLabelR = document.getElementById("textContentLabelR")
+    var textContentR = document.getElementById("table-choice-textContentR")
+    var linearLabel = document.getElementById("linearLabel")
+    var linear = document.getElementById("table-choice-linear") 
+    var headerLabel = document.getElementById("headerLabel")
+    var headerColor = document.getElementById("table-choice-header")
+    var headerText = document.getElementById("table-choice-text");
+    var submitCustom = document.getElementById("submitCustom");
+    var headerSystem = document.getElementById("headerSystem");
+    var tableChoiceSystem= document.getElementById("table-choice-system");
+    var headerLabel = document.getElementById("headerLabel")
+    var headerTextLabel = document.getElementById("headerTextLabel")
+    headerTextLabel.style = "display:none"
+    headerLabel.style = "display:none"
+    headerSystem.style="display:none"
+    tableChoiceSystem.style="display:none"
+    headerText.style = 'display:none'
+    submitCustom.style = "display:none"
+    headerLabel.style = "display:none;"
+    headerColor.style = "display:none;"
+    linearLabel.style = "display:none"
+    linear.style = "display:none"
+    textContentLabel.style= "display:none"
+    textContent.style= "display:none"
+    textContentLabelL.style= "display:none"
+    textContentL.style= "display:none"
+    textContentLabelR.style= "display:none"
+    textContentR.style= "display:none"
+  bgColorLabel.style = "display:none"
+  bgColor.style = "display:none"
+  cellLabel.style = "display:none"
+  cells.style = "display:none"
+  rowLabel.style="display:none"
+  columnLabel.style="display:none"
+  rows.style="display:none"
+  columns.style = "display:none"
+  textColorLabel.style = "display:none"
+  textColor.style = "display:none"
+  hideSubmit.style = "display:none"
+  form.reset();
+    return;
+  }
+  var removeAdded = document.querySelector(".added")
+  if(removeAdded){
+    removeAdded.remove();
+  }
   
   hideSubmit.style = "display:none"
   form.removeEventListener("submit", function handleSubmit(){})
@@ -270,12 +434,13 @@ function handleSubmit(event) {
       var mainText2 = document.querySelector(".mainText2")
       var mainText3 = document.querySelector(".mainText3")
       emailHeader.style = `color:${event.target[3].value};`
+      emailHeader.textContent = `${event.target[13].value}`
       mainText.style = `color:${event.target[7].value};`
       mainText2.style = `color:${event.target[7].value};`
       mainText3.style = `color:${event.target[7].value};`
       mainText.textContent = `${event.target[8].value}`
-      mainText2.textContent = `${event.target[9].value};`
-      mainText3.textContent = `${event.target[10].value};`
+      mainText2.textContent = `${event.target[9].value}`
+      mainText3.textContent = `${event.target[10].value}`
       console.log(emailNot)
       var clear = document.createElement("button")
       clear.setAttribute("id", "clear")
@@ -287,8 +452,6 @@ function handleSubmit(event) {
         emailNot.style = "display:none;"
         clearAll(clearBtnDiv)
         form.addEventListener("submit", function handleSubmit (){} );
-        form.reset()
-
       })
       var copyToClipBoard = document.createElement("button")
       clear.after(copyToClipBoard)

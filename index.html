@@ -102,6 +102,22 @@
         name="row"
         placeholder="notification body text content"
         ></textarea>
+       
+        <label id="headerTextLabel" for="row">Custom Header Value</label>
+        <input
+          type="text"
+          id="table-choice-text"
+          name="row"
+          placeholder="Add a custom header value to the options below; surround with [ ] to use an IRM field value"
+        /> 
+        <button id="submitCustom" type="button">Add a Custom Value</button> 
+
+        <label id="headerSystem" for="row">Header Value Options</label>
+        <select id="table-choice-system" name="template">
+          <option value="" selected disabled hidden>Select an Option</option>
+          <option value="[CreatedAt]">[CreatedAt]</option>
+          <option value="[UpdatedAt]">[UpdatedAt]</option>
+        </select>
         
 
         <input id="submit" type="submit" value="Submit" />
