@@ -12,8 +12,13 @@ let count = 0;
 
 function customHeader(){
   var inputHeader = document.getElementById("table-choice-text")
+  if(inputHeader.value===""){
+    alert("Enter a custom header to add to option list below")
+    return;
+  }
   var inputSelect = document.getElementById("table-choice-system")
   var option = document.createElement("option")
+  option.setAttribute("class", "option")
   option.value = inputHeader.value.toLowerCase()
   option.text = inputHeader.value
   inputSelect.add(option)
@@ -23,8 +28,7 @@ function customHeader(){
   customSubmitButton.after(added)
   
 }
-//initial screen before template option is selected hides all form inputs
-if(initialForm.value === "none"){
+function initial(){
   var textColorLabel = document.getElementById("textColorLabel")
   var textColor = document.getElementById("table-choice-textColor")
   var rows = document.getElementById("table-choice-rows")
@@ -78,6 +82,10 @@ if(initialForm.value === "none"){
   textColorLabel.style = "display:none"
   textColor.style = "display:none"
   hideSubmit.style = "display:none"
+}
+//initial screen before template option is selected hides all form inputs
+if(initialForm.value === "none"){
+  initial()
 } 
 
 //when template options change, hide/show certain form inputs
@@ -203,61 +211,17 @@ function clearAll(parent) {
       parent.removeChild(parent.firstChild);
       
   }
+ 
   hideSubmit.style = "display:visible"
-  var textColorLabel = document.getElementById("textColorLabel")
-  var textColor = document.getElementById("table-choice-textColor")
-  var rows = document.getElementById("table-choice-rows")
-  var columns = document.getElementById("table-choice-columns")
-  var rowLabel = document.getElementById("rowLabel")
-  var columnLabel = document.getElementById("colLabel")
-  var cellLabel = document.getElementById("cellLabel")
-  var cells = document.getElementById("table-choice-cells")
-  var bgColorLabel = document.getElementById("bgColorLabel")
-  var bgColor = document.getElementById("table-choice-bg")
-  var textContentLabel = document.getElementById("textContentLabel")
-    var textContent = document.getElementById("table-choice-textContent")
-    var textContentLabelL = document.getElementById("textContentLabelL")
-    var textContentL = document.getElementById("table-choice-textContentL")
-    var textContentLabelR = document.getElementById("textContentLabelR")
-    var textContentR = document.getElementById("table-choice-textContentR")
-    var linearLabel = document.getElementById("linearLabel")
-    var linear = document.getElementById("table-choice-linear") 
-    var headerLabel = document.getElementById("headerLabel")
-    var headerColor = document.getElementById("table-choice-header")
-    var headerText = document.getElementById("table-choice-text");
-    var submitCustom = document.getElementById("submitCustom");
-    var headerSystem = document.getElementById("headerSystem");
-    var tableChoiceSystem= document.getElementById("table-choice-system");
-    var headerLabel = document.getElementById("headerLabel")
-    var headerTextLabel = document.getElementById("headerTextLabel")
-    headerTextLabel.style = "display:none"
-    headerLabel.style = "display:none"
-    headerSystem.style="display:none"
-    tableChoiceSystem.style="display:none"
-    headerText.style = 'display:none'
-    submitCustom.style = "display:none"
-    headerLabel.style = "display:none;"
-    headerColor.style = "display:none;"
-    linearLabel.style = "display:none"
-    linear.style = "display:none"
-    textContentLabel.style= "display:none"
-    textContent.style= "display:none"
-    textContentLabelL.style= "display:none"
-    textContentL.style= "display:none"
-    textContentLabelR.style= "display:none"
-    textContentR.style= "display:none"
-  bgColorLabel.style = "display:none"
-  bgColor.style = "display:none"
-  cellLabel.style = "display:none"
-  cells.style = "display:none"
-  rowLabel.style="display:none"
-  columnLabel.style="display:none"
-  rows.style="display:none"
-  columns.style = "display:none"
-  textColorLabel.style = "display:none"
-  textColor.style = "display:none"
-  hideSubmit.style = "display:none"
-  form.reset();
+  var hideCustom = document.getElementById("submitCustom")
+  hideCustom.style="display:visible"
+  initial()
+  
+  let removeOptions = Array.from(document.getElementsByClassName("option"))
+  removeOptions.forEach(element => {
+    element.remove()
+  }) 
+  form.reset()
 }
 //makes a lighter color of the background color selected for linear gradient
 function LightenDarkenColor(col, amt) {
@@ -293,70 +257,70 @@ function LightenDarkenColor(col, amt) {
 //submitting the form
 function handleSubmit(event) {
   event.preventDefault();
+  var hideCustom = document.getElementById("submitCustom")
+  hideCustom.style="display:none"
   var templateChoice = event.target[0].value;
   if(templateChoice==="Simple Email Notification" && event.target[13].value===""){
-    alert("no header value entered")
+    alert("Enter a Header Value to Submit")
+    var rows = document.getElementById("table-choice-rows")
+    var columns = document.getElementById("table-choice-columns")
+    var rowLabel = document.getElementById("rowLabel")
+    var columnLabel = document.getElementById("colLabel")
+    var cellLabel = document.getElementById("cellLabel")
+    var cells = document.getElementById("table-choice-cells")
+    var bgColorLabel = document.getElementById("bgColorLabel")
+    var bgColor = document.getElementById("table-choice-bg")
     var textColorLabel = document.getElementById("textColorLabel")
-  var textColor = document.getElementById("table-choice-textColor")
-  var rows = document.getElementById("table-choice-rows")
-  var columns = document.getElementById("table-choice-columns")
-  var rowLabel = document.getElementById("rowLabel")
-  var columnLabel = document.getElementById("colLabel")
-  var cellLabel = document.getElementById("cellLabel")
-  var cells = document.getElementById("table-choice-cells")
-  var bgColorLabel = document.getElementById("bgColorLabel")
-  var bgColor = document.getElementById("table-choice-bg")
-  var textContentLabel = document.getElementById("textContentLabel")
+    var textColor = document.getElementById("table-choice-textColor")
+    var linearLabel = document.getElementById("linearLabel")
+    var linear = document.getElementById("table-choice-linear") 
+    var headerTextLabel = document.getElementById("headerTextLabel")
+    var headerColor = document.getElementById("table-choice-header")
+    headerTextLabel.style = "display:visible;"
+    headerColor.style = "display:visible;"
+    var textContentLabel = document.getElementById("textContentLabel")
     var textContent = document.getElementById("table-choice-textContent")
     var textContentLabelL = document.getElementById("textContentLabelL")
     var textContentL = document.getElementById("table-choice-textContentL")
     var textContentLabelR = document.getElementById("textContentLabelR")
     var textContentR = document.getElementById("table-choice-textContentR")
-    var linearLabel = document.getElementById("linearLabel")
-    var linear = document.getElementById("table-choice-linear") 
-    var headerLabel = document.getElementById("headerLabel")
-    var headerColor = document.getElementById("table-choice-header")
     var headerText = document.getElementById("table-choice-text");
     var submitCustom = document.getElementById("submitCustom");
-    var headerSystem = document.getElementById("headerSystem");
-    var tableChoiceSystem= document.getElementById("table-choice-system");
+    var headerSystem = document.getElementById("headerSystem")
+    var textSystem = document.getElementById("table-choice-system")
     var headerLabel = document.getElementById("headerLabel")
-    var headerTextLabel = document.getElementById("headerTextLabel")
-    headerTextLabel.style = "display:none"
-    headerLabel.style = "display:none"
-    headerSystem.style="display:none"
-    tableChoiceSystem.style="display:none"
-    headerText.style = 'display:none'
-    submitCustom.style = "display:none"
-    headerLabel.style = "display:none;"
-    headerColor.style = "display:none;"
+    headerLabel.style="display:visible"
+
+    headerSystem.style="display:visible"
+    textSystem.style="display:visible"
+    headerText.style = 'display:visible'
+    submitCustom.style = "display:visible"
+    textContentLabel.style= "display:visible"
+    textContent.style= "display:visible"
+    textContentLabelL.style= "display:visible"
+    textContentL.style= "display:visible"
+    textContentLabelR.style= "display:visible"
+    textContentR.style= "display:visible"
+    textColorLabel.style= "display:visible"
+    textColor.style = "display:visible"
     linearLabel.style = "display:none"
     linear.style = "display:none"
-    textContentLabel.style= "display:none"
-    textContent.style= "display:none"
-    textContentLabelL.style= "display:none"
-    textContentL.style= "display:none"
-    textContentLabelR.style= "display:none"
-    textContentR.style= "display:none"
-  bgColorLabel.style = "display:none"
-  bgColor.style = "display:none"
-  cellLabel.style = "display:none"
-  cells.style = "display:none"
-  rowLabel.style="display:none"
-  columnLabel.style="display:none"
-  rows.style="display:none"
-  columns.style = "display:none"
-  textColorLabel.style = "display:none"
-  textColor.style = "display:none"
-  hideSubmit.style = "display:none"
-  form.reset();
+    bgColorLabel.style = "display:none"
+    bgColor.style = "display:none"
+    cellLabel.style = "display:none"
+    cells.style = "display:none"
+    rowLabel.style="display:none"
+    columnLabel.style="display:none"
+    rows.style="display:none"
+    columns.style = "display:none"
     return;
   }
-  var removeAdded = document.querySelector(".added")
-  if(removeAdded){
-    removeAdded.remove();
-  }
   
+  let removeAdded = Array.from(document.getElementsByClassName("added"))
+  console.log(removeAdded)
+  removeAdded.forEach(element => {
+    element.remove()
+  });
   hideSubmit.style = "display:none"
   form.removeEventListener("submit", function handleSubmit(){})
   switch (templateChoice) {
