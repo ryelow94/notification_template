@@ -170,6 +170,9 @@ function handleChange(event){
     var submitCustom = document.getElementById("submitCustom");
     var headerSystem = document.getElementById("headerSystem")
     var textSystem = document.getElementById("table-choice-system")
+    var headerLabel = document.getElementById("headerLabel")
+    headerLabel.style="display:visible"
+
     headerSystem.style="display:visible"
     textSystem.style="display:visible"
     headerText.style = 'display:visible'
@@ -290,7 +293,8 @@ function LightenDarkenColor(col, amt) {
 //submitting the form
 function handleSubmit(event) {
   event.preventDefault();
-  if(event.target[13].value===""){
+  var templateChoice = event.target[0].value;
+  if(templateChoice==="Simple Email Notification" && event.target[13].value===""){
     alert("no header value entered")
     var textColorLabel = document.getElementById("textColorLabel")
   var textColor = document.getElementById("table-choice-textColor")
@@ -355,7 +359,6 @@ function handleSubmit(event) {
   
   hideSubmit.style = "display:none"
   form.removeEventListener("submit", function handleSubmit(){})
-  var templateChoice = event.target[0].value;
   switch (templateChoice) {
     case "Simple Table":
       let rn = event.target[2].value;
