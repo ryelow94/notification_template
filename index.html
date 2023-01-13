@@ -41,7 +41,7 @@
           placeholder="Amount of Rows needed"
         />
 
-        <label id="headerLabel" for="row">Header Text Color</label>
+        <label id="headerLabel" for="row">Column Header Text Color</label>
         <input
           type="color"
           id="table-choice-header"
@@ -78,7 +78,7 @@
           name="row"
           placeholder="informational text/body text color"
         />
-        <label id="textContentLabel" for="row">Text Content Below Header</label>
+        <label id="textContentLabel" for="row">Body Text</label>
         <textarea 
         wrap="hard"
         rows="10" cols="5"
@@ -103,20 +103,20 @@
         placeholder="notification body text content"
         ></textarea>
        
-        <label id="headerTextLabel" for="row">Custom Header Value</label>
+        <label id="headerTextLabel" for="row">Add Recipient Name</label>
         <input
           type="text"
           id="table-choice-text"
           name="row"
-          placeholder="Add a custom header value to the options below; surround with [ ] to use an IRM field value"
+          placeholder="Add a custom recipient name to the options below; surround with [ ] to use an IRM field value"
         /> 
         <button id="submitCustom" type="button">Add a Custom Value</button> 
 
-        <label id="headerSystem" for="row">Header Value Options</label>
+        <label id="headerSystem" for="row">Recipient Options</label>
         <select id="table-choice-system" name="template">
           <option value="" selected disabled hidden>Select an Option</option>
-          <option value="[CreatedAt]">[CreatedAt]</option>
-          <option value="[UpdatedAt]">[UpdatedAt]</option>
+          <option value="[CreatedBy.FullName]">[CreatedBy.FirstName] [CreatedBy.LastName]</option>
+          <option value="[UpdatedBy.FullName]">[UpdatedBy.FirstName] [UpdatedBy.LastName]</option>
         </select>
         
 
@@ -158,12 +158,12 @@
                 align="center"
                 style="padding: 40px 40px 30px 40px; background: #70bbd9;"
               >
-                <img
+                <!-- <img
                   src="https://assets.codepen.io/210284/h1.png"
                   alt=""
                   width="300"
                   style="height: auto; display: block;"
-                />
+                /> -->
               </td>
             </tr>
             <tr>
@@ -178,17 +178,17 @@
                   "
                 >
                   <tr>
-                    <td style="padding: 0 0 36px 0; color: #153643">
-                      <h1
+                    <td style="color: #153643">
+                      <p
                         id="emailHeader"
                         style="
-                          font-size: 24px;
+                          font-size: 16px;
                           margin: 0 0 20px 0;
                           font-family: Arial, sans-serif;
                         "
                       >
                         Header
-                      </h1>
+                    </p>
                       <p 
                         id="textContentMain"
                         class="mainText"
@@ -205,23 +205,23 @@
                         volutpat sed. Morbi porttitor, eget accumsan et dictum,
                         nisi libero ultricies ipsum, posuere neque at erat.
                       </p>
-                      <p
+                      <!-- <p
                         style="
                           margin: 0;
                           font-size: 16px;
                           line-height: 24px;
                           font-family: Arial, sans-serif;
                         "
-                      >
-                        <a
+                      > -->
+                        <!-- <a
                           href="http://www.example.com"
                           style="color: #ee4c50; text-decoration: underline"
                           >In tempus felis blandit</a
-                        >
-                      </p>
+                        > -->
+                      <!-- </p>
                     </td>
-                  </tr>
-                  <tr>
+                  </tr> -->
+                  <!-- <tr>
                     <td style="padding: 0">
                       <table
                         role="presentation"
@@ -254,9 +254,9 @@
                                 alt=""
                                 width="260"
                                 style="height: auto; display: block"
-                              />
-                            </p>
-                            <p
+                              /> -->
+                            <!-- </p> -->
+                            <!-- <p
                               id="textContentLeft"
                               class="mainText2"
                               style="
@@ -272,8 +272,8 @@
                               ipsum volutpat sed. Morbi porttitor, eget accumsan
                               dictum, est nisi libero ultricies ipsum, in
                               posuere mauris neque at erat.
-                            </p>
-                            <p
+                            </p> -->
+                            <!-- <p
                               style="
                                 margin: 0;
                                 font-size: 16px;
@@ -281,15 +281,15 @@
                                 font-family: Arial, sans-serif;
                               "
                             >
-                              <a
+                               <a
                                 href="http://www.example.com"
                                 style="
                                   color: #ee4c50;
                                   text-decoration: underline;
                                 "
                                 >Blandit ipsum volutpat sed</a
-                              >
-                            </p>
+                              > -->
+                            <!-- </p> 
                           </td>
                           <td
                             style="
@@ -308,8 +308,8 @@
                               vertical-align: top;
                               color: #153643;
                             "
-                          >
-                            <p
+                          > -->
+                            <!-- <p
                               style="
                                 margin: 0 0 25px 0;
                                 font-size: 16px;
@@ -317,14 +317,14 @@
                                 font-family: Arial, sans-serif;
                               "
                             >
-                              <img
+                             <img
                                 src="https://assets.codepen.io/210284/right.gif"
                                 alt=""
                                 width="260"
                                 style="height: auto; display: block"
-                              />
-                            </p>
-                            <p 
+                              /> -->
+                            <!-- </p>  -->
+                            <!-- <p 
                               id="textContentRight"
                               class="mainText3"
                               style="
@@ -341,8 +341,8 @@
                               erat. Lorem ipsum dolor sit amet, consectetur
                               adipiscing elit. In tempus adipiscing felis, sit
                               amet blandit ipsum volutpat sed.
-                            </p>
-                            <p
+                            </p> -->
+                            <!-- <p
                               style="
                                 margin: 0;
                                 font-size: 16px;
@@ -350,20 +350,20 @@
                                 font-family: Arial, sans-serif;
                               "
                             >
-                              <a
+                               <a
                                 href="http://www.example.com"
                                 style="
                                   color: #ee4c50;
                                   text-decoration: underline;
                                 "
                                 >In tempus felis blandit</a
-                              >
-                            </p>
-                          </td>
+                              > -->
+                            <!-- </p>  -->
+                          <!-- </td>
                         </tr>
                       </table>
                     </td>
-                  </tr>
+                  </tr> --> 
                 </table>
               </td>
             </tr>
@@ -405,7 +405,7 @@
                       >
                         <tr>
                           <td style="padding: 0 0 0 10px; width: 38px">
-                            <a
+                            <!-- <a
                               href="http://www.twitter.com/"
                               style="color: #ffffff"
                               ><img
@@ -413,10 +413,10 @@
                                 alt="Twitter"
                                 width="38"
                                 style="height: auto; display: block; border: 0"
-                            /></a>
+                            /></a> -->
                           </td>
                           <td style="padding: 0 0 0 10px; width: 38px">
-                            <a
+                            <!-- <a
                               href="http://www.facebook.com/"
                               style="color: #ffffff"
                               ><img
@@ -424,7 +424,7 @@
                                 alt="Facebook"
                                 width="38"
                                 style="height: auto; display: block; border: 0"
-                            /></a>
+                            /></a> -->
                           </td>
                         </tr>
                       </table>

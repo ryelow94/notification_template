@@ -19,7 +19,7 @@ function customHeader(){
   var inputSelect = document.getElementById("table-choice-system")
   var option = document.createElement("option")
   option.setAttribute("class", "option")
-  option.value = inputHeader.value.toLowerCase()
+  option.value = inputHeader.value
   option.text = inputHeader.value
   inputSelect.add(option)
   var added = document.createElement("p")
@@ -167,7 +167,7 @@ function handleChange(event){
     var headerTextLabel = document.getElementById("headerTextLabel")
     var headerColor = document.getElementById("table-choice-header")
     headerTextLabel.style = "display:visible;"
-    headerColor.style = "display:visible;"
+    headerColor.style = "display:none;"
     var textContentLabel = document.getElementById("textContentLabel")
     var textContent = document.getElementById("table-choice-textContent")
     var textContentLabelL = document.getElementById("textContentLabelL")
@@ -179,7 +179,7 @@ function handleChange(event){
     var headerSystem = document.getElementById("headerSystem")
     var textSystem = document.getElementById("table-choice-system")
     var headerLabel = document.getElementById("headerLabel")
-    headerLabel.style="display:visible"
+    headerLabel.style="display:none"
 
     headerSystem.style="display:visible"
     textSystem.style="display:visible"
@@ -187,10 +187,10 @@ function handleChange(event){
     submitCustom.style = "display:visible"
     textContentLabel.style= "display:visible"
     textContent.style= "display:visible"
-    textContentLabelL.style= "display:visible"
-    textContentL.style= "display:visible"
-    textContentLabelR.style= "display:visible"
-    textContentR.style= "display:visible"
+    textContentLabelL.style= "display:none"
+    textContentL.style= "display:none"
+    textContentLabelR.style= "display:none"
+    textContentR.style= "display:none"
     textColorLabel.style= "display:visible"
     textColor.style = "display:visible"
     linearLabel.style = "display:none"
@@ -297,10 +297,10 @@ function handleSubmit(event) {
     submitCustom.style = "display:visible"
     textContentLabel.style= "display:visible"
     textContent.style= "display:visible"
-    textContentLabelL.style= "display:visible"
-    textContentL.style= "display:visible"
-    textContentLabelR.style= "display:visible"
-    textContentR.style= "display:visible"
+    textContentLabelL.style= "display:none"
+    textContentL.style= "display:none"
+    textContentLabelR.style= "display:none"
+    textContentR.style= "display:none"
     textColorLabel.style= "display:visible"
     textColor.style = "display:visible"
     linearLabel.style = "display:none"
@@ -398,16 +398,16 @@ function handleSubmit(event) {
       emailNot.style = "display:visible; margin: 0 auto"
       var emailHeader = document.getElementById("emailHeader")
       var mainText = document.querySelector(".mainText")
-      var mainText2 = document.querySelector(".mainText2")
-      var mainText3 = document.querySelector(".mainText3")
-      emailHeader.style = `color:${event.target[3].value};`
-      emailHeader.textContent = `${event.target[13].value}`
+      // var mainText2 = document.querySelector(".mainText2")
+      // var mainText3 = document.querySelector(".mainText3")
+      emailHeader.style = `color:${event.target[7].value};`
+      emailHeader.textContent = "Hello " + `${event.target[13].value}`+","
       mainText.style = `color:${event.target[7].value};`
-      mainText2.style = `color:${event.target[7].value};`
-      mainText3.style = `color:${event.target[7].value};`
+      // mainText2.style = `color:${event.target[7].value};`
+      // mainText3.style = `color:${event.target[7].value};`
       mainText.textContent = `${event.target[8].value}`
-      mainText2.textContent = `${event.target[9].value}`
-      mainText3.textContent = `${event.target[10].value}`
+      // mainText2.textContent = `${event.target[9].value}`
+      // mainText3.textContent = `${event.target[10].value}`
       console.log(emailNot)
       var clear = document.createElement("button")
       clear.setAttribute("id", "clear")
