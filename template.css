@@ -30,6 +30,13 @@ textarea{
   padding-left: 18px;
   margin-top: 2px; /* Add a top margin */
   margin-bottom: 2px; /* Bottom margin */ 
+} 
+
+.footerAdded{
+  font-size: small;
+  padding-left: 18px;
+  margin-top: 2px; /* Add a top margin */
+  margin-bottom: 2px; /* Bottom margin */ 
 }
 
 input[type=color] {
@@ -79,8 +86,25 @@ input[type=submit] {
   margin-bottom: 1%;
 
 } 
+#submitCustomFooter {
+  background-color: #EF700C;
+  color: white;
+  padding: 12px;
+  border: none;
+  box-sizing: border-box;
+  border-radius: 4px;
+  cursor: pointer;
+  width: 10%;
+  align-items: center;
+  margin-bottom: 1%;
+
+} 
 
 #submitCustom:hover {
+  background-color: #FF8338;
+}
+
+#submitCustomFooter:hover {
   background-color: #FF8338;
 }
 

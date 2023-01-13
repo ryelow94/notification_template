@@ -4,11 +4,33 @@ var form = document.getElementById("form");
 form.addEventListener("submit", handleSubmit );
 var customSubmitButton = document.getElementById("submitCustom")
  customSubmitButton.addEventListener("click", customHeader)
+ var customFooterButton = document.getElementById("submitCustomFooter")
+ customFooterButton.addEventListener("click", customFooter)
 var userTemp = document.getElementById("userTemplate");
 var hideSubmit = document.getElementById("submit")
 var initialForm = document.getElementById("template")
 
 let count = 0; 
+
+function customFooter(){
+  var inputFooter = document.getElementById("table-choice-footer")
+
+  if(inputFooter.value===""){
+    alert("Enter a custom footer to add to option list below")
+    return;
+  }
+
+  var footerInputSelect = document.getElementById("table-choice-footer-system")
+  var footerOption = document.createElement("option")
+  footerOption.setAttribute("class", "footerOption")
+  footerOption.value = inputFooter.value
+  footerOption.text = inputFooter.value
+  footerInputSelect.add(footerOption)
+  var footerAdded = document.createElement("p")
+  footerAdded.setAttribute("class","footerAdded")
+  footerAdded.textContent="Added Custom Value"
+  customFooterButton.after(footerAdded)
+}
 
 function customHeader(){
   var inputHeader = document.getElementById("table-choice-text")
@@ -16,6 +38,7 @@ function customHeader(){
     alert("Enter a custom header to add to option list below")
     return;
   }
+ 
   var inputSelect = document.getElementById("table-choice-system")
   var option = document.createElement("option")
   option.setAttribute("class", "option")
@@ -55,6 +78,13 @@ function initial(){
     var tableChoiceSystem= document.getElementById("table-choice-system");
     var headerLabel = document.getElementById("headerLabel")
     var headerTextLabel = document.getElementById("headerTextLabel")
+
+    var footerText = document.getElementById("table-choice-footer");
+    var submitCustomFooter = document.getElementById("submitCustomFooter");
+    var footerSystem = document.getElementById("footerSystem")
+    var footerTextSystem = document.getElementById("table-choice-footer-system")
+    var footerLabel = document.getElementById("footerLabel")
+
     headerTextLabel.style = "display:none"
     headerLabel.style = "display:none"
     headerSystem.style="display:none"
@@ -62,6 +92,13 @@ function initial(){
     headerText.style = 'display:none'
     submitCustom.style = "display:none"
     headerLabel.style = "display:none;"
+
+    footerLabel.style="display:none"
+    footerSystem.style="display:none"
+    footerTextSystem.style="display:none"
+    footerText.style = 'display:none'
+    submitCustomFooter.style = "display:none"
+
     headerColor.style = "display:none;"
     linearLabel.style = "display:none"
     linear.style = "display:none"
@@ -179,8 +216,19 @@ function handleChange(event){
     var headerSystem = document.getElementById("headerSystem")
     var textSystem = document.getElementById("table-choice-system")
     var headerLabel = document.getElementById("headerLabel")
-    headerLabel.style="display:none"
+    var footerText = document.getElementById("table-choice-footer");
+    var submitCustomFooter = document.getElementById("submitCustomFooter");
+    var footerSystem = document.getElementById("footerSystem")
+    var footerTextSystem = document.getElementById("table-choice-footer-system")
+    var footerLabel = document.getElementById("footerLabel")
 
+    footerLabel.style="display:visible"
+    footerSystem.style="display:visible"
+    footerTextSystem.style="display:visible"
+    footerText.style = 'display:visible'
+    submitCustomFooter.style = "display:visible"
+
+    headerLabel.style="display:none"
     headerSystem.style="display:visible"
     textSystem.style="display:visible"
     headerText.style = 'display:visible'
@@ -221,6 +269,14 @@ function clearAll(parent) {
   removeOptions.forEach(element => {
     element.remove()
   }) 
+  var hideCustomFooter = document.getElementById("submitCustomFooter")
+  hideCustomFooter.style="display:visible"
+  initial()
+  
+  let removeFooterOptions = Array.from(document.getElementsByClassName("footerOption"))
+  removeFooterOptions.forEach(element => {
+    element.remove()
+  }) 
   form.reset()
 }
 //makes a lighter color of the background color selected for linear gradient
@@ -259,6 +315,8 @@ function handleSubmit(event) {
   event.preventDefault();
   var hideCustom = document.getElementById("submitCustom")
   hideCustom.style="display:none"
+  var hideCustomFooter = document.getElementById("submitCustomFooter")
+  hideCustomFooter.style="display:none"
   var templateChoice = event.target[0].value;
   if(templateChoice==="Simple Email Notification" && event.target[13].value===""){
     alert("Enter a Header Value to Submit")
@@ -288,13 +346,25 @@ function handleSubmit(event) {
     var submitCustom = document.getElementById("submitCustom");
     var headerSystem = document.getElementById("headerSystem")
     var textSystem = document.getElementById("table-choice-system")
+    var footerText = document.getElementById("table-choice-footer");
+    var submitCustomFooter = document.getElementById("submitCustomFooter");
+    var footerSystem = document.getElementById("footerSystem")
+    var footerTextSystem = document.getElementById("table-choice-footer-system")
+    var footerLabel = document.getElementById("footerLabel")
     var headerLabel = document.getElementById("headerLabel")
-    headerLabel.style="display:visible"
 
+    headerLabel.style="display:visible"
     headerSystem.style="display:visible"
     textSystem.style="display:visible"
     headerText.style = 'display:visible'
     submitCustom.style = "display:visible"
+
+    footerLabel.style="display:visible"
+    footerSystem.style="display:visible"
+    footerTextSystem.style="display:visible"
+    footerText.style = 'display:visible'
+    submitCustomFooter.style = "display:visible"
+
     textContentLabel.style= "display:visible"
     textContent.style= "display:visible"
     textContentLabelL.style= "display:none"
@@ -322,6 +392,10 @@ function handleSubmit(event) {
     element.remove()
   });
   hideSubmit.style = "display:none"
+  let removeAddedFooter = Array.from(document.getElementsByClassName("footerAdded"))
+  removeAddedFooter.forEach(element => {
+    element.remove()
+  });
   form.removeEventListener("submit", function handleSubmit(){})
   switch (templateChoice) {
     case "Simple Table":
@@ -397,11 +471,13 @@ function handleSubmit(event) {
       var emailNot = document.getElementById("emailNotification")
       emailNot.style = "display:visible; margin: 0 auto"
       var emailHeader = document.getElementById("emailHeader")
+      var footerText= document.getElementById("footerText")
       var mainText = document.querySelector(".mainText")
       // var mainText2 = document.querySelector(".mainText2")
       // var mainText3 = document.querySelector(".mainText3")
       emailHeader.style = `color:${event.target[7].value};`
       emailHeader.textContent = "Hello " + `${event.target[13].value}`+","
+      footerText.textContent= `${event.target[16].value}`
       mainText.style = `color:${event.target[7].value};`
       // mainText2.style = `color:${event.target[7].value};`
       // mainText3.style = `color:${event.target[7].value};`
