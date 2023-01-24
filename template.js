@@ -478,7 +478,7 @@ function handleSubmit(event) {
       emailHeader.style = `color:${event.target[7].value};`
       emailHeader.textContent = "Hello " + `${event.target[13].value}`+","
       footerText.textContent= `${event.target[16].value}`
-      mainText.style = `color:${event.target[7].value};`
+      mainText.style = `color:${event.target[7].value}; line-height:30px;`
       // mainText2.style = `color:${event.target[7].value};`
       // mainText3.style = `color:${event.target[7].value};`
       mainText.textContent = `${event.target[8].value}`

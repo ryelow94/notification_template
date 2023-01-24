@@ -5,10 +5,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width initial-scale = 1.0" />
     <link rel="stylesheet" href="template.css" />
-    <title>Notification Templatest</title>
+    <title>Email Template Generator</title>
   </head>
   <body id="body">
-    <div id="topDiv" style="display: flex; justify-content:center"><h1 id="headerH1"> Notification Template Generator</h1></div> 
+    <div id="topDiv" style="display: flex; justify-content:center"><h1 id="headerH1"> Email Template Generator</h1></div> 
      <div class="container"> 
       <form id="form">
         <label for="template">Template</label>
@@ -80,6 +80,7 @@
         />
         <label id="textContentLabel" for="row">Body Text</label>
         <textarea 
+        style="line-height: 30px;"
         wrap="hard"
         rows="10" cols="5"
         id="table-choice-textContent"
@@ -115,8 +116,8 @@
         <label id="headerSystem" for="row">Recipient Options</label>
         <select id="table-choice-system" name="template">
           <option value="" selected disabled hidden>Select an Option</option>
-          <option value="[CreatedBy.FullName]">[CreatedBy.FirstName] [CreatedBy.LastName]</option>
-          <option value="[UpdatedBy.FullName]">[UpdatedBy.FirstName] [UpdatedBy.LastName]</option>
+          <option value="[CreatedBy.FirstName] [CreatedBy.LastName]">[CreatedBy.FirstName] [CreatedBy.LastName]</option>
+          <option value="[UpdatedBy.FirstName] [UpdatedBy.LastName]">[UpdatedBy.FirstName] [UpdatedBy.LastName]</option>
         </select> 
 
         <label id="footerLabel" for="row">Footer Text</label>
@@ -173,15 +174,15 @@
           >
             <tr>
               <td
-                align="center"
-                style="padding: 40px 40px 30px 40px; background: #70bbd9;"
+                align="Center"
+                style="padding: 30px; background: #faf9f8;"
               >
-                <!-- <img
-                  src="https://assets.codepen.io/210284/h1.png"
+                <img
+                  src="https://www.navex.com/blog/static/blog/images/navex-global-logo.png"
                   alt=""
-                  width="300"
-                  style="height: auto; display: block;"
-                /> -->
+                  width="250"
+                  style="display: block;"
+                />
               </td>
             </tr>
             <tr>
@@ -201,19 +202,23 @@
                         id="emailHeader"
                         style="
                           font-size: 16px;
-                          margin: 0 0 20px 0;
+                          margin: 0 0 10px 0;
+                          
                           font-family: Arial, sans-serif;
                         "
                       >
                         Header
                     </p>
+                    <br>
                       <p 
                         id="textContentMain"
                         class="mainText"
+                        
                         style="
+                          
                           margin: 0 0 12px 0;
                           font-size: 16px;
-                          line-height: 24px;
+                          line-height: 30px;
                           font-family: Arial, sans-serif;
                           word-break:break-word
                         "
@@ -386,7 +391,7 @@
               </td>
             </tr>
             <tr>
-              <td style="padding: 30px; background: #ee4c50">
+              <td style="padding: 30px; background: #EF700C">
                 <table
                   role="presentation"
                   style="
@@ -413,7 +418,7 @@
                         &reg; Someone, Somewhere 2022<br />
                       </p>
                     </td>
-                    <td style="padding: 0; width: 50%" align="right">
+                    <!-- <td style="padding: 0; width: 50%" align="right">
                       <table
                         role="presentation"
                         style="
@@ -421,9 +426,9 @@
                           border: 0;
                           border-spacing: 0;
                         "
-                      >
-                        <tr>
-                          <td style="padding: 0 0 0 10px; width: 38px">
+                      > -->
+                        <!-- <tr> -->
+                          <!-- <td style="padding: 0 0 0 10px; width: 38px"> -->
                             <!-- <a
                               href="http://www.twitter.com/"
                               style="color: #ffffff"
@@ -433,8 +438,8 @@
                                 width="38"
                                 style="height: auto; display: block; border: 0"
                             /></a> -->
-                          </td>
-                          <td style="padding: 0 0 0 10px; width: 38px">
+                          <!-- </td> -->
+                          <!-- <td style="padding: 0 0 0 10px; width: 38px"> -->
                             <!-- <a
                               href="http://www.facebook.com/"
                               style="color: #ffffff"
@@ -444,10 +449,10 @@
                                 width="38"
                                 style="height: auto; display: block; border: 0"
                             /></a> -->
-                          </td>
-                        </tr>
+                          <!-- </td>
+                        </tr> -->
                       </table>
-                    </td>
+                    <!-- </td> -->
                   </tr>
                 </table>
               </td>
