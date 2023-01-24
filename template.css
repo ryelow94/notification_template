@@ -70,7 +70,7 @@ input[type=submit] {
   box-sizing: border-box;
   border-radius: 4px;
   cursor: pointer;
-  width: 10%;
+  width: 25%;
   align-items: center;
 } 
 #submitCustom {
@@ -81,7 +81,7 @@ input[type=submit] {
   box-sizing: border-box;
   border-radius: 4px;
   cursor: pointer;
-  width: 10%;
+  width: 25%;
   align-items: center;
   margin-bottom: 1%;
 
@@ -94,7 +94,7 @@ input[type=submit] {
   box-sizing: border-box;
   border-radius: 4px;
   cursor: pointer;
-  width: 10%;
+  width: 25%;
   align-items: center;
   margin-bottom: 1%;
 
@@ -157,7 +157,7 @@ input[type=submit]:hover {
 
 /* Add a background color and some padding around the form */
 .container {
-  display: inline;
+  display: flex;
   flex-direction: column;
   justify-content: center;
  
@@ -206,8 +206,9 @@ background: linear-gradient( #ec7b25 0%, #EF700C 100%);
 
 
 @media  screen and (max-width: 768px) {
-  #body {
-  width: 845px;
+  #submitCustom, #submitCustomFooter, input[type=submit]{
+    width:25%;
+    margin-left: 10px;
   }
  
  
