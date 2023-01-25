@@ -236,8 +236,12 @@ function handleChange(event){
     footerTextSystem.style="display:visible"
     footerText.style = 'display:visible'
     submitCustomFooter.style = "display:visible"
+    var headerLabel = document.getElementById("headerLabel")
+    var headerText = document.getElementById("table-choice-header")
+    headerText.style = "display:visible;"
+    headerLabel.style="display:visible"
 
-    headerLabel.style="display:none"
+    
     headerSystem.style="display:visible"
     textSystem.style="display:visible"
     headerText.style = 'display:visible'
@@ -342,13 +346,15 @@ function handleSubmit(event) {
     var linearLabel = document.getElementById("linearLabel")
     var linear = document.getElementById("table-choice-linear") 
     var headerTextLabel = document.getElementById("headerTextLabel")
-    var headerColor = document.getElementById("table-choice-header")
+    var headerLabel = document.getElementById("headerLabel")
+    var headerText = document.getElementById("table-choice-header")
     var headerColorActual = document.getElementById("table-choice-headerColor")
     var headerColorLabel = document.getElementById("headerColor")
     headerColorActual.style = "display:visible"
     headerColorLabel.style="display:visible"
     headerTextLabel.style = "display:visible;"
-    headerColor.style = "display:visible;"
+    headerText.style = "display:visible;"
+    headerLabel.style="display:visible"
     var textContentLabel = document.getElementById("textContentLabel")
     var textContent = document.getElementById("table-choice-textContent")
     var textContentLabelL = document.getElementById("textContentLabelL")
@@ -487,6 +493,8 @@ function handleSubmit(event) {
       var headerColorCopy = document.getElementById("headerCopyColor")
       var footerText= document.getElementById("footerText")
       var mainText = document.querySelector(".mainText")
+      var logo = document.getElementById("logo")
+      logo.setAttribute("src", event.target[3].value)
       // var mainText2 = document.querySelector(".mainText2")
       // var mainText3 = document.querySelector(".mainText3")
       console.log(event.target[7].value)
