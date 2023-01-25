@@ -15,10 +15,11 @@
         <select onchange="handleChange(event)" id="template" name="template">
           <option value="none" selected disabled hidden>Select an Option</option>
           <option value="Simple Table">Simple Table</option>
-          <option value="Simple Email Notification">
-            Simple Email Notification
+          <option value="Email Notification">
+            Email Notification
           </option>
-          <option value="Alert">Alert</option>
+          <option value="Assessment Notification">Assessment Notification</option>
+          <option value="Assessment Reminder">Assessment Reminder</option>
         </select>
 
         <label id="colLabel" for="column">Columns</label>
@@ -71,6 +72,14 @@
           <option value="No">No</option>
         </select>
 
+        <label id="headerColor" for="row">Header Color</label>
+        <input
+          type="color"
+          id="table-choice-headerColor"
+          name="row"
+          placeholder="Header color"
+        />
+
         <label id="textColorLabel" for="row">Text Color</label>
         <input
           type="color"
@@ -116,6 +125,7 @@
         <label id="headerSystem" for="row">Recipient Options</label>
         <select id="table-choice-system" name="template">
           <option value="" selected disabled hidden>Select an Option</option>
+          <option value="[Recipient]">[Recipient]</option>
           <option value="[CreatedBy.FirstName] [CreatedBy.LastName]">[CreatedBy.FirstName] [CreatedBy.LastName]</option>
           <option value="[UpdatedBy.FirstName] [UpdatedBy.LastName]">[UpdatedBy.FirstName] [UpdatedBy.LastName]</option>
         </select> 
@@ -123,7 +133,7 @@
         <label id="footerLabel" for="row">Footer Text</label>
         <textarea 
         wrap="hard"
-        rows="10" cols="5"
+        rows="3" cols="5"
         id="table-choice-footer"
         name="row"
         placeholder="Add footer text content"
@@ -134,6 +144,7 @@
         <label id="footerSystem" for="row">Footer Text Options</label>
         <select id="table-choice-footer-system" name="template">
           <option value="" selected disabled hidden>Select an Option</option>
+          <option value="">None</option>
           <option value="[CreatedBy.FullName]">[CreatedBy.FirstName] [CreatedBy.LastName]</option>
           <option value="[UpdatedBy.FullName]">[UpdatedBy.FirstName] [UpdatedBy.LastName]</option>
         </select> 
@@ -174,15 +185,11 @@
           >
             <tr>
               <td
+              id="headerCopyColor"
                 align="Center"
                 style="padding: 30px; background: #faf9f8;"
               >
-                <img
-                  src="https://www.navex.com/blog/static/blog/images/navex-global-logo.png"
-                  alt=""
-                  width="250"
-                  style="display: block;"
-                />
+                <img src=""style="padding:25px;"/> 
               </td>
             </tr>
             <tr>

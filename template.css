@@ -189,7 +189,7 @@ background: linear-gradient( #ec7b25 0%, #EF700C 100%);
 } 
 
 #form{
-  margin-bottom: 20px;
+  margin-bottom: 75%;
   /* outline:invert; */
  display: flex;
  flex-direction: column;

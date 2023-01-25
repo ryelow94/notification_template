@@ -84,7 +84,11 @@ function initial(){
     var footerSystem = document.getElementById("footerSystem")
     var footerTextSystem = document.getElementById("table-choice-footer-system")
     var footerLabel = document.getElementById("footerLabel")
+    var headerColorLabel = document.getElementById("headerColor")
+    var headerColorActual = document.getElementById("table-choice-headerColor")
 
+    headerColorLabel.style ="display: none"
+    headerColorActual.style = "display: none"
     headerTextLabel.style = "display:none"
     headerLabel.style = "display:none"
     headerSystem.style="display:none"
@@ -128,6 +132,7 @@ if(initialForm.value === "none"){
 //when template options change, hide/show certain form inputs
 function handleChange(event){
   hideSubmit.style = "display: visible"
+  form.style="margin-bottom:20px;"
 
   if(event.target.value === "Simple Table") {
     var rows = document.getElementById("table-choice-rows")
@@ -182,13 +187,13 @@ function handleChange(event){
     columnLabel.style="display:visible"
     rows.style="display:visible"
     columns.style = "display:visible"
-  }  if(event.target.value === "Alert") {
+  }  if(event.target.value === "Assessment Notification") {
     var headerLabel = document.getElementById("headerLabel")
     var headerColor = document.getElementById("table-choice-header")
     headerLabel.style = "display:visible;"
     headerColor.style = "display:visible;"
     
-  } if(event.target.value === "Simple Email Notification"){
+  } if(event.target.value === "Email Notification"){
     var rows = document.getElementById("table-choice-rows")
     var columns = document.getElementById("table-choice-columns")
     var rowLabel = document.getElementById("rowLabel")
@@ -203,8 +208,12 @@ function handleChange(event){
     var linear = document.getElementById("table-choice-linear") 
     var headerTextLabel = document.getElementById("headerTextLabel")
     var headerColor = document.getElementById("table-choice-header")
+    var headerColorLabel = document.getElementById("headerColor")
+    var headerColorActual = document.getElementById("table-choice-headerColor")
     headerTextLabel.style = "display:visible;"
     headerColor.style = "display:none;"
+    headerColorLabel.style ="display: visible"
+    headerColorActual.style = "display: visible"
     var textContentLabel = document.getElementById("textContentLabel")
     var textContent = document.getElementById("table-choice-textContent")
     var textContentLabelL = document.getElementById("textContentLabelL")
@@ -318,7 +327,7 @@ function handleSubmit(event) {
   var hideCustomFooter = document.getElementById("submitCustomFooter")
   hideCustomFooter.style="display:none"
   var templateChoice = event.target[0].value;
-  if(templateChoice==="Simple Email Notification" && event.target[13].value===""){
+  if(templateChoice==="Email Notification" && event.target[14].value===""){
     alert("Enter a Header Value to Submit")
     var rows = document.getElementById("table-choice-rows")
     var columns = document.getElementById("table-choice-columns")
@@ -334,6 +343,10 @@ function handleSubmit(event) {
     var linear = document.getElementById("table-choice-linear") 
     var headerTextLabel = document.getElementById("headerTextLabel")
     var headerColor = document.getElementById("table-choice-header")
+    var headerColorActual = document.getElementById("table-choice-headerColor")
+    var headerColorLabel = document.getElementById("headerColor")
+    headerColorActual.style = "display:visible"
+    headerColorLabel.style="display:visible"
     headerTextLabel.style = "display:visible;"
     headerColor.style = "display:visible;"
     var textContentLabel = document.getElementById("textContentLabel")
@@ -467,21 +480,24 @@ function handleSubmit(event) {
 
       }
       break;
-    case "Simple Email Notification":
+    case "Email Notification":
       var emailNot = document.getElementById("emailNotification")
       emailNot.style = "display:visible; margin: 0 auto"
       var emailHeader = document.getElementById("emailHeader")
+      var headerColorCopy = document.getElementById("headerCopyColor")
       var footerText= document.getElementById("footerText")
       var mainText = document.querySelector(".mainText")
       // var mainText2 = document.querySelector(".mainText2")
       // var mainText3 = document.querySelector(".mainText3")
-      emailHeader.style = `color:${event.target[7].value};`
-      emailHeader.textContent = "Hello " + `${event.target[13].value}`+","
-      footerText.textContent= `${event.target[16].value}`
-      mainText.style = `color:${event.target[7].value}; line-height:30px;`
+      console.log(event.target[7].value)
+      headerColorCopy.style = `background:${event.target[7].value};`
+      emailHeader.style = `color:${event.target[8].value};`
+      emailHeader.textContent = "Hello " + `${event.target[14].value}`+","
+      footerText.textContent= `${event.target[17].value}`
+      mainText.style = `color:${event.target[8].value}; line-height:30px;`
       // mainText2.style = `color:${event.target[7].value};`
       // mainText3.style = `color:${event.target[7].value};`
-      mainText.textContent = `${event.target[8].value}`
+      mainText.textContent = `${event.target[9].value}`
       // mainText2.textContent = `${event.target[9].value}`
       // mainText3.textContent = `${event.target[10].value}`
       console.log(emailNot)
