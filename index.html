@@ -5,42 +5,42 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width initial-scale = 1.0" />
     <link rel="stylesheet" href="template.css" />
-    <title>Email Template Generator</title>
+    <title>Email Template Generator</title> 
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
+      integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU"
+      crossorigin="anonymous"
+    />
   </head>
   <body id="body">
-    <div id="topDiv" style="display: flex; justify-content:center"><h1 id="headerH1"> Email Template Generator</h1></div> 
+    
+    <!-- <div id="topDiv" style="display: flex; "> -->
+     
+      <div class="Navbar">
+       
+        <div class="Navbar__Link Navbar__Link-toggle">
+          <i style="font-size: xx-large; "class="fas fa-bars"></i>
+        </div>
+        <h1 id="headerH1"> Email Template Generator</h1>
+        <h3 id="h3Toggle"  >Select a Template</h3>
+        <nav class="Navbar__Items"> 
+          <a class="Navbar__Link" href="index.html"> Blank Email Template</a>
+          <a class="Navbar__Link" href="test.html">
+            Vendor Contact Assessment Notification
+          </a>    
+        </nav>
+      </div>
+       <!-- <div id="topDiv" style="display: flex; ">
+        <h1 id="headerH1"> Email Template Generator</h1>
+    </div>  -->
+    <h1 style="color:#356F6F;">Blank Email Template</h1>
      <div class="container"> 
       <form id="form">
-        <label for="template">Template</label>
-        <select onchange="handleChange(event)" id="template" name="template">
-          <option value="none" selected disabled hidden>Select an Option</option>
-          <option value="Simple Table">Simple Table</option>
-          <option value="Email Notification">
-            Email Notification
-          </option>
-          <option value="Assessment Notification">Assessment Notification</option>
-          <option value="Assessment Reminder">Assessment Reminder</option>
-        </select>
-
-        <label id="colLabel" for="column">Columns</label>
-        <input
-          style="display: visible"
-          type="text"
-          class=""
-          id="table-choice-columns"
-          name="row"
-          placeholder="Amount of Columns needed"
-        />
-
-        <label id="rowLabel" for="row">Rows</label>
-        <input
-          style="display: visible"
-          type="text"
-          class=""
-          id="table-choice-rows"
-          name="row"
-          placeholder="Amount of Rows needed"
-        />
 
         <label id="headerLabel" for="row">Logo</label>
         <input
@@ -49,28 +49,6 @@
           name="row"
           placeholder="Logo URL i.g. https://www.navex.com/blog/static/blog/images/navex-global-logo.png"
         />
-        <label id="cellLabel" for="row">Cell Text Color</label>
-        <input
-          style="display: visible"
-          type="color"
-          id="table-choice-cells"
-          name="row"
-          placeholder="Cell text color (hex code or name)"
-        />
-
-        <label id="bgColorLabel" for="row">Background Color</label>
-        <input
-          type="color"
-          id="table-choice-bg"
-          name="row"
-          placeholder="Background color selector"
-        />
-
-        <label id="linearLabel" for="row">Linear Gradient Background Color</label>
-        <select id="table-choice-linear" name="template">
-          <option value="Yes">Yes</option>
-          <option value="No">No</option>
-        </select>
 
         <label id="headerColor" for="row">Header Color</label>
         <input
@@ -96,22 +74,6 @@
         name="row"
         placeholder="notification body text content"
         ></textarea> 
-        <label id="textContentLabelL" for="row">Text Content Left</label>
-        <textarea 
-        wrap="hard"
-        rows="10" cols="5"
-        id="table-choice-textContentL"
-        name="row"
-        placeholder="notification body text content"
-        ></textarea> 
-        <label id="textContentLabelR" for="row">Text Content Right</label>
-        <textarea
-        wrap="hard"
-        rows="10" cols="5"
-        id="table-choice-textContentR"
-        name="row"
-        placeholder="notification body text content"
-        ></textarea>
        
         <label id="headerTextLabel" for="row">Add Recipient Name</label>
         <input
@@ -125,6 +87,7 @@
         <label id="headerSystem" for="row">Recipient Options</label>
         <select id="table-choice-system" name="template">
           <option value="" selected disabled hidden>Select an Option</option>
+          <option value="[VendorContact]">[VendorContact]</option>
           <option value="[Recipient]">[Recipient]</option>
           <option value="[CreatedBy.FirstName] [CreatedBy.LastName]">[CreatedBy.FirstName] [CreatedBy.LastName]</option>
           <option value="[UpdatedBy.FirstName] [UpdatedBy.LastName]">[UpdatedBy.FirstName] [UpdatedBy.LastName]</option>
@@ -153,7 +116,7 @@
         <input id="submit" type="submit" value="Submit" />
       </form>
      
-     <div id="table-div"></div> 
+     
 
     <div  id="emailDiv">  
 
@@ -187,9 +150,9 @@
               <td
               id="headerCopyColor"
                 align="Center"
-                style="padding: 30px; background: #faf9f8;"
+                style="padding: 5px; background: #faf9f8;"
               >
-                <img id="logo" src="" width=250 style="padding:25px;"/> 
+                <img id="logo" src=""  style="padding:1px;"/> 
               </td>
             </tr>
             <tr>

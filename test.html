@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en" xmlns_v="urn:schemas-microsoft-com:vml">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width initial-scale = 1.0" />
+    <link rel="stylesheet" href="template.css" />
+    <title>Email Template Generator</title>
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
+      integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body id="body">
+
+    
+    <div class="Navbar">
+       
+      <div class="Navbar__Link Navbar__Link-toggle">
+        <i style="font-size: xx-large; "class="fas fa-bars"></i>
+      </div>
+      <h1 id="headerH1"> Email Template Generator</h1>
+      <h3 id="h3Toggle"  >Select a Template: </h3>
+      <nav class="Navbar__Items">
+        <a class="Navbar__Link" href="index.html">
+          Blank Email Template
+        </a>  
+        <a class="Navbar__Link" href="test.html">
+          Vendor Contact Assessment Notification
+        </a>    
+      </nav>
+    </div>
+     <!-- <div id="topDiv" style="display: flex; ">
+      <h1 id="headerH1"> Email Template Generator</h1>
+  </div>  -->
+    
+  <h1 style=" color:#356F6F;">Issued Assessment Notification</h1>
+  <!-- <p style="text-align: center"> * Body content will be set to the default assessment notification, but can be edited in the rich text field once pasted into NAVEX IRM.*</p>  -->
+  
+    <div class="container"> 
+      <p style="text-align: center; font-size: 18px;">Example Email Template</p>
+      <!-- <button id="hideExample" style="display:none">Hide Example</button> -->
+      <button id="unHideExample" style="display: visible;">Show Example</button>
+      <img id="example" src="/assessment template.png" width="400" style=" display: none;
+      margin-left: auto;
+      margin-right: auto; margin-top: 15px;  ">
+      <button id="hideExample" style="display:none; margin-top: 10px;">Hide Example</button>
+      <form id="form">
+        <!-- <label for="template">Template</label>
+        <select onchange="handleChange(event)" id="template" name="template">
+          <option value="none" selected disabled hidden>
+            Select an Option
+          </option>
+          <option value="Simple Table">Simple Table</option>
+          <option value="Email Notification">Email Notification</option>
+          <option value="Assessment Notification">
+            Assessment Notification
+          </option>
+          <option value="Assessment Reminder">Assessment Reminder</option>
+        </select> -->
+
+        
+
+        <label id="headerLabel" for="row">Header Logo/Background Image</label>
+        <p style="font-size:12px; padding-left: 1.5%;">Leave Blank to use NAVEX image</p>
+        <input
+          type="text"
+          id="table-choice-header"
+          name="row"
+          placeholder="Logo URL i.g. https://www.navex.com/blog/static/blog/images/navex-global-logo.png "
+        />
+       
+        <label id="headerColor" for="row">Header Color</label>
+        <input
+          type="color"
+          id="table-choice-headerColor"
+          name="row"
+          placeholder="Header color"
+        />
+
+        <label id="textColorLabel" for="row">Text Color</label>
+        <input
+          type="color"
+          id="table-choice-textColor"
+          name="row"
+          placeholder="informational text/body text color"
+        /> 
+        <p style="text-align: center"> * Body text content will be set to the default value shown in the example above, but can be edited in the rich text field or code editor once the HTML is pasted into NAVEX IRM. *</p> 
+        
+        <label id="textContentLabel" for="row" style="display: none">Body Text</label>
+        <textarea
+          style="line-height: 30px; display: none;"
+          
+          wrap="hard"
+          rows="10"
+          cols="5"
+          id="table-choice-textContent"
+          name="row"
+          placeholder="notification body text content"
+        ></textarea>
+        <p style="text-align: center">* Actions will be displayed as numbered list items in the content box on the right side of the screen (see example) *</p>
+        <label id="textContentLabelL" for="row">Requested Actions</label>
+        <input
+        type="text"
+          id="table-choice-textContentL"
+          name="row"
+          placeholder="Add a Required Action"
+        ></input>
+        <button id="submitCustomAction" type="button">Add an Action</button>
+       
+
+        <label id="headerTextLabel" for="row">Add Recipient Name</label>
+        <input
+          type="text"
+          id="table-choice-text"
+          name="row"
+          placeholder="Add a custom recipient name to the options below"
+        />
+        <button id="submitCustom" type="button">Add a Recipient</button>
+
+        <label id="headerSystem" for="row">Recipient Options</label>
+        <select id="table-choice-system" name="template">
+          <option value="" selected disabled hidden>Select an Option</option>
+          <option value="[VendorContact]">[VendorContact]</option>
+          <option value="[FirstName] [LastName]">[FirstName] [LastName]</option>
+          <option value="[VendorName]">[VendorName]</option>
+        </select>
+
+        <label id="footerLabel" for="row">Footer Text</label>
+        <textarea
+          wrap="hard"
+          rows="3"
+          cols="5"
+          id="table-choice-footer"
+          name="row"
+          placeholder="Add footer text content"
+        ></textarea>
+
+        <button id="submitCustomFooter" type="button">
+          Add a Footer Value
+        </button>
+
+        <label id="footerSystem" for="row">Footer Text Options</label>
+        <select id="table-choice-footer-system" name="template">
+          <option value="" selected disabled hidden>Select an Option</option>
+          <option value="">None</option>
+          <option value="[LockpathUrl]">NAVEX IRM Portal URL</option>
+        
+        </select>
+
+        <input id="submit" type="submit" value="Submit" />
+      </form>
+
+      <div id="table-div"></div>
+
+      <div id="emailDiv">
+        <table
+          role="presentation"
+          id="emailNotification"
+          style="
+            display: none;
+            width: 50%;
+            padding: 40px;
+            border-collapse: collapse;
+            border: 0;
+            border-spacing: 0;
+            background: #ffffff;
+            overflow-x: auto;
+          "
+        >
+          <tr>
+            <td align="center" style="padding: 0">
+              <table
+                role="presentation"
+                style="
+                  border-collapse: collapse;
+                  border: 1px solid #cccccc;
+                  border-spacing: 0;
+                  text-align: left;
+                "
+              >
+                <tr>
+                  <td
+                    id="headerCopyColor"
+                    align="Center"
+                    style="padding-bottom: 25px; background: #faf9f8"
+                  >
+                    <img id="logo" src="" width="600" />
+                  </td>
+                </tr>
+                <tr>
+                  <td style="padding: 36px 30px 42px 30px">
+                    <table
+                      role="presentation"
+                      style="
+                        width: 100%;
+                        border-collapse: collapse;
+                        border: 0;
+                        border-spacing: 0;
+                      "
+                    >
+                      <tr>
+                        <td style="color: #153643">
+                          <p
+                            id="emailHeader"
+                            style="
+                              font-size: 24px;
+                              margin: 0 0 10px 0;
+
+                              font-family: Arial, sans-serif;
+                            "
+                          >
+                            Header
+                          </p>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td style="padding: 0">
+                          <table
+                            role="presentation"
+                            style="
+                              width: 100%;
+                              border-collapse: collapse;
+                              border: 0;
+                              border-spacing: 0;
+                            "
+                          >
+                            <tr>
+                              <td
+                                style="
+                                  width: 290px;
+                                  padding: 0;
+                                  vertical-align: top;
+                                  color: #153643;
+                                "
+                              >
+                                <p
+                                  style="
+                                    margin: 0 0 25px 0;
+                                    font-size: 16px;
+                                    line-height: 24px;
+                                    font-family: Arial, sans-serif;
+                                  "
+                                ></p>
+                                <p
+                                  id="textContentLeft"
+                                  class="mainText2"
+                                  style="
+                                    margin: 0 0 12px 0;
+                                    font-size: 16px;
+                                    line-height: 24px;
+                                    font-family: Arial, sans-serif;
+                                    word-break: break-word;
+                                  "
+                                >
+                                  We're excited to get started with
+                                  [VendorName]
+                                </p>
+                                &nbsp;
+                                <p
+                                  id="textContentLeft"
+                                  class="mainText2"
+                                  style="
+                                    margin: 0 0 12px 0;
+                                    font-size: 16px;
+                                    line-height: 24px;
+                                    font-family: Arial, sans-serif;
+                                    word-break: break-word;
+                                  "
+                                >
+                                  An Assessment has been issued to [VendorName]
+                                  with you as the contact. The assessment is
+                                  designed to hel us meet and maintain
+                                  compliance to industry regulations and
+                                  security expectations.
+                                </p>
+                                &nbsp;
+                                <p
+                                  id="textContentLeft"
+                                  class="mainText2"
+                                  style="
+                                    margin: 0 0 12px 0;
+                                    font-size: 16px;
+                                    line-height: 24px;
+                                    font-family: Arial, sans-serif;
+                                    word-break: break-word;
+                                  "
+                                >
+                                  We request that you complete the assessment to
+                                  ensure a timely onboarding of [ThirdPartyName]
+                                </p>
+                                &nbsp;
+                                <p
+                                  id="textContentLeft"
+                                  class="mainText2"
+                                  style="
+                                    margin: 0 0 12px 0;
+                                    font-size: 16px;
+                                    line-height: 24px;
+                                    font-family: Arial, sans-serif;
+                                    word-break: break-word;
+                                  "
+                                >
+                                  Thank you,
+                                </p>
+                                <p
+                                  id="textContentLeft"
+                                  class="mainText2"
+                                  style="
+                                    margin: 0 0 12px 0;
+                                    font-size: 16px;
+                                    line-height: 24px;
+                                    font-family: Arial, sans-serif;
+                                    word-break: break-word;
+                                  "
+                                >
+                                  NAVEX Third Party Compliance Team
+                                </p>
+                                <p
+                                  style="
+                                    margin: 0;
+                                    font-size: 16px;
+                                    line-height: 24px;
+                                    font-family: Arial, sans-serif;
+                                  "
+                                ></p>
+                              </td>
+                              <td
+                                style="
+                                  width: 15px;
+                                  padding-right: 0px;
+                                  font-size: 0;
+                                  line-height: 0;
+                                "
+                              >
+                                &nbsp;
+                              </td>
+                            
+
+                              <td
+                                style="
+                                 width: 150px; border: solid black 1px; background-color: #eeece9; filter: drop-shadow(16px -16px 0px rgba(52,89,93, 0.8)); padding-right: 15px; vertical-align: top; color: #153643;
+                                 
+                                "
+                              >
+                                <p
+                                  style="
+                                    margin: 0 0 25px 0;
+                                    font-size: 16px;
+                                    line-height: 24px;
+                                    font-family: Arial, sans-serif;
+                                  "
+                                ></p>
+
+                                <p style="text-align: center; font-size: 20px; font-weight: 700">
+                                  Actions Required:
+                                </p>
+                                <ol
+                                  id="textContentRight"
+                                  class="mainText3"
+                                  style="
+                                    margin: 0 0 12px 0;
+                                    font-size: 12px;
+                                    line-height: 24px;
+                                    word-break: break-word;
+                                    font-family: Arial, sans-serif;
+                                  "
+                                >
+                                 
+                                </ol>
+                              </td>                             
+                            </tr>
+                          </table>
+                        </td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+                <tr>
+                  <td style="padding: 30px; background: #ef700c">
+                    <table
+                      role="presentation"
+                      style="
+                        width: 100%;
+                        border-collapse: collapse;
+                        border: 0;
+                        border-spacing: 0;
+                        font-size: 9px;
+                        font-family: Arial, sans-serif;
+                      "
+                    >
+                      <tr>
+                        <td style="padding: 0; width: 100%" align="center">
+                          <p
+                            style="
+                              margin: 0;
+                              font-size: 14px;
+                              line-height: 16px;
+                              font-family: Arial, sans-serif;
+                              color: #ffffff;
+                            "
+                            id="footerText"
+                          >
+                            &reg; Someone, Somewhere 2022<br />
+                          </p>
+                        </td>
+                        <td style="padding: 0; width: 50%" align="right">
+                          <table
+                            role="presentation"
+                            style="
+                              border-collapse: collapse;
+                              border: 0;
+                              border-spacing: 0;
+                            "
+                          ></table>
+                        </td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+        </table>
+      </div>
+
+      <div id="button"></div>
+    </div>
+
+    <script src="test.js"></script>
+  </body>
+</html>
