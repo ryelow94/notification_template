@@ -13,10 +13,14 @@ var hideSubmit = document.getElementById("submit");
 var initialForm = document.getElementById("template");
 var textLineBreak = document.getElementById("table-choice-textContent");
 var mainText = document.querySelector(".mainText");
-var hideExample = document.getElementById("hideExample");
+var hideExample = document.querySelector("#hideExample");
 hideExample.addEventListener("click", hide);
-var unHideExample = document.getElementById("unHideExample");
+var unHideExample = document.querySelector("#unHideExample");
 unHideExample.addEventListener("click", unHide);
+var hideExample2 = document.querySelector("#hideExample2");
+hideExample2.addEventListener("click", hide2);
+var unHideExample2 = document.querySelector("#unHideExample2");
+unHideExample2.addEventListener("click", unHide2);
 
 function hide() {
   var example = document.getElementById("example");
@@ -24,13 +28,26 @@ function hide() {
   hideExample.style = "display:none";
   unHideExample.style = "display:visible";
 }
+function hide2() {
+    var example2 = document.getElementById("example2");
+    example2.style = "display:none";
+    hideExample2.style = "display:none";
+    unHideExample2.style = "display:visible";
+  }
 function unHide() {
   var example = document.getElementById("example");
   example.style =
-    "display: block; margin-left: auto; margin-right: auto; margin-top: 15px;";
+    "display: block; margin-left: auto; margin-right: auto; margin-top: 15px; transition-timing-function: ease-in;";
   hideExample.style = "display:visible";
   unHideExample.style = "display:none";
 }
+function unHide2() {
+    var example2 = document.getElementById("example2");
+    example2.style =
+      "display: block; margin-left: auto; margin-right: auto; margin-top: 15px; transition-timing-function: ease-in;";
+    hideExample2.style = "display:visible";
+    unHideExample2.style = "display:none";
+  }
 
 document
   .querySelector(".Navbar__Link-toggle")
@@ -196,6 +213,8 @@ function handleSubmit(event) {
   var emailHeader = document.getElementById("emailHeader");
 
   var footerText = document.getElementById("footerText");
+  var footerTextDefault = document.getElementById("footerText").defaultValue;
+  footerTextDefault = ``
   var logo = document.getElementById("logo");
   // var mainText2 = document.querySelector(".mainText2")
   // var mainText3 = document.querySelector(".mainText3")

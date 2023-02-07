@@ -46,11 +46,11 @@
     <div class="container"> 
       <p style="text-align: center; font-size: 18px;">Example Notification</p>
       <!-- <button id="hideExample" style="display:none">Hide Example</button> -->
-      <button id="unHideExample" style="display: visible;">Show Example</button>
-      <img id="example" src="assessment template.png" width="400" style=" display: none;
+      <button class="unHideExample" id="unHideExample" style="display: visible;">Show Example</button>
+      <img class="example"id="example" src="assessment template.png" width="400" style=" display: none;
       margin-left: auto;
       margin-right: auto; margin-top: 15px;  ">
-      <button id="hideExample" style="display:none; margin-top: 10px;">Hide Example</button>
+      <button class="hideExample" id="hideExample"style="display:none; margin-top: 10px;">Hide Example</button>
       <form id="form">
         <!-- <label for="template">Template</label>
         <select onchange="handleChange(event)" id="template" name="template">
@@ -91,7 +91,7 @@
           name="row"
           placeholder="informational text/body text color"
         /> 
-        <p style="text-align: center"> * Body text content will be set to the default value shown in the example above, but can be edited in the rich text field or code editor once the HTML is pasted into NAVEX IRM. *</p> 
+        <p style="text-align: center; padding-left: 3%; padding-right: 3%"> * Body text content will be set to the default value shown in the example above, but can be edited in the rich text field or code editor once the HTML is pasted into NAVEX IRM. *</p> 
         
         <label id="textContentLabel" for="row" style="display: none">Body Text</label>
         <textarea
@@ -104,7 +104,11 @@
           name="row"
           placeholder="notification body text content"
         ></textarea>
-        <p style="text-align: center">* Actions will be displayed as numbered list items in the content box on the right side of the screen (see example) *</p>
+        <p style="text-align: center; padding-left: 3%; padding-right: 3%;">* Actions will be displayed as numbered list items in the content box on the right side of the screen (see example) *</p> 
+        <p style="text-align:center; padding-left: 3%; padding-right: 3%;">* If no actions are added when generating this template, you will need to add the "li" HTML tag as a child element of the "ol" element containing the items of the action pane. This will need to be done in the code editor of the rich text field. *</p>
+        <button class="unHideExample" id="unHideExample2"style="display:visible; margin-top: 10px;">Show Example</button>
+        <img id="example2" style="display:none" width="700" src="adding a list item.png">
+        <button class="hideExample" id="hideExample2"style="display:none; margin-top: 10px;">Hide Example</button>
         <label id="textContentLabelL" for="row">Requested Actions</label>
         <input
         type="text"
@@ -140,7 +144,9 @@
           id="table-choice-footer"
           name="row"
           placeholder="Add footer text content"
-        ></textarea>
+        >
+        
+      </textarea>
 
         <button id="submitCustomFooter" type="button">
           Add a Footer Value
