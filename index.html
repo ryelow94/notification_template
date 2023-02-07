@@ -43,6 +43,7 @@
       <form id="form">
 
         <label id="headerLabel" for="row">Logo</label>
+        <p style="font-size:12px; padding-left: 1.5%;">Leave Blank to use NAVEX image</p>
         <input
           type="text"
           id="table-choice-header"
@@ -88,9 +89,8 @@
         <select id="table-choice-system" name="template">
           <option value="" selected disabled hidden>Select an Option</option>
           <option value="[VendorContact]">[VendorContact]</option>
-          <option value="[Recipient]">[Recipient]</option>
-          <option value="[CreatedBy.FirstName] [CreatedBy.LastName]">[CreatedBy.FirstName] [CreatedBy.LastName]</option>
-          <option value="[UpdatedBy.FirstName] [UpdatedBy.LastName]">[UpdatedBy.FirstName] [UpdatedBy.LastName]</option>
+          <option value="[FirstName] [LastName]">[FirstName] [LastName]</option>
+          <option value="[VendorName]">[VendorName]</option>
         </select> 
 
         <label id="footerLabel" for="row">Footer Text</label>
@@ -108,8 +108,7 @@
         <select id="table-choice-footer-system" name="template">
           <option value="" selected disabled hidden>Select an Option</option>
           <option value="">None</option>
-          <option value="[CreatedBy.FullName]">[CreatedBy.FirstName] [CreatedBy.LastName]</option>
-          <option value="[UpdatedBy.FullName]">[UpdatedBy.FirstName] [UpdatedBy.LastName]</option>
+          <option value="[LockpathUrl]">[LockpathUrl]</option>
         </select> 
         
 
@@ -152,7 +151,7 @@
                 align="Center"
                 style="padding: 5px; background: #faf9f8;"
               >
-                <img id="logo" src=""  style="padding:1px;"/> 
+                <img id="logo" src="" width="600"  style="padding:1px;"/> 
               </td>
             </tr>
             <tr>

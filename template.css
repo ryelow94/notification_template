@@ -392,7 +392,9 @@ text-decoration: underline;
   height: auto;
   margin-bottom: 15px;
  }
- 
+ #logo{
+  width:300px;
+ } 
 }
 
 
