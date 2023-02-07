@@ -24,7 +24,7 @@ unHideExample2.addEventListener("click", unHide2);
 
 function hide() {
   var example = document.getElementById("example");
-  example.style = "display:none";
+  example.style = "display:none; ";
   hideExample.style = "display:none";
   unHideExample.style = "display:visible";
 }
@@ -37,14 +37,14 @@ function hide2() {
 function unHide() {
   var example = document.getElementById("example");
   example.style =
-    "display: block; margin-left: auto; margin-right: auto; margin-top: 15px; transition-timing-function: ease-in;";
+    "display: block; margin-left: auto; margin-right: auto; margin-top: 15px; ";
   hideExample.style = "display:visible";
   unHideExample.style = "display:none";
 }
 function unHide2() {
     var example2 = document.getElementById("example2");
     example2.style =
-      "display: block; margin-left: auto; margin-right: auto; margin-top: 15px; transition-timing-function: ease-in;";
+      "display: block; margin-left: auto; margin-right: auto; margin-top: 15px; ";
     hideExample2.style = "display:visible";
     unHideExample2.style = "display:none";
   }

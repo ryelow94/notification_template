@@ -171,8 +171,12 @@ body {
   margin-left: 40%;
   margin-right: 40%;
   
+  
 } 
 
+#navexLogo{
+  width:75%;
+}
 
 #copy {
   background-color: #EF700C;
@@ -199,6 +203,7 @@ input[type=submit]:hover {
 }
 .hideExample:hover {
   background-color: #FF8338;
+  
 }
 
 .unHideExample:hover {
@@ -236,8 +241,8 @@ caption {
 background-color: #EF700C;
 background: linear-gradient( #ec7b25 0%, #EF700C 100%);
 } 
-#example, #example2{
 
+#example, #example2{
   margin-bottom: 15px;
  }
 
@@ -255,7 +260,7 @@ background: linear-gradient( #ec7b25 0%, #EF700C 100%);
 }
 
 #headerH1{
-  /* padding:10px; */
+  
    text-align:center;
   color:#356F6F;
   font-weight: 700;
@@ -285,7 +290,7 @@ background: linear-gradient( #ec7b25 0%, #EF700C 100%);
   padding-right: 1%;
   font-weight: 700;
   padding-bottom: 5%;
-  color:#ebebeb;
+  color:#356F6F;
   cursor: pointer;
   transition-duration: 250ms;
   text-decoration: none;
@@ -368,11 +373,16 @@ text-decoration: underline;
     width:25%;
     margin-left: 10px;
   }
+  #navexLogo{
+    width:100%
+  }
+ 
  #logo{
   width:300px;
  } 
  #example, #example2{
   width:300px;
+  transition: all 1s ease-in;
   height: auto;
   margin-bottom: 15px;
  }
@@ -389,12 +399,14 @@ text-decoration: underline;
 @media  screen and (max-width: 320px) {
  #example, #example2{
   width:300px;
+  transition: all 1s ease-in;
   height: auto;
   margin-bottom: 15px;
  }
  #logo{
   width:300px;
  } 
+
 }
 
 

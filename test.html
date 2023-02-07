@@ -25,6 +25,7 @@
       <div class="Navbar__Link Navbar__Link-toggle">
         <i style="font-size: xx-large; "class="fas fa-bars"></i>
       </div>
+      <img src="NavexLogo.png" id="navexLogo"/>
       <h1 id="headerH1"> Email Template Generator</h1>
       <h3 id="h3Toggle"  >Select a Template: </h3>
       <nav class="Navbar__Items">
@@ -44,13 +45,13 @@
   <!-- <p style="text-align: center"> * Body content will be set to the default assessment notification, but can be edited in the rich text field once pasted into NAVEX IRM.*</p>  -->
   
     <div class="container"> 
-      <p style="text-align: center; font-size: 18px;">Example Notification</p>
+      <p style="text-align: center; font-size: 18px; color:#356F6F">Example Notification</p>
       <!-- <button id="hideExample" style="display:none">Hide Example</button> -->
       <button class="unHideExample" id="unHideExample" type="button" style="display: visible;">Show Example</button>
       <img class="example"id="example" src="assessment template.png" width="400" style=" display: none;
       margin-left: auto;
       margin-right: auto; margin-top: 15px;  ">
-      <button class="hideExample" type="button" id="hideExample"style="display:none; margin-top: 10px;">Hide Example</button>
+      <button class="hideExample" type="button" id="hideExample"style=" display:none; margin-top: 10px;">Hide Example</button>
       <form id="form">
         <!-- <label for="template">Template</label>
         <select onchange="handleChange(event)" id="template" name="template">
@@ -107,7 +108,7 @@
         <p style="text-align: center; padding-left: 3%; padding-right: 3%;">* Actions will be displayed as numbered list items in the content box on the right side of the screen (see example) *</p> 
         <p style="text-align:center; padding-left: 3%; padding-right: 3%;">* If no actions are added when generating this template, you will need to add the "li" HTML tag as a child element of the "ol" element containing the items of the action pane. This will need to be done in the code editor of the rich text field. *</p>
         <button class="unHideExample" id="unHideExample2" type="button" style="display:visible; margin-top: 10px;">Show Example</button>
-        <img id="example2" style="display:none" width="700" src="adding a list item.png">
+        <img id="example2" style="display:none;" width="700" src="adding a list item.png">
         <button class="hideExample" id="hideExample2" type="button" style="display:none; margin-top: 10px;">Hide Example</button>
         <label id="textContentLabelL" for="row">Requested Actions</label>
         <input
