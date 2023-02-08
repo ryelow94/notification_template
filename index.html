@@ -107,9 +107,10 @@
 
         <label id="footerSystem" for="row">Footer Text Options</label>
         <select id="table-choice-footer-system" name="template">
-          <option value="" selected disabled hidden>Select an Option</option>
+          <option value="None" selected disabled hidden>Select an Option</option>
+          <option value="Default">Default</option>
           <option value="">None</option>
-          <option value="[LockpathUrl]">[LockpathUrl]</option>
+          <option value="[LockpathUrl]">NAVEX IRM Portal URL</option>
         </select> 
         
 
@@ -381,6 +382,7 @@
                           font-size: 14px;
                           line-height: 16px;
                           font-family: Arial, sans-serif;
+                          word-wrap: break-word;
                           color: #ffffff;
                         "
                         id="footerText"

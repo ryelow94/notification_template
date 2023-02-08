@@ -154,8 +154,10 @@
         </button>
 
         <label id="footerSystem" for="row">Footer Text Options</label>
+        <p style="text-align:left; padding-left: 1%; padding-right: 3%; font-size:12px">If no footer text value is selected, the default footer will be displayed</p>
         <select id="table-choice-footer-system" name="template">
-          <option value="" selected disabled hidden>Select an Option</option>
+          <option value="None" selected disabled hidden>Select an Option</option>
+          <option value="Default">Default</option>
           <option value="">None</option>
           <option value="[LockpathUrl]">NAVEX IRM Portal URL</option>
         
@@ -256,7 +258,7 @@
                                   "
                                 ></p>
                                 <p
-                                  id="textContentLeft"
+                                  id="mainText1"
                                   class="mainText2"
                                   style="
                                     margin: 0 0 12px 0;
@@ -271,7 +273,7 @@
                                 </p>
                                 &nbsp;
                                 <p
-                                  id="textContentLeft"
+                                id="mainText2"
                                   class="mainText2"
                                   style="
                                     margin: 0 0 12px 0;
@@ -289,7 +291,7 @@
                                 </p>
                                 &nbsp;
                                 <p
-                                  id="textContentLeft"
+                                id="mainText3"
                                   class="mainText2"
                                   style="
                                     margin: 0 0 12px 0;
@@ -304,7 +306,7 @@
                                 </p>
                                 &nbsp;
                                 <p
-                                  id="textContentLeft"
+                                id="mainText4"
                                   class="mainText2"
                                   style="
                                     margin: 0 0 12px 0;
@@ -317,7 +319,7 @@
                                   Thank you,
                                 </p>
                                 <p
-                                  id="textContentLeft"
+                                id="mainText5"
                                   class="mainText2"
                                   style="
                                     margin: 0 0 12px 0;
@@ -409,6 +411,7 @@
                               margin: 0;
                               font-size: 14px;
                               line-height: 16px;
+                              word-wrap: break-word;
                               font-family: Arial, sans-serif;
                               color: #ffffff;
                             "

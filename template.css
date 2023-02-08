@@ -174,8 +174,12 @@ body {
   
 } 
 
+#logo{
+ width:100%
+}
+
 #navexLogo{
-  width:75%;
+  width:50%;
 }
 
 #copy {
@@ -378,7 +382,7 @@ text-decoration: underline;
   }
  
  #logo{
-  width:300px;
+  width:100%;
  } 
  #example, #example2{
   width:300px;

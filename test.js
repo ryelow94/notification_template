@@ -109,12 +109,10 @@ function removeAction(){
     let removedActionDisplay = Array.from(document.getElementsByClassName("addedAction"));
     if(removedAction.length===1){
         var removeRemove = document.getElementById("remove")
-        removeRemove.remove()
-        
-      
+        removeRemove.remove()   
     }
-    var removeThisToo = removedActionDisplay.pop()
-    var removeThis = removedAction.pop()
+    var removeThisToo = removedActionDisplay.shift()
+    var removeThis = removedAction.shift()
     removeThis.remove()
     removeThisToo.remove();
   }
@@ -151,10 +149,10 @@ function customActions() {
   inputVal.value = "";  
 }
 
-  
-
 //clears the form and makes the submit button visible again
-function clearAll(parent) {
+function clearAll(parent) { 
+    hide();
+    hide2();
   while (parent.firstChild) {
     parent.removeChild(parent.firstChild);
   } 
@@ -211,13 +209,15 @@ function handleSubmit(event) {
   emailNot.style = "display:visible; margin: 0 auto";
 
   var emailHeader = document.getElementById("emailHeader");
-
+  var headerBackground = document.getElementById("headerCopyColor")
   var footerText = document.getElementById("footerText");
-  var footerTextDefault = document.getElementById("footerText").defaultValue;
-  footerTextDefault = ``
+ 
   var logo = document.getElementById("logo");
-  // var mainText2 = document.querySelector(".mainText2")
-  // var mainText3 = document.querySelector(".mainText3")
+  var mainText1 = document.getElementById("mainText1")
+  var mainText2 = document.getElementById("mainText2")
+  var mainText3 = document.getElementById("mainText3")
+  var mainText4 = document.getElementById("mainText4")
+  var mainText5 = document.getElementById("mainText5")
 
   if (event.target[0].value === "") {
     logo.setAttribute(
@@ -227,14 +227,23 @@ function handleSubmit(event) {
   } else {
     logo.setAttribute("src", event.target[0].value);
   }
-
-  emailHeader.style = `color:${event.target[1].value}; font-size:24px`;
-  emailHeader.textContent = "Hello " + `${event.target[8].value}` + ",";
-  footerText.textContent = `${event.target[11].value}`;
+  headerBackground.style=`background:${event.target[1].value}`
+  emailHeader.style = `font-size:24px`;
+  emailHeader.style= `color:${event.target[2].value}`
+  emailHeader.textContent = "Hello " + `${event.target[10].value}` + ",";
+  footerText.textContent = `${event.target[13].value}`;
+  if(footerText.textContent === "Default"||footerText.textContent ==="None"){
+   footerText.outerHTML = `<p id="footerText" style="margin: 0; font-size: 16px; line-height: 20px; font-family: Arial, sans-serif; color: #ffffff;"><strong>Vision:</strong> Deliver the world's smartest <strong>integrated</strong> platform that enables organizations to <strong>predict</strong> and <strong>mitigate</strong> risk.</p>`
+  } else{
+  footerText.textContent = `${event.target[13].value}`;
+  }
   //   mainText.style = `color:${event.target[1].value};`
   //   mainText.textContent = `${event.target[3].value}`
-
-  // mainText2.style = `color:${event.target[7].value};`
+  mainText1.style = `color:${event.target[2].value};`
+  mainText2.style = `color:${event.target[2].value};`
+  mainText3.style = `color:${event.target[2].value};`
+  mainText4.style = `color:${event.target[2].value};`
+  mainText5.style = `color:${event.target[2].value};`
   // mainText3.style = `color:${event.target[7].value};`
   // mainText2.textContent = `${event.target[9].value}`
   // mainText3.textContent = `${event.target[10].value}`
