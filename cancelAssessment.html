@@ -40,21 +40,21 @@
         </a>            
           <a class="Navbar__Link" href="cancelAssessment.html">
             Cancel Assessment
-          </a>  
+          </a> 
       </nav>
     </div>
      <!-- <div id="topDiv" style="display: flex; ">
       <h1 id="headerH1"> Email Template Generator</h1>
   </div>  -->
     
-  <h1 id="templateName" style=" color:#356F6F;">Issue Assessment</h1>
+  <h1 id="templateName" style=" color:#356F6F;">Cancel Assessment</h1>
   <!-- <p style="text-align: center"> * Body content will be set to the default assessment notification, but can be edited in the rich text field once pasted into NAVEX IRM.*</p>  -->
   
     <div class="container"> 
       <p style="text-align: center; font-size: 18px; color:#356F6F">Example Notification</p>
       <!-- <button id="hideExample" style="display:none">Hide Example</button> -->
       <button class="unHideExample" id="unHideExample" type="button" style="display: visible;">Show Example</button>
-      <img class="example"id="example" src="assessment template.png" width="400" style=" display: none;
+      <img class="example"id="example" src="Cancelled Assessment.png" width="30%" style=" display: none;
       margin-left: auto;
       margin-right: auto; margin-top: 15px;  ">
       <button class="hideExample" type="button" id="hideExample"style=" display:none; margin-top: 10px;">Hide Example</button>
@@ -111,19 +111,20 @@
           name="row"
           placeholder="notification body text content"
         ></textarea>
-        <p style="text-align: center; padding-left: 3%; padding-right: 3%;">* Actions will be displayed as numbered list items in the content box on the right side of the screen (see example) *</p> 
+        <!-- <p style="text-align: center; padding-left: 3%; padding-right: 3%;">* Actions will be displayed as numbered list items in the content box on the right side of the screen (see example) *</p> 
         <p style="text-align:center; padding-left: 3%; padding-right: 3%;">* If no actions are added when generating this template, you will need to add the "li" HTML tag as a child element of the "ol" element containing the items of the action pane. This will need to be done in the code editor of the rich text field. *</p>
         <button class="unHideExample" id="unHideExample2" type="button" style="display:visible; margin-top: 10px;">Show Example</button>
         <img id="example2" style="display:none;" width="700" src="adding a list item.png">
-        <button class="hideExample" id="hideExample2" type="button" style="display:none; margin-top: 10px;">Hide Example</button>
-        <label id="textContentLabelL" for="row">Requested Actions</label>
+        <button class="hideExample" id="hideExample2" type="button" style="display:none; margin-top: 10px;">Hide Example</button> -->
+        <label style="display: none" id="textContentLabelL" for="row"> Create Actions</label>
         <input
         type="text"
           id="table-choice-textContentL"
           name="row"
           placeholder="Add an Action"
+          style="display: none;"
         ></input>
-        <button id="submitCustomAction" type="button">Add an Action</button>
+        <button style="display:none"  id="submitCustomAction" type="button">Actions</button>
        
 
         <label id="headerTextLabel" for="row">Add Recipient Name</label>
@@ -131,7 +132,7 @@
           type="text"
           id="table-choice-text"
           name="row"
-          placeholder="Add a custom recipient name to the options below"
+          placeholder="Add a recipient name to the options below if needed."
         />
         <button id="submitCustom" type="button">Add a Recipient</button>
 
@@ -204,7 +205,7 @@
                     align="Center"
                     style="padding-bottom: 25px; background: #faf9f8"
                   >
-                    <img id="logo" src="" width="100%" />
+                    <img id="logo" src="" width=100% />
                   </td>
                 </tr>
                 <tr>
@@ -256,7 +257,7 @@
                                 <p
                                   style="
                                     margin: 0 0 25px 0;
-                                    font-size: 16px;
+                                    font-size: 24px;
                                     line-height: 24px;
                                     font-family: Arial, sans-serif;
                                   "
@@ -266,17 +267,16 @@
                                   class="mainText2"
                                   style="
                                     margin: 0 0 12px 0;
-                                    font-size: 16px;
+                                    font-size: 24px;
                                     line-height: 24px;
                                     font-family: Arial, sans-serif;
                                     word-break: break-word;
                                   "
                                 >
-                                  We're excited to get started with
-                                  [VendorName]
+                                The assessment assigned to you (assessment name below), has been canceled. No further action is required.
                                 </p>
                                 &nbsp;
-                                <p
+                                <!-- <p
                                 id="mainText2"
                                   class="mainText2"
                                   style="
@@ -287,26 +287,22 @@
                                     word-break: break-word;
                                   "
                                 >
-                                  An Assessment has been issued to [VendorName]
-                                  with you as the contact. The assessment is
-                                  designed to hel us meet and maintain
-                                  compliance to industry regulations and
-                                  security expectations.
-                                </p>
-                                &nbsp;
+                                  
+                                </p> -->
+                                <!-- &nbsp; -->
                                 <p
                                 id="mainText3"
                                   class="mainText2"
                                   style="
                                     margin: 0 0 12px 0;
-                                    font-size: 16px;
+                                    font-size: 24px;
                                     line-height: 24px;
                                     font-family: Arial, sans-serif;
                                     word-break: break-word;
                                   "
                                 >
-                                  We request that you complete the assessment to
-                                  ensure a timely onboarding of [ThirdPartyName]
+                                Lockpath Portal URL: [LockpathUrl] <br>                             
+                                Assessment Name: [AssessmentUrl]
                                 </p>
                                 &nbsp;
                                 <p
@@ -314,7 +310,7 @@
                                   class="mainText2"
                                   style="
                                     margin: 0 0 12px 0;
-                                    font-size: 16px;
+                                    font-size: 24px;
                                     line-height: 24px;
                                     font-family: Arial, sans-serif;
                                     word-break: break-word;
@@ -327,7 +323,7 @@
                                   class="mainText2"
                                   style="
                                     margin: 0 0 12px 0;
-                                    font-size: 16px;
+                                    font-size: 24px;
                                     line-height: 24px;
                                     font-family: Arial, sans-serif;
                                     word-break: break-word;
@@ -338,7 +334,7 @@
                                 <p
                                   style="
                                     margin: 0;
-                                    font-size: 16px;
+                                    font-size: 24px;
                                     line-height: 24px;
                                     font-family: Arial, sans-serif;
                                   "
@@ -358,7 +354,7 @@
 
                               <td
                                 style="
-                                 width: 150px; border: solid black 1px; background-color: #eeece9; filter: drop-shadow(16px -16px 0px rgba(52,89,93, 0.8)); padding-right: 15px; vertical-align: top; color: #153643;
+                                  display:none; width: 150px; border: solid black 1px; background-color: #eeece9; filter: drop-shadow(16px -16px 0px rgba(52,89,93, 0.8)); padding-right: 15px; vertical-align: top; color: #153643;
                                  
                                 "
                               >
@@ -448,6 +444,6 @@
       <div id="button"></div>
     </div>
 
-    <script src="test.js"></script>
+    <script src="cancelAssessment.js"></script>
   </body>
 </html>

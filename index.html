@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns_v="urn:schemas-microsoft-com:vml">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width initial-scale = 1.0" />
     <link rel="stylesheet" href="template.css" />
-    <title>Email Template Generator</title> 
+    <title>Email Template Generator</title>
     <link
       href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700"
       rel="stylesheet"
@@ -18,40 +18,71 @@
     />
   </head>
   <body id="body">
-    
-    <!-- <div id="topDiv" style="display: flex; "> -->
-     
-      <div class="Navbar">
-       
-        <div class="Navbar__Link Navbar__Link-toggle">
-          <i style="font-size: xx-large; "class="fas fa-bars"></i>
-        </div>
-        <img src="NavexLogo.png" id="navexLogo"/>
-        <h1 id="headerH1"> Email Template Generator</h1>
-        <h3 id="h3Toggle"  >Select a Template</h3>
-        <nav class="Navbar__Items"> 
-          <a class="Navbar__Link" href="index.html"> Blank Email Template</a>
-          <a class="Navbar__Link" href="test.html">
-            Vendor Assessment Notification
-          </a>    
-        </nav>
-      </div>
-       <!-- <div id="topDiv" style="display: flex; ">
-        <h1 id="headerH1"> Email Template Generator</h1>
-    </div>  -->
-    <h1 style="color:#356F6F;">Blank Email Template</h1>
-     <div class="container"> 
-      <form id="form">
 
-        <label id="headerLabel" for="row">Logo</label>
+    
+    <div class="Navbar">
+       
+      <div class="Navbar__Link Navbar__Link-toggle">
+        <i style="font-size: xx-large; "class="fas fa-bars"></i>
+      </div>
+      <img src="NavexBasic.png" id="navexLogo"/>
+      <h1 id="headerH1"> Email Template Generator</h1>
+      <h3 id="h3Toggle"  >Select a Template: </h3>
+      <nav class="Navbar__Items">
+        <a class="Navbar__Link" href="index.html">
+          Blank Email Template
+        </a>  
+        <a class="Navbar__Link" href="newAccount.html">
+            New Account
+          </a>
+        <a class="Navbar__Link" href="test.html">
+          Issue Assessment
+        </a>            
+          <a class="Navbar__Link" href="cancelAssessment.html">
+            Cancel Assessment
+          </a>     
+      </nav>
+    </div>
+     <!-- <div id="topDiv" style="display: flex; ">
+      <h1 id="headerH1"> Email Template Generator</h1>
+  </div>  -->
+    
+  <h1 id="templateName" style=" color:#356F6F;">Blank Template</h1>
+  <!-- <p style="text-align: center"> * Body content will be set to the default assessment notification, but can be edited in the rich text field once pasted into NAVEX IRM.*</p>  -->
+  
+    <div class="container"> 
+      <p style="text-align: center; font-size: 18px; color:#356F6F">Example Notification</p>
+      <!-- <button id="hideExample" style="display:none">Hide Example</button> -->
+      <button class="unHideExample" id="unHideExample" type="button" style="display: visible;">Show Example</button>
+      <img class="example"id="example" src="assessment template.png" width="400" style=" display: none;
+      margin-left: auto;
+      margin-right: auto; margin-top: 15px;  ">
+      <button class="hideExample" type="button" id="hideExample"style=" display:none; margin-top: 10px;">Hide Example</button>
+      <form id="form">
+        <!-- <label for="template">Template</label>
+        <select onchange="handleChange(event)" id="template" name="template">
+          <option value="none" selected disabled hidden>
+            Select an Option
+          </option>
+          <option value="Simple Table">Simple Table</option>
+          <option value="Email Notification">Email Notification</option>
+          <option value="Assessment Notification">
+            Assessment Notification
+          </option>
+          <option value="Assessment Reminder">Assessment Reminder</option>
+        </select> -->
+
+        
+
+        <label id="headerLabel" for="row">Header Logo/Background Image</label>
         <p style="font-size:12px; padding-left: 1.5%;">Leave Blank to use NAVEX image</p>
         <input
           type="text"
           id="table-choice-header"
           name="row"
-          placeholder="Logo URL i.g. https://www.navex.com/blog/static/blog/images/navex-global-logo.png"
+          placeholder="Logo URL i.g. https://www.navex.com/blog/static/blog/images/navex-global-logo.png "
         />
-
+       
         <label id="headerColor" for="row">Header Color</label>
         <input
           type="color"
@@ -66,25 +97,43 @@
           id="table-choice-textColor"
           name="row"
           placeholder="informational text/body text color"
-        />
-        <label id="textContentLabel" for="row">Body Text</label>
-        <textarea 
-        style="line-height: 30px;"
-        wrap="hard"
-        rows="10" cols="5"
-        id="table-choice-textContent"
-        name="row"
-        placeholder="notification body text content"
-        ></textarea> 
+        /> 
+        <p style="text-align: center; padding-left: 3%; padding-right: 3%"> * Body text content will be set to the default value shown in the example above, but can be edited in the rich text field or code editor once the HTML is pasted into NAVEX IRM. *</p> 
+        
+        <label id="textContentLabel" for="row" style="display: none">Body Text</label>
+        <textarea
+          style="line-height: 30px; display: none;"
+          
+          wrap="hard"
+          rows="10"
+          cols="5"
+          id="table-choice-textContent"
+          name="row"
+          placeholder="notification body text content"
+        ></textarea>
+        <p style="text-align: center; padding-left: 3%; padding-right: 3%;">* Actions will be displayed as numbered list items in the content box on the right side of the screen (see example) *</p> 
+        <p style="text-align:center; padding-left: 3%; padding-right: 3%;">* If no actions are added when generating this template, you will need to add the "li" HTML tag as a child element of the "ol" element containing the items of the action pane. This will need to be done in the code editor of the rich text field. *</p>
+        <button class="unHideExample" id="unHideExample2" type="button" style="display:visible; margin-top: 10px;">Show Example</button>
+        <img id="example2" style="display:none;" width="700" src="adding a list item.png">
+        <button class="hideExample" id="hideExample2" type="button" style="display:none; margin-top: 10px;">Hide Example</button>
+        <label id="textContentLabelL" for="row">Requested Actions</label>
+        <input
+        type="text"
+          id="table-choice-textContentL"
+          name="row"
+          placeholder="Add an Action"
+        ></input>
+        <button id="submitCustomAction" type="button">Add an Action</button>
        
+
         <label id="headerTextLabel" for="row">Add Recipient Name</label>
         <input
           type="text"
           id="table-choice-text"
           name="row"
           placeholder="Add a custom recipient name to the options below"
-        /> 
-        <button id="submitCustom" type="button">Add a Custom Value</button> 
+        />
+        <button id="submitCustom" type="button">Add a Recipient</button>
 
         <label id="headerSystem" for="row">Recipient Options</label>
         <select id="table-choice-system" name="template">
@@ -92,351 +141,305 @@
           <option value="[VendorContact]">[VendorContact]</option>
           <option value="[FirstName] [LastName]">[FirstName] [LastName]</option>
           <option value="[VendorName]">[VendorName]</option>
-        </select> 
+        </select>
 
         <label id="footerLabel" for="row">Footer Text</label>
-        <textarea 
-        wrap="hard"
-        rows="3" cols="5"
-        id="table-choice-footer"
-        name="row"
-        placeholder="Add footer text content"
-        ></textarea> 
+        <textarea
+          wrap="hard"
+          rows="3"
+          cols="5"
+          id="table-choice-footer"
+          name="row"
+          placeholder="Add footer text content"
+        ></textarea>
 
-        <button id="submitCustomFooter" type="button">Add a Custom Value</button>
+        <button id="submitCustomFooter" type="button">
+          Add a Footer Value
+        </button>
 
         <label id="footerSystem" for="row">Footer Text Options</label>
+        <p style="text-align:left; padding-left: 1%; padding-right: 3%; font-size:12px">If no footer text value is selected, the default footer will be displayed</p>
         <select id="table-choice-footer-system" name="template">
           <option value="None" selected disabled hidden>Select an Option</option>
           <option value="Default">Default</option>
           <option value="">None</option>
           <option value="[LockpathUrl]">NAVEX IRM Portal URL</option>
-        </select> 
         
+        </select>
 
         <input id="submit" type="submit" value="Submit" />
       </form>
-     
-     
 
-    <div  id="emailDiv">  
+      <div id="table-div"></div>
 
-    <table
-      role="presentation"
-      id="emailNotification"
-      style="
-        display: none;
-        width: 50%;
-        padding:40px;
-        border-collapse: collapse;
-        border: 0;
-        border-spacing: 0;
-        background: #ffffff;
-        overflow-x: auto
-      "
-    >
-      <tr>
-        <td align="center" style="padding: 0">
-          <table
-            role="presentation"
-            style="
-              
-              border-collapse: collapse;
-              border: 1px solid #cccccc;
-              border-spacing: 0;
-              text-align: left;
-            "
-          >
-            <tr>
-              <td
-              id="headerCopyColor"
-                align="Center"
-                style="padding: 5px; background: #faf9f8;"
+      <div id="emailDiv">
+        <table
+          role="presentation"
+          id="emailNotification"
+          style="
+            display: none;
+            width: 50%;
+            padding: 40px;
+            border-collapse: collapse;
+            border: 0;
+            border-spacing: 0;
+            background: #ffffff;
+            overflow-x: auto;
+          "
+        >
+          <tr>
+            <td align="center" style="padding: 0">
+              <table
+                role="presentation"
+                style="
+                  border-collapse: collapse;
+                  border: 1px solid #cccccc;
+                  border-spacing: 0;
+                  text-align: left;
+                "
               >
-                <img id="logo" src="" width="600"  style="padding:1px;"/> 
-              </td>
-            </tr>
-            <tr>
-              <td style="padding: 36px 30px 42px 30px">
-                <table
-                  role="presentation"
-                  style="
-                    width: 100%;
-                    border-collapse: collapse;
-                    border: 0;
-                    border-spacing: 0;
-                  "
-                >
-                  <tr>
-                    <td style="color: #153643">
-                      <p
-                        id="emailHeader"
-                        style="
-                          font-size: 16px;
-                          margin: 0 0 10px 0;
-                          
-                          font-family: Arial, sans-serif;
-                        "
-                      >
-                        Header
-                    </p>
-                    <br>
-                      <p 
-                        id="textContentMain"
-                        class="mainText"
-                        
-                        style="
-                          
-                          margin: 0 0 12px 0;
-                          font-size: 16px;
-                          line-height: 30px;
-                          font-family: Arial, sans-serif;
-                          word-break:break-word
-                        "
-                      >
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                        In tempus adipiscing felis, sit amet blandit ipsum
-                        volutpat sed. Morbi porttitor, eget accumsan et dictum,
-                        nisi libero ultricies ipsum, posuere neque at erat.
-                      </p>
-                      <!-- <p
-                        style="
-                          margin: 0;
-                          font-size: 16px;
-                          line-height: 24px;
-                          font-family: Arial, sans-serif;
-                        "
-                      > -->
-                        <!-- <a
-                          href="http://www.example.com"
-                          style="color: #ee4c50; text-decoration: underline"
-                          >In tempus felis blandit</a
-                        > -->
-                      <!-- </p>
-                    </td>
-                  </tr> -->
-                  <!-- <tr>
-                    <td style="padding: 0">
-                      <table
-                        role="presentation"
-                        style="
-                          width: 100%;
-                          border-collapse: collapse;
-                          border: 0;
-                          border-spacing: 0;
-                        "
-                      >
-                        <tr>
-                          <td
+                <tr>
+                  <td
+                    id="headerCopyColor"
+                    align="Center"
+                    style="padding-bottom: 25px; background: #faf9f8"
+                  >
+                    <img id="logo" src="" width="100%" />
+                  </td>
+                </tr>
+                <tr>
+                  <td style="padding: 36px 30px 42px 30px">
+                    <table
+                      role="presentation"
+                      style="
+                        width: 100%;
+                        border-collapse: collapse;
+                        border: 0;
+                        border-spacing: 0;
+                      "
+                    >
+                      <tr>
+                        <td style="color: #153643">
+                          <p
+                            id="emailHeader"
                             style="
-                              width: 260px;
-                              padding: 0;
-                              vertical-align: top;
-                              color: #153643;
+                              font-size: 24px;
+                              margin: 0 0 10px 0;
+
+                              font-family: Arial, sans-serif;
                             "
                           >
-                            <p
-                              style="
-                                margin: 0 0 25px 0;
-                                font-size: 16px;
-                                line-height: 24px;
-                                font-family: Arial, sans-serif;
-                              "
-                            >
-                              <img
-                                src="https://assets.codepen.io/210284/left.gif"
-                                alt=""
-                                width="260"
-                                style="height: auto; display: block"
-                              /> -->
-                            <!-- </p> -->
-                            <!-- <p
-                              id="textContentLeft"
-                              class="mainText2"
-                              style="
-                                margin: 0 0 12px 0;
-                                font-size: 16px;
-                                line-height: 24px;
-                                font-family: Arial, sans-serif;
-                                word-break:break-word
-                              "
-                            >
-                              Lorem ipsum dolor sit amet, consectetur adipiscing
-                              elit. In tempus adipiscing felis, sit amet blandit
-                              ipsum volutpat sed. Morbi porttitor, eget accumsan
-                              dictum, est nisi libero ultricies ipsum, in
-                              posuere mauris neque at erat.
-                            </p> -->
-                            <!-- <p
-                              style="
-                                margin: 0;
-                                font-size: 16px;
-                                line-height: 24px;
-                                font-family: Arial, sans-serif;
-                              "
-                            >
-                               <a
-                                href="http://www.example.com"
-                                style="
-                                  color: #ee4c50;
-                                  text-decoration: underline;
-                                "
-                                >Blandit ipsum volutpat sed</a
-                              > -->
-                            <!-- </p> 
-                          </td>
-                          <td
+                            Header
+                          </p>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td style="padding: 0">
+                          <table
+                            role="presentation"
                             style="
-                              width: 20px;
-                              padding: 0;
-                              font-size: 0;
-                              line-height: 0;
+                              width: 100%;
+                              border-collapse: collapse;
+                              border: 0;
+                              border-spacing: 0;
                             "
                           >
-                            &nbsp;
-                          </td>
-                          <td
-                            style="
-                              width: 260px;
-                              padding: 0;
-                              vertical-align: top;
-                              color: #153643;
-                            "
-                          > -->
-                            <!-- <p
-                              style="
-                                margin: 0 0 25px 0;
-                                font-size: 16px;
-                                line-height: 24px;
-                                font-family: Arial, sans-serif;
-                              "
-                            >
-                             <img
-                                src="https://assets.codepen.io/210284/right.gif"
-                                alt=""
-                                width="260"
-                                style="height: auto; display: block"
-                              /> -->
-                            <!-- </p>  -->
-                            <!-- <p 
-                              id="textContentRight"
-                              class="mainText3"
-                              style="
-                                margin: 0 0 12px 0;
-                                font-size: 16px;
-                                line-height: 24px;
-                                word-break:break-word;
-                                font-family: Arial, sans-serif;
-                              "
-                
-                            >
-                              Morbi porttitor, eget est accumsan dictum, nisi
-                              libero ultricies ipsum, in posuere mauris neque at
-                              erat. Lorem ipsum dolor sit amet, consectetur
-                              adipiscing elit. In tempus adipiscing felis, sit
-                              amet blandit ipsum volutpat sed.
-                            </p> -->
-                            <!-- <p
-                              style="
-                                margin: 0;
-                                font-size: 16px;
-                                line-height: 24px;
-                                font-family: Arial, sans-serif;
-                              "
-                            >
-                               <a
-                                href="http://www.example.com"
+                            <tr>
+                              <td
                                 style="
-                                  color: #ee4c50;
-                                  text-decoration: underline;
+                                  width: 290px;
+                                  padding: 0;
+                                  vertical-align: top;
+                                  color: #153643;
                                 "
-                                >In tempus felis blandit</a
-                              > -->
-                            <!-- </p>  -->
-                          <!-- </td>
-                        </tr>
-                      </table>
-                    </td>
-                  </tr> --> 
-                </table>
-              </td>
-            </tr>
-            <tr>
-              <td style="padding: 30px; background: #EF700C">
-                <table
-                  role="presentation"
-                  style="
-                    width: 100%;
-                    border-collapse: collapse;
-                    border: 0;
-                    border-spacing: 0;
-                    font-size: 9px;
-                    font-family: Arial, sans-serif;
-                  "
-                >
-                  <tr>
-                    <td style="padding: 0; width: 50%" align="left">
-                      <p
-                        style="
-                          margin: 0;
-                          font-size: 14px;
-                          line-height: 16px;
-                          font-family: Arial, sans-serif;
-                          word-wrap: break-word;
-                          color: #ffffff;
-                        "
-                        id="footerText"
-                      >
-                        &reg; Someone, Somewhere 2022<br />
-                      </p>
-                    </td>
-                    <!-- <td style="padding: 0; width: 50%" align="right">
-                      <table
-                        role="presentation"
-                        style="
-                          border-collapse: collapse;
-                          border: 0;
-                          border-spacing: 0;
-                        "
-                      > -->
-                        <!-- <tr> -->
-                          <!-- <td style="padding: 0 0 0 10px; width: 38px"> -->
-                            <!-- <a
-                              href="http://www.twitter.com/"
-                              style="color: #ffffff"
-                              ><img
-                                src="https://assets.codepen.io/210284/tw_1.png"
-                                alt="Twitter"
-                                width="38"
-                                style="height: auto; display: block; border: 0"
-                            /></a> -->
-                          <!-- </td> -->
-                          <!-- <td style="padding: 0 0 0 10px; width: 38px"> -->
-                            <!-- <a
-                              href="http://www.facebook.com/"
-                              style="color: #ffffff"
-                              ><img
-                                src="https://assets.codepen.io/210284/fb_1.png"
-                                alt="Facebook"
-                                width="38"
-                                style="height: auto; display: block; border: 0"
-                            /></a> -->
-                          <!-- </td>
-                        </tr> -->
-                      </table>
-                    <!-- </td> -->
-                  </tr>
-                </table>
-              </td>
-            </tr>
-          </table>
-        </td>
-      </tr>
-    </table>
-  </div>
+                              >
+                                <p
+                                  style="
+                                    margin: 0 0 25px 0;
+                                    font-size: 16px;
+                                    line-height: 24px;
+                                    font-family: Arial, sans-serif;
+                                  "
+                                ></p>
+                                <p
+                                  id="mainText1"
+                                  class="mainText2"
+                                  style="
+                                    margin: 0 0 12px 0;
+                                    font-size: 16px;
+                                    line-height: 24px;
+                                    font-family: Arial, sans-serif;
+                                    word-break: break-word;
+                                  "
+                                >
+                               
+                                </p>
+                                &nbsp;
+                                <p
+                                id="mainText2"
+                                  class="mainText2"
+                                  style="
+                                    margin: 0 0 12px 0;
+                                    font-size: 16px;
+                                    line-height: 24px;
+                                    font-family: Arial, sans-serif;
+                                    word-break: break-word;
+                                  "
+                                >
+                                  
+                                </p> 
+                                 &nbsp;
+                                <p
+                                id="mainText3"
+                                  class="mainText2"
+                                  style="
+                                    margin: 0 0 12px 0;
+                                    font-size: 16px;
+                                    line-height: 24px;
+                                    font-family: Arial, sans-serif;
+                                    word-break: break-word;
+                                  "
+                                >
+                               
+                                </p>
+                                &nbsp;
+                                <p
+                                id="mainText4"
+                                  class="mainText2"
+                                  style="
+                                    margin: 0 0 12px 0;
+                                    font-size: 16px;
+                                    line-height: 24px;
+                                    font-family: Arial, sans-serif;
+                                    word-break: break-word;
+                                  "
+                                >
+                                  Thank you,
+                                </p>
+                                <p
+                                id="mainText5"
+                                  class="mainText2"
+                                  style="
+                                    margin: 0 0 12px 0;
+                                    font-size: 16px;
+                                    line-height: 24px;
+                                    font-family: Arial, sans-serif;
+                                    word-break: break-word;
+                                  "
+                                >
+                                  NAVEX Third Party Compliance Team
+                                </p>
+                                <p
+                                  style="
+                                    margin: 0;
+                                    font-size: 16px;
+                                    line-height: 24px;
+                                    font-family: Arial, sans-serif;
+                                  "
+                                ></p>
+                              </td>
+                              <td
+                                style="
+                                  width: 15px;
+                                  padding-right: 0px;
+                                  font-size: 0;
+                                  line-height: 0;
+                                "
+                              >
+                                &nbsp;
+                              </td>
+                            
 
-    <div id="button"></div>
+                              <td
+                                style="
+                                 width: 150px; border: solid black 1px; background-color: #eeece9; filter: drop-shadow(16px -16px 0px rgba(52,89,93, 0.8)); padding-right: 15px; vertical-align: top; color: #153643;
+                                 
+                                "
+                              >
+                                <p
+                                  style="
+                                    margin: 0 0 25px 0;
+                                    font-size: 16px;
+                                    line-height: 24px;
+                                    font-family: Arial, sans-serif;
+                                  "
+                                ></p>
 
+                                <p style="text-align: center; font-size: 20px; font-weight: 700">
+                                  Actions Required:
+                                </p>
+                                <ol
+                                  id="textContentRight"
+                                  class="mainText3"
+                                  style="
+                                    margin: 0 0 12px 0;
+                                    font-size: 12px;
+                                    line-height: 24px;
+                                    word-break: break-word;
+                                    font-family: Arial, sans-serif;
+                                  "
+                                >
+                                 
+                                </ol>
+                              </td>                             
+                            </tr>
+                          </table>
+                        </td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+                <tr>
+                  <td style="padding: 30px; background: #ef700c">
+                    <table
+                      role="presentation"
+                      style="
+                        width: 100%;
+                        border-collapse: collapse;
+                        border: 0;
+                        border-spacing: 0;
+                        font-size: 9px;
+                        font-family: Arial, sans-serif;
+                      "
+                    >
+                      <tr>
+                        <td style="padding: 0; width: 100%" align="center">
+                          <p
+                            style="
+                              margin: 0;
+                              font-size: 14px;
+                              line-height: 16px;
+                              word-wrap: break-word;
+                              word-break: break-all;
+                              font-family: Arial, sans-serif;
+                              color: #ffffff;
+                            "
+                            id="footerText"
+                          >
+                            &reg; Someone, Somewhere 2022<br />
+                          </p>
+                        </td>
+                        <td style="padding: 0; width: 50%" align="right">
+                          <table
+                            role="presentation"
+                            style="
+                              border-collapse: collapse;
+                              border: 0;
+                              border-spacing: 0;
+                            "
+                          ></table>
+                        </td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+        </table>
+      </div>
+
+      <div id="button"></div>
     </div>
 
     <script src="template.js"></script>

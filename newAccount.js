@@ -214,7 +214,7 @@ function handleSubmit(event) {
  
   var logo = document.getElementById("logo");
   var mainText1 = document.getElementById("mainText1")
-  var mainText2 = document.getElementById("mainText2")
+//   var mainText2 = document.getElementById("mainText2")
   var mainText3 = document.getElementById("mainText3")
   var mainText4 = document.getElementById("mainText4")
   var mainText5 = document.getElementById("mainText5")
@@ -240,7 +240,7 @@ function handleSubmit(event) {
   //   mainText.style = `color:${event.target[1].value};`
   //   mainText.textContent = `${event.target[3].value}`
   mainText1.style = `color:${event.target[2].value};`
-  mainText2.style = `color:${event.target[2].value};`
+//   mainText2.style = `color:${event.target[2].value};`
   mainText3.style = `color:${event.target[2].value};`
   mainText4.style = `color:${event.target[2].value};`
   mainText5.style = `color:${event.target[2].value};`
@@ -268,9 +268,3 @@ function handleSubmit(event) {
     await navigator.clipboard.writeText(emailNot.outerHTML);
   };
 }
-
-
-
-
-
-

@@ -7,7 +7,9 @@ input[type=text], select {
   margin-top: 6px; /* Add a top margin */
   margin-bottom: 16px; /* Bottom margin */
   resize: vertical; /* Allow the user to vertically resize the textarea (not horizontally) */
-  background-color: #f1f1f5; ;
+  background-color: #f1f1f5; 
+  /* background-color: #3f3f41; */
+  /* color:#f2f2f2 */
 } 
 
 textarea{
@@ -20,8 +22,9 @@ textarea{
   margin-bottom: 16px; /* Bottom margin */
   resize: vertical; /* Allow the user to vertically resize the textarea (not horizontally) */
   word-wrap: break-word;
-  background-color: #ededf1; ;
-  /* background-color: #ff9442; */
+  background-color: #ededf1; 
+  /* background-color: #3f3f41;; */
+  /* color:#f2f2f2 */
 
 }
 
@@ -55,8 +58,10 @@ input[type=color] {
   box-sizing: border-box; /* Make sure that padding and width stays in place */
   margin-top: 6px; /* Add a top margin */
   margin-bottom: 16px; /* Bottom margin */ 
-  background-color: #ededf1; ;
-  resize: vertical /*Allow the user to vertically resize the textarea (not horizontally) */
+  background-color: #ededf1; 
+  /* background-color: #3f3f41; */
+  resize: vertical /*Allow the user to vertically resize the textarea (not horizontally) */ 
+
 
 }
 
@@ -220,12 +225,18 @@ input[type=submit]:hover {
 .container {
   display: flex;
   flex-direction: column;
+  margin-left: 1%;
+  margin-right: 1%;
   justify-content: center;
-  box-shadow: 0 0 20px 0  #050505; 
+  box-shadow: 0 0 20px 0  #3c3737; 
   background-color: #f2f2f2;
-  margin-bottom: 15px;
+  margin-bottom: 2%;
   /* width: 100%; */
+  border-radius: 6px;
   
+}
+#templateName{
+  margin-left: 1%;
 }
 .styled-table {
   border-collapse: collapse;
@@ -248,19 +259,26 @@ background: linear-gradient( #ec7b25 0%, #EF700C 100%);
 
 #example, #example2{
   margin-bottom: 15px;
+  transition: opacity 1s;
  }
+#example--hidden, #example2--hiden{
+  margin-bottom: 15px;
+  display: block; margin-left: auto; margin-right: auto; margin-top: 15px; 
+  opacity: 0;
+}
 
 #form{
   /* margin-bottom: 75%; */
   /* outline:invert; */
  display: flex;
  flex-direction: column;
-
+ /* background-color: #3c3737; */
  justify-content: center;
   font-family: Roboto, Arial, sans-serif;
   font-size: 18px;
   color: #356F6F;
   width: 100%;
+  
 }
 
 #headerH1{
@@ -276,8 +294,12 @@ background: linear-gradient( #ec7b25 0%, #EF700C 100%);
 
 .Navbar {
   /* background-image: url("https://images.g2crowd.com/uploads/optimized_product_banner/image/815/a94e25efd798e04b4bf6fed25cf304d1.png"); */
-  background-color: #EF700C;
-
+  background-color: #252525;
+  /* background-color: #3c3737; */
+  box-shadow: 0 0 20px 0  #3c3737; 
+  margin-left: 1%;
+  margin-right: 1%;
+  margin-top: 2%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -304,7 +326,7 @@ background: linear-gradient( #ec7b25 0%, #EF700C 100%);
 .Navbar__Link:hover {
   /* padding-left: 2%;
   padding-right: 0%; */
-  color: white;
+  color: #4b8484;
   cursor: pointer;
   text-decoration: underline;
 }
