@@ -151,6 +151,8 @@ function customActions() {
 
 //clears the form and makes the submit button visible again
 function clearAll(parent) { 
+  showSavedMain()
+toggle=false
     hide();
     hide2();
   while (parent.firstChild) {
@@ -180,9 +182,65 @@ function clearAll(parent) {
   }
   form.reset();
 }
+function showSavedMain(){
+let saved = localStorage.getItem("savedItem")
+var hideSavedButton = document.createElement("button")
+  if(saved){
+    var savedButton = document.createElement("button")
+    savedButton.setAttribute("id","copy")
+    savedButton.textContent = "Show Last Copied Template"
+    contain.after(savedButton)
+    function showSaved(){
+      var contain = document.getElementById("contain")
+    var savedTemplate = document.createElement("div")
+    savedTemplate.setAttribute("id","saveTemp")
+    contain.after(savedTemplate)
+    var savedTemplateEl = document.createElement("p")
+    var savedId = Date.now().toString()
+    savedTemplateEl.setAttribute("id", savedId)
+    savedTemplate.appendChild(savedTemplateEl)
+    savedTemplateEl.outerHTML= saved
+    savedButton.style="display:none"
+    
+    hideSavedButton.setAttribute("id", "copy")
+    hideSavedButton.textContent="Hide Last Saved Template"
+    savedButton.after(hideSavedButton)
+    hideSavedButton.style="display:visible"
+    var copyToClipBoardSaved = document.createElement("button");
+  hideSavedButton.after(copyToClipBoardSaved);
+  copyToClipBoardSaved.textContent = "Copy HTML to clipboard";
+  copyToClipBoardSaved.setAttribute("id", "copy");
+  copyToClipBoardSaved.onclick = async () => {
+    await navigator.clipboard.writeText(saved);
+  }
+    }
+    
+    function hideSaved(){
+      var saveTemp = document.getElementById("saveTemp")
+      saveTemp.style="display:none"
+      savedButton.style="display:visible"
+      hideSavedButton.style="display:none"
 
+    }
+    savedButton.addEventListener("click",showSaved);
+    hideSavedButton.addEventListener("click", hideSaved)
+  }
+} 
+
+let saved = localStorage.getItem("savedItem")
+let toggle=true
+if(saved){
+showSavedMain()
+toggle=false
+
+}
 //submitting the form
 function handleSubmit(event) {
+  if(toggle){
+    showSavedMain()
+    toggle=false
+  }
+
   console.log(event);
   event.preventDefault();
   console.log("submitted");
@@ -206,6 +264,9 @@ function handleSubmit(event) {
   form.removeEventListener("submit", function handleSubmit() {});
 
   var emailNot = document.getElementById("emailNotification");
+  localStorage.getItem("savedTemplate")
+  
+ 
   emailNot.style = "display:visible; margin: 0 auto";
 
   var emailHeader = document.getElementById("emailHeader");
@@ -264,7 +325,13 @@ function handleSubmit(event) {
   copyToClipBoard.textContent = "Copy HTML to clipboard";
   copyToClipBoard.setAttribute("id", "copy");
 
+   
   copyToClipBoard.onclick = async () => {
     await navigator.clipboard.writeText(emailNot.outerHTML);
+    localStorage.setItem("savedItem", emailNot.outerHTML)
+ let saved = localStorage.getItem("savedItem")
+    
   };
+  
+  
 }

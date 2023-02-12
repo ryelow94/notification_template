@@ -43,21 +43,21 @@
           </a>  
           <a class="Navbar__Link" href="reopenAssessment.html">
             Reopen Assessment
-          </a>     
+          </a>  
       </nav>
     </div>
      <!-- <div id="topDiv" style="display: flex; ">
       <h1 id="headerH1"> Email Template Generator</h1>
   </div>  -->
     
-  <h1 id="templateName" style=" color:#356F6F;">New Account</h1>
+  <h1 id="templateName" style=" color:#356F6F;">Reopen Assessment</h1>
   <!-- <p style="text-align: center"> * Body content will be set to the default assessment notification, but can be edited in the rich text field once pasted into NAVEX IRM.*</p>  -->
   
     <div class="container"> 
       <p style="text-align: center; font-size: 18px; color:#356F6F">Example Notification</p>
       <!-- <button id="hideExample" style="display:none">Hide Example</button> -->
       <button class="unHideExample" id="unHideExample" type="button" style="display: visible;">Show Example</button>
-      <img class="example"id="example" src="assessment template.png" width="400" style=" display: none;
+      <img class="example"id="example" src="Reopen Assessment.png" width="40%" style=" display: none;
       margin-left: auto;
       margin-right: auto; margin-top: 15px;  ">
       <button class="hideExample" type="button" id="hideExample"style=" display:none; margin-top: 10px;">Hide Example</button>
@@ -146,7 +146,7 @@
           <option value="[VendorName]">[VendorName]</option>
         </select>
 
-        <label id="footerLabel" for="row">Create Footer Text</label>
+        <label id="footerLabel" for="row">Footer Text</label>
         <textarea
           wrap="hard"
           rows="3"
@@ -157,7 +157,7 @@
         ></textarea>
 
         <button id="submitCustomFooter" type="button">
-          Create Footer Text
+          Add a Footer Value
         </button>
 
         <label id="footerSystem" for="row">Footer Text Options</label>
@@ -256,14 +256,14 @@
                                   color: #153643;
                                 "
                               >
-                                <p
+                                <!-- <p
                                   style="
                                     margin: 0 0 25px 0;
                                     font-size: 16px;
                                     line-height: 24px;
                                     font-family: Arial, sans-serif;
                                   "
-                                ></p>
+                                ></p> -->
                                 <p
                                   id="mainText1"
                                   class="mainText2"
@@ -274,11 +274,8 @@
                                     font-family: Arial, sans-serif;
                                     word-break: break-word;
                                   "
-                                >
-                                A user account has been created for you to access the NAVEX IRM portal. Here you will be able to view and complete assessments issued to [VendorName] and upload file attachments related to those assessments. You will receive future email notifications when assessments are issued directly to you.
-                                </p>
-                                &nbsp;
-                                <!-- <p
+                                ></p>
+                                <p
                                 id="mainText2"
                                   class="mainText2"
                                   style="
@@ -288,10 +285,8 @@
                                     font-family: Arial, sans-serif;
                                     word-break: break-word;
                                   "
-                                >
-                                  
-                                </p> -->
-                                <!-- &nbsp; -->
+                                >An assessment assigned to you has been reopened. To review the assessment, log into the portal. Please provide additional information and re-submit the assessment when you are finished.
+                                </p>
                                 <p
                                 id="mainText3"
                                   class="mainText2"
@@ -302,10 +297,7 @@
                                     font-family: Arial, sans-serif;
                                     word-break: break-word;
                                   "
-                                >
-                                To access the portal, use the credentials in the pane to the right.
-                                </p>
-                                &nbsp;
+                                ></p>
                                 <p
                                 id="mainText4"
                                   class="mainText2"
@@ -445,6 +437,6 @@
       <div id="button"></div>
     </div>
 
-    <script src="newAccount.js"></script>
+    <script src="reopen.js"></script>
   </body>
 </html>

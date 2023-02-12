@@ -30,17 +30,20 @@
       <h3 id="h3Toggle"  >Select a Template: </h3>
       <nav class="Navbar__Items">
         <a class="Navbar__Link" href="index.html">
-          Blank Email Template
-        </a>  
-        <a class="Navbar__Link" href="newAccount.html">
-            New Account
-          </a>
-        <a class="Navbar__Link" href="test.html">
-          Issue Assessment
-        </a>            
-          <a class="Navbar__Link" href="cancelAssessment.html">
-            Cancel Assessment
-          </a> 
+            Blank Email Template
+          </a>  
+          <a class="Navbar__Link" href="newAccount.html">
+              New Account
+            </a>
+          <a class="Navbar__Link" href="test.html">
+            Issue Assessment
+          </a>            
+            <a class="Navbar__Link" href="cancelAssessment.html">
+              Cancel Assessment
+            </a>  
+            <a class="Navbar__Link" href="reopenAssessment.html">
+              Reopen Assessment
+            </a>  
       </nav>
     </div>
      <!-- <div id="topDiv" style="display: flex; ">
@@ -54,7 +57,7 @@
       <p style="text-align: center; font-size: 18px; color:#356F6F">Example Notification</p>
       <!-- <button id="hideExample" style="display:none">Hide Example</button> -->
       <button class="unHideExample" id="unHideExample" type="button" style="display: visible;">Show Example</button>
-      <img class="example"id="example" src="Cancelled Assessment.png" width="30%" style=" display: none;
+      <img class="example"id="example" src="Cancelled Assessment.png" width="50%" style=" display: none;
       margin-left: auto;
       margin-right: auto; margin-top: 15px;  ">
       <button class="hideExample" type="button" id="hideExample"style=" display:none; margin-top: 10px;">Hide Example</button>
@@ -98,7 +101,7 @@
           name="row"
           placeholder="informational text/body text color"
         /> 
-        <p style="text-align: center; padding-left: 3%; padding-right: 3%"> * Body text content will be set to the default value shown in the example above, but can be edited in the rich text field or code editor once the HTML is pasted into NAVEX IRM. *</p> 
+        <p style="text-align: center; padding-left: 3%; padding-right: 3%"> * If you would like to change the email body text, you can do so in the rich text field in IRM once this template is copied from this form and pasted into the platform. *</p> 
         
         <label id="textContentLabel" for="row" style="display: none">Body Text</label>
         <textarea
@@ -128,11 +131,12 @@
        
 
         <label id="headerTextLabel" for="row">Add Recipient Name</label>
+        <p style="text-align: left; font-size:small; padding-left: 1.5%; padding-right: 3%"> * Adds an option to the Recipient Options below. This can be left blank.</p>
         <input
           type="text"
           id="table-choice-text"
           name="row"
-          placeholder="Add a recipient name to the options below if needed."
+          placeholder="Add a recipient if not shown in options below."
         />
         <button id="submitCustom" type="button">Add a Recipient</button>
 

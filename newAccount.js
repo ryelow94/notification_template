@@ -228,8 +228,8 @@ function handleSubmit(event) {
     logo.setAttribute("src", event.target[0].value);
   }
   headerBackground.style=`background:${event.target[1].value}`
-  emailHeader.style = `font-size:24px`;
-  emailHeader.style= `color:${event.target[2].value}`
+
+  emailHeader.style= `color:${event.target[2].value}; font-size:24px`
   emailHeader.textContent = "Hello " + `${event.target[10].value}` + ",";
   footerText.textContent = `${event.target[13].value}`;
   if(footerText.textContent === "Default"||footerText.textContent ==="None"){
@@ -241,9 +241,9 @@ function handleSubmit(event) {
   //   mainText.textContent = `${event.target[3].value}`
   mainText1.style = `color:${event.target[2].value};`
 //   mainText2.style = `color:${event.target[2].value};`
-  mainText3.style = `color:${event.target[2].value};`
-  mainText4.style = `color:${event.target[2].value};`
-  mainText5.style = `color:${event.target[2].value};`
+  mainText3.style = `color:${event.target[2].value}; font-size:16px`
+  mainText4.style = `color:${event.target[2].value}; font-size:16px`
+  mainText5.style = `color:${event.target[2].value}; font-size:16px`
   // mainText3.style = `color:${event.target[7].value};`
   // mainText2.textContent = `${event.target[9].value}`
   // mainText3.textContent = `${event.target[10].value}`

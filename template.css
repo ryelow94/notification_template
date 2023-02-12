@@ -233,6 +233,8 @@ input[type=submit]:hover {
   margin-bottom: 2%;
   /* width: 100%; */
   border-radius: 6px;
+  background: linear-gradient(  #e3e1e0, #e8e8e8 100%);
+
   
 }
 #templateName{
@@ -254,7 +256,7 @@ caption {
 
 #topDiv{
 background-color: #EF700C;
-background: linear-gradient( #ec7b25 0%, #EF700C 100%);
+
 } 
 
 #example, #example2{
@@ -406,6 +408,9 @@ text-decoration: underline;
  #logo{
   width:100%;
  } 
+ #headerH1{
+  font-size: 1.5em;
+ }
  #example, #example2{
   width:300px;
   transition: all 1s ease-in;
