@@ -183,36 +183,45 @@ toggle=false
   form.reset();
 }
 function showSavedMain(){
+  var copyToClipBoardSaved = document.createElement("button");
 let saved = localStorage.getItem("savedItem")
 var hideSavedButton = document.createElement("button")
   if(saved){
     var savedButton = document.createElement("button")
     savedButton.setAttribute("id","copy")
     savedButton.textContent = "Show Last Copied Template"
-    contain.after(savedButton)
+    contain.appendChild(savedButton)
     function showSaved(){
       var contain = document.getElementById("contain")
     var savedTemplate = document.createElement("div")
     savedTemplate.setAttribute("id","saveTemp")
-    contain.after(savedTemplate)
+    contain.appendChild(savedTemplate)
     var savedTemplateEl = document.createElement("p")
     var savedId = Date.now().toString()
     savedTemplateEl.setAttribute("id", savedId)
     savedTemplate.appendChild(savedTemplateEl)
     savedTemplateEl.outerHTML= saved
-    savedButton.style="display:none"
+    savedButton.style="display:none;"
     
     hideSavedButton.setAttribute("id", "copy")
     hideSavedButton.textContent="Hide Last Saved Template"
     savedButton.after(hideSavedButton)
     hideSavedButton.style="display:visible"
-    var copyToClipBoardSaved = document.createElement("button");
-  hideSavedButton.after(copyToClipBoardSaved);
-  copyToClipBoardSaved.textContent = "Copy HTML to clipboard";
+    var butt = document.getElementById("button")
+    
+   console.log(copyToClipBoardSaved)
+   butt.after(copyToClipBoardSaved);
+  if(copyToClipBoardSaved.textContent !== "Copy HTML to clipboard brah"){
+  
+  copyToClipBoardSaved.textContent = "Copy saved HTML to clipboard";
   copyToClipBoardSaved.setAttribute("id", "copy");
   copyToClipBoardSaved.onclick = async () => {
     await navigator.clipboard.writeText(saved);
   }
+  copyToClipBoardSaved.style="display:visible"
+} 
+
+copyToClipBoardSaved.style="display:visible"
     }
     
     function hideSaved(){
@@ -220,6 +229,7 @@ var hideSavedButton = document.createElement("button")
       saveTemp.style="display:none"
       savedButton.style="display:visible"
       hideSavedButton.style="display:none"
+      copyToClipBoardSaved.style="display:none"
 
     }
     savedButton.addEventListener("click",showSaved);
@@ -322,6 +332,7 @@ function handleSubmit(event) {
   });
   var copyToClipBoard = document.createElement("button");
   clear.after(copyToClipBoard);
+  console.log("here")
   copyToClipBoard.textContent = "Copy HTML to clipboard";
   copyToClipBoard.setAttribute("id", "copy");
 

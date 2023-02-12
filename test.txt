@@ -1,1 +1,149 @@
-box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
+<table role="presentation" id="emailNotification" style="margin: 0px auto;">
+          <tbody><tr>
+            <td align="center" style="padding: 0">
+              <table role="presentation" style="
+                  border-collapse: collapse;
+                  border: 1px solid #cccccc;
+                  border-spacing: 0;
+                  text-align: left;
+                ">
+                <tbody><tr>
+                  <td id="headerCopyColor" align="Center" style="background: rgb(0, 0, 0);">
+                    <img id="logo" src="https://images.g2crowd.com/uploads/optimized_product_banner/image/815/a94e25efd798e04b4bf6fed25cf304d1.png" width="100%">
+                  </td>
+                </tr>
+                <tr>
+                  <td style="padding: 36px 30px 42px 30px">
+                    <table role="presentation" style="
+                        width: 100%;
+                        border-collapse: collapse;
+                        border: 0;
+                        border-spacing: 0;
+                      ">
+                      <tbody><tr>
+                        <td style="color: #153643">
+                          <p id="emailHeader" style="color: rgb(0, 0, 0);">Hello [VendorContact],</p>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td style="padding: 0">
+                          <table role="presentation" style="
+                              width: 100%;
+                              border-collapse: collapse;
+                              border: 0;
+                              border-spacing: 0;
+                            ">
+                            <tbody><tr>
+                              <td style="
+                                  width: 290px;
+                                  padding: 0;
+                                  vertical-align: top;
+                                  color: #153643;
+                                ">
+                                <p style="
+                                    margin: 0 0 25px 0;
+                                    font-size: 16px;
+                                    line-height: 24px;
+                                    font-family: Arial, sans-serif;
+                                  "></p>
+                                <p id="mainText1" class="mainText2" style="color: rgb(0, 0, 0);">
+                                  We're excited to get started with
+                                  [VendorName]
+                                </p>
+                                &nbsp;
+                                <p id="mainText2" class="mainText2" style="color: rgb(0, 0, 0);">
+                                  An Assessment has been issued to [VendorName]
+                                  with you as the contact. The assessment is
+                                  designed to hel us meet and maintain
+                                  compliance to industry regulations and
+                                  security expectations.
+                                </p>
+                                &nbsp;
+                                <p id="mainText3" class="mainText2" style="color: rgb(0, 0, 0);">
+                                  We request that you complete the assessment to
+                                  ensure a timely onboarding of [ThirdPartyName]
+                                </p>
+                                &nbsp;
+                                <p id="mainText4" class="mainText2" style="color: rgb(0, 0, 0);">
+                                  Thank you,
+                                </p>
+                                <p id="mainText5" class="mainText2" style="color: rgb(0, 0, 0);">
+                                  NAVEX Third Party Compliance Team
+                                </p>
+                                <p style="
+                                    margin: 0;
+                                    font-size: 16px;
+                                    line-height: 24px;
+                                    font-family: Arial, sans-serif;
+                                  "></p>
+                              </td>
+                              <td style="
+                                  width: 15px;
+                                  padding-right: 0px;
+                                  font-size: 0;
+                                  line-height: 0;
+                                ">
+                                &nbsp;
+                              </td>
+                            
+
+                              <td style="
+                                 width: 150px; border: solid black 1px; background-color: #eeece9; filter: drop-shadow(16px -16px 0px rgba(52,89,93, 0.8)); padding-right: 15px; vertical-align: top; color: #153643;
+                                 
+                                ">
+                                <p style="
+                                    margin: 0 0 25px 0;
+                                    font-size: 16px;
+                                    line-height: 24px;
+                                    font-family: Arial, sans-serif;
+                                  "></p>
+
+                                <p style="text-align: center; font-size: 20px; font-weight: 700">
+                                  Actions Required:
+                                </p>
+                                <ol id="textContentRight" class="mainText3" style="
+                                    margin: 0 0 12px 0;
+                                    font-size: 12px;
+                                    line-height: 24px;
+                                    word-break: break-word;
+                                    font-family: Arial, sans-serif;
+                                  ">
+                                 
+                                </ol>
+                              </td>                             
+                            </tr>
+                          </tbody></table>
+                        </td>
+                      </tr>
+                    </tbody></table>
+                  </td>
+                </tr>
+                <tr>
+                  <td style="padding: 30px; background: #ef700c">
+                    <table role="presentation" style="
+                        width: 100%;
+                        border-collapse: collapse;
+                        border: 0;
+                        border-spacing: 0;
+                        font-size: 9px;
+                        font-family: Arial, sans-serif;
+                      ">
+                      <tbody><tr>
+                        <td style="padding: 0; width: 100%" align="center">
+                          <p id="footerText" style="margin: 0; font-size: 16px; line-height: 20px; font-family: Arial, sans-serif; color: #ffffff;"><strong>Vision:</strong> Deliver the world's smartest <strong>integrated</strong> platform that enables organizations to <strong>predict</strong> and <strong>mitigate</strong> risk.</p>
+                        </td>
+                        <td style="padding: 0; width: 50%" align="right">
+                          <table role="presentation" style="
+                              border-collapse: collapse;
+                              border: 0;
+                              border-spacing: 0;
+                            "></table>
+                        </td>
+                      </tr>
+                    </tbody></table>
+                  </td>
+                </tr>
+              </tbody></table>
+            </td>
+          </tr>
+        </tbody></table>
