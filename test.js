@@ -29,11 +29,11 @@ function hide() {
   unHideExample.style = "display:visible";
 }
 function hide2() {
-    var example2 = document.getElementById("example2");
-    example2.style = "display:none";
-    hideExample2.style = "display:none";
-    unHideExample2.style = "display:visible";
-  }
+  var example2 = document.getElementById("example2");
+  example2.style = "display:none";
+  hideExample2.style = "display:none";
+  unHideExample2.style = "display:visible";
+}
 function unHide() {
   var example = document.getElementById("example");
   example.style =
@@ -42,12 +42,12 @@ function unHide() {
   unHideExample.style = "display:none";
 }
 function unHide2() {
-    var example2 = document.getElementById("example2");
-    example2.style =
-      "display: block; margin-left: auto; margin-right: auto; margin-top: 15px; ";
-    hideExample2.style = "display:visible";
-    unHideExample2.style = "display:none";
-  }
+  var example2 = document.getElementById("example2");
+  example2.style =
+    "display: block; margin-left: auto; margin-right: auto; margin-top: 15px; ";
+  hideExample2.style = "display:visible";
+  unHideExample2.style = "display:none";
+}
 
 document
   .querySelector(".Navbar__Link-toggle")
@@ -103,19 +103,21 @@ function customHeader() {
   added.textContent = "Added Custom Value";
   customSubmitButton.after(added);
 }
-function removeAction(){
-    console.log("remove called")
-    let removedAction = Array.from(document.getElementsByClassName("actionItem"));
-    let removedActionDisplay = Array.from(document.getElementsByClassName("addedAction"));
-    if(removedAction.length===1){
-        var removeRemove = document.getElementById("remove")
-        removeRemove.remove()   
-    }
-    var removeThisToo = removedActionDisplay.shift()
-    var removeThis = removedAction.shift()
-    removeThis.remove()
-    removeThisToo.remove();
+function removeAction() {
+  console.log("remove called");
+  let removedAction = Array.from(document.getElementsByClassName("actionItem"));
+  let removedActionDisplay = Array.from(
+    document.getElementsByClassName("addedAction")
+  );
+  if (removedAction.length === 1) {
+    var removeRemove = document.getElementById("remove");
+    removeRemove.remove();
   }
+  var removeThisToo = removedActionDisplay.shift();
+  var removeThis = removedAction.shift();
+  removeThis.remove();
+  removeThisToo.remove();
+}
 function customActions() {
   var inputVal = document.getElementById("table-choice-textContentL");
   if (inputVal.value === "") {
@@ -129,36 +131,42 @@ function customActions() {
   optionAdd.style = "font-size: 16px; padding-bottom:7.5px";
   optionAdd.textContent = inputVal.value;
   inputListItems.appendChild(optionAdd);
-  var submitCustomButton = document.getElementById("submitCustomAction")
-  var actionDiv = document.createElement("div")
-  submitCustomButton.after(actionDiv)
+  var submitCustomButton = document.getElementById("submitCustomAction");
+  var actionDiv = document.createElement("div");
+  submitCustomButton.after(actionDiv);
   var addedAction = document.createElement("p");
-  actionDiv.appendChild(addedAction)
-  let actionDisplay = Array.from(document.getElementsByClassName("addedAction"));
+  actionDiv.appendChild(addedAction);
+  let actionDisplay = Array.from(
+    document.getElementsByClassName("addedAction")
+  );
   addedAction.setAttribute("class", "addedAction");
   addedAction.textContent = "Action Added: " + `${inputVal.value}`;
-  
-  if(!document.getElementById("remove")){
-  var remove = document.createElement("div");
-  remove.setAttribute("id", "remove")
-  remove.textContent = "Remove Action";
-  actionDiv.after(remove);
-  remove.addEventListener("click", removeAction) 
-  console.log("here")
-  } 
-  inputVal.value = "";  
-}
 
+  if (!document.getElementById("remove")) {
+    var remove = document.createElement("div");
+    remove.setAttribute("id", "remove");
+    remove.textContent = "Remove Action";
+    actionDiv.after(remove);
+    remove.addEventListener("click", removeAction);
+    console.log("here");
+  }
+  inputVal.value = "";
+}
+let toggle = true;
+let saved = localStorage.getItem("savedItem");
+if (saved) {
+  showSavedMain();
+  toggle = false;
+}
 //clears the form and makes the submit button visible again
-function clearAll(parent) { 
-  showSavedMain()
-toggle=false
-    hide();
-    hide2();
+function clearAll(parent) {
+  
+  hide();
+  hide2();
   while (parent.firstChild) {
     parent.removeChild(parent.firstChild);
-  } 
-  
+  }
+
   hideSubmit.style = "display:visible";
   var hideCustom = document.getElementById("submitCustom");
   hideCustom.style = "display:visible";
@@ -176,80 +184,88 @@ toggle=false
   removeFooterOptions.forEach((element) => {
     element.remove();
   });
-  let actionDisplay = Array.from(document.getElementsByClassName("addedAction"));
-  while(actionDisplay.length>0){
-    removeAction()
+  let actionDisplay = Array.from(
+    document.getElementsByClassName("addedAction")
+  );
+  while (actionDisplay.length > 0) {
+    removeAction();
   }
   form.reset();
 }
-function showSavedMain(){
+
+
+function showSavedMain() {
   var copyToClipBoardSaved = document.createElement("button");
-let saved = localStorage.getItem("savedItem")
-var hideSavedButton = document.createElement("button")
-  if(saved){
-    var savedButton = document.createElement("button")
-    savedButton.setAttribute("id","copy")
-    savedButton.textContent = "Show Last Copied Template"
-    contain.appendChild(savedButton)
-    function showSaved(){
-      var contain = document.getElementById("contain")
-    var savedTemplate = document.createElement("div")
-    savedTemplate.setAttribute("id","saveTemp")
-    contain.appendChild(savedTemplate)
-    var savedTemplateEl = document.createElement("p")
-    var savedId = Date.now().toString()
-    savedTemplateEl.setAttribute("id", savedId)
-    savedTemplate.appendChild(savedTemplateEl)
-    savedTemplateEl.outerHTML= saved
-    savedButton.style="display:none;"
-    
-    hideSavedButton.setAttribute("id", "copy")
-    hideSavedButton.textContent="Hide Last Saved Template"
-    savedButton.after(hideSavedButton)
-    hideSavedButton.style="display:visible"
-    var butt = document.getElementById("button")
-    
-   console.log(copyToClipBoardSaved)
-   butt.after(copyToClipBoardSaved);
-  if(copyToClipBoardSaved.textContent !== "Copy HTML to clipboard brah"){
+
+  var hideSavedButton = document.createElement("button");
+  hideSavedButton.setAttribute("id", "copy1");
+  if ((toggle = true)) {
+    var savedButton = document.createElement("button");
+    savedButton.setAttribute("id", "copy");
+    savedButton.style =
+      "margin-top:1%; margin-bottom:1%; margin-left: 35%; margin-right: 35%;";
+
+    savedButton.textContent = "Show Last Copied Template";
+    contain.appendChild(savedButton);
+  }
+    function showSaved() {
+      savedButton.style="display:none"
+      var contain = document.getElementById("contain");
+      var savedTemplate = document.createElement("div");
+      savedTemplate.setAttribute("id", "saveTemp");
+      contain.appendChild(savedTemplate);
+      var savedTemplateEl = document.createElement("p");
+      var savedId = Date.now().toString();
+      savedTemplateEl.setAttribute("id", savedId);
+      savedTemplate.appendChild(savedTemplateEl);
+      savedTemplateEl.outerHTML = saved;
+      savedButton.style =
+        "display:none; margin-top:1%; margin-bottom:1%; margin-left: 35%; margin-right: 35%;";
+
+      hideSavedButton.setAttribute("id", "copy");
+      hideSavedButton.textContent = "Hide Last Saved Template";
+      savedTemplate.after(hideSavedButton);
+      hideSavedButton.style =
+        "display:visible;margin-top:1%; margin-bottom:1%; margin-left: 35%; margin-right: 35%; ";
+      var butt = document.getElementById("button");
+
+      console.log(copyToClipBoardSaved);
+      hideSavedButton.after(copyToClipBoardSaved);
+      if (copyToClipBoardSaved.textContent !== "Copy HTML to clipboard brah") {
+        copyToClipBoardSaved.textContent = "Copy saved HTML to clipboard";
+        copyToClipBoardSaved.setAttribute("id", "copy");
+        copyToClipBoardSaved.onclick = async () => {
+          await navigator.clipboard.writeText(saved);
+         
+        };
+        copyToClipBoardSaved.style =
+          "display:visible;margin-top:1%; margin-bottom:1%; margin-left: 35%; margin-right: 35%;";
+         
+      }
+      function hideSaved() {
+        var savedTemplate = document.getElementById("saveTemp");
+        if (savedTemplate) {
+          savedTemplate.remove();
+        }
+        savedButton.style =
+          "display:visible; margin-top:1%; margin-bottom:1%; margin-left: 35%; margin-right: 35%;";
+        hideSavedButton.style = "display:none";
+        copyToClipBoardSaved.style = "display:none";
+      }
+
+      hideSavedButton.addEventListener("click", hideSaved);
+    }
   
-  copyToClipBoardSaved.textContent = "Copy saved HTML to clipboard";
-  copyToClipBoardSaved.setAttribute("id", "copy");
-  copyToClipBoardSaved.onclick = async () => {
-    await navigator.clipboard.writeText(saved);
-  }
-  copyToClipBoardSaved.style="display:visible"
-} 
-
-copyToClipBoardSaved.style="display:visible"
-    }
-    
-    function hideSaved(){
-      var saveTemp = document.getElementById("saveTemp")
-      saveTemp.style="display:none"
-      savedButton.style="display:visible"
-      hideSavedButton.style="display:none"
-      copyToClipBoardSaved.style="display:none"
-
-    }
-    savedButton.addEventListener("click",showSaved);
-    hideSavedButton.addEventListener("click", hideSaved)
-  }
-} 
-
-let saved = localStorage.getItem("savedItem")
-let toggle=true
-if(saved){
-showSavedMain()
-toggle=false
-
+  savedButton.addEventListener("click", showSaved);
 }
+
+
+
 //submitting the form
 function handleSubmit(event) {
-  if(toggle){
-    showSavedMain()
-    toggle=false
-  }
+    
+  
+ 
 
   console.log(event);
   event.preventDefault();
@@ -274,21 +290,20 @@ function handleSubmit(event) {
   form.removeEventListener("submit", function handleSubmit() {});
 
   var emailNot = document.getElementById("emailNotification");
-  localStorage.getItem("savedTemplate")
-  
- 
+  localStorage.getItem("savedTemplate");
+
   emailNot.style = "display:visible; margin: 0 auto";
 
   var emailHeader = document.getElementById("emailHeader");
-  var headerBackground = document.getElementById("headerCopyColor")
+  var headerBackground = document.getElementById("headerCopyColor");
   var footerText = document.getElementById("footerText");
- 
+
   var logo = document.getElementById("logo");
-  var mainText1 = document.getElementById("mainText1")
-  var mainText2 = document.getElementById("mainText2")
-  var mainText3 = document.getElementById("mainText3")
-  var mainText4 = document.getElementById("mainText4")
-  var mainText5 = document.getElementById("mainText5")
+  var mainText1 = document.getElementById("mainText1");
+  var mainText2 = document.getElementById("mainText2");
+  var mainText3 = document.getElementById("mainText3");
+  var mainText4 = document.getElementById("mainText4");
+  var mainText5 = document.getElementById("mainText5");
 
   if (event.target[0].value === "") {
     logo.setAttribute(
@@ -298,23 +313,26 @@ function handleSubmit(event) {
   } else {
     logo.setAttribute("src", event.target[0].value);
   }
-  headerBackground.style=`background:${event.target[1].value}`
+  headerBackground.style = `background:${event.target[1].value}`;
   emailHeader.style = `font-size:24px`;
-  emailHeader.style= `color:${event.target[2].value}`
+  emailHeader.style = `color:${event.target[2].value}`;
   emailHeader.textContent = "Hello " + `${event.target[10].value}` + ",";
   footerText.textContent = `${event.target[13].value}`;
-  if(footerText.textContent === "Default"||footerText.textContent ==="None"){
-   footerText.outerHTML = `<p id="footerText" style="margin: 0; font-size: 16px; line-height: 20px; font-family: Arial, sans-serif; color: #ffffff;"><strong>Vision:</strong> Deliver the world's smartest <strong>integrated</strong> platform that enables organizations to <strong>predict</strong> and <strong>mitigate</strong> risk.</p>`
-  } else{
-  footerText.textContent = `${event.target[13].value}`;
+  if (
+    footerText.textContent === "Default" ||
+    footerText.textContent === "None"
+  ) {
+    footerText.outerHTML = `<p id="footerText" style="margin: 0; font-size: 16px; line-height: 20px; font-family: Arial, sans-serif; color: #ffffff;"><strong>Vision:</strong> Deliver the world's smartest <strong>integrated</strong> platform that enables organizations to <strong>predict</strong> and <strong>mitigate</strong> risk.</p>`;
+  } else {
+    footerText.textContent = `${event.target[13].value}`;
   }
   //   mainText.style = `color:${event.target[1].value};`
   //   mainText.textContent = `${event.target[3].value}`
-  mainText1.style = `color:${event.target[2].value};`
-  mainText2.style = `color:${event.target[2].value};`
-  mainText3.style = `color:${event.target[2].value};`
-  mainText4.style = `color:${event.target[2].value};`
-  mainText5.style = `color:${event.target[2].value};`
+  mainText1.style = `color:${event.target[2].value};`;
+  mainText2.style = `color:${event.target[2].value};`;
+  mainText3.style = `color:${event.target[2].value};`;
+  mainText4.style = `color:${event.target[2].value};`;
+  mainText5.style = `color:${event.target[2].value};`;
   // mainText3.style = `color:${event.target[7].value};`
   // mainText2.textContent = `${event.target[9].value}`
   // mainText3.textContent = `${event.target[10].value}`
@@ -332,17 +350,16 @@ function handleSubmit(event) {
   });
   var copyToClipBoard = document.createElement("button");
   clear.after(copyToClipBoard);
-  console.log("here")
+  console.log("here");
   copyToClipBoard.textContent = "Copy HTML to clipboard";
   copyToClipBoard.setAttribute("id", "copy");
 
-   
   copyToClipBoard.onclick = async () => {
     await navigator.clipboard.writeText(emailNot.outerHTML);
-    localStorage.setItem("savedItem", emailNot.outerHTML)
- let saved = localStorage.getItem("savedItem")
+    localStorage.setItem("savedItem", emailNot.outerHTML);
+    let saved = localStorage.getItem("savedItem");
+    showSavedMain()
+    
     
   };
-  
-  
 }

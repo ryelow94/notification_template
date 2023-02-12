@@ -199,6 +199,12 @@ body {
   text-align: center;
   justify-content: center;
 }
+#saveTemp{
+ 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
 /* When moving the mouse over the submit button, add a darker green color */
 input[type=submit]:hover {
