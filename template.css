@@ -198,6 +198,7 @@ body {
   cursor: pointer;
   text-align: center;
   justify-content: center;
+  
 }
 #saveTemp{
  
@@ -269,6 +270,7 @@ background-color: #EF700C;
 #example, #example2{
   margin-bottom: 15px;
   transition: opacity 1s;
+  display: block; margin-left: auto; margin-right: auto; margin-top: 15px; width: 35% 
  }
 #example--hidden, #example2--hiden{
   margin-bottom: 15px;
@@ -419,10 +421,11 @@ text-decoration: underline;
   font-size: 1.5em;
  }
  #example, #example2{
-  width:300px;
+  width:50%;
   transition: all 1s ease-in;
   height: auto;
   margin-bottom: 15px;
+  display: block; margin-left: auto; margin-right: auto; margin-top: 15px;
  }
  .unHideExample{
   font-size: 10px;
@@ -436,10 +439,10 @@ text-decoration: underline;
 } 
 @media  screen and (max-width: 320px) {
  #example, #example2{
-  width:300px;
   transition: all 1s ease-in;
   height: auto;
   margin-bottom: 15px;
+  display: block; margin-left: auto; margin-right: auto; margin-top: 15px; width: 50% 
  }
  #logo{
   width:300px;

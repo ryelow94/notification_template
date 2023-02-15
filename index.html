@@ -53,13 +53,13 @@
   <h1 id="templateName" style=" color:#356F6F;">Blank Template</h1>
   <!-- <p style="text-align: center"> * Body content will be set to the default assessment notification, but can be edited in the rich text field once pasted into NAVEX IRM.*</p>  -->
   
-    <div class="container"> 
+    <div id="contain" class="container"> 
       <p style="text-align: center; font-size: 18px; color:#356F6F">Example Notification</p>
       <!-- <button id="hideExample" style="display:none">Hide Example</button> -->
       <button class="unHideExample" id="unHideExample" type="button" style="display: visible;">Show Example</button>
-      <img class="example"id="example" src="assessment template.png" width="400" style=" display: none;
+      <img class="example"id="example" src="assessment template.png"  style=" display: none;
       margin-left: auto;
-      margin-right: auto; margin-top: 15px;  ">
+      margin-right: auto; margin-top: 15px; width:35% ">
       <button class="hideExample" type="button" id="hideExample"style=" display:none; margin-top: 10px;">Hide Example</button>
       <form id="form">
         <!-- <label for="template">Template</label>
@@ -78,22 +78,34 @@
         
 
         <label id="headerLabel" for="row">Header Logo/Background Image</label>
-        <p style="font-size:12px; padding-left: 1.5%;">Leave Blank to use NAVEX image</p>
+        <p id="logoP" style="font-size:12px; padding-left: 1.5%;">* Leave blank to have NO Logo/background image *</p>
         <input
+       
           type="text"
           id="table-choice-header"
           name="row"
           placeholder="Logo URL i.g. https://www.navex.com/blog/static/blog/images/navex-global-logo.png "
         />
-       
+        <!-- <label id="headerTextContentLabel" for="row" >Header Text</label>
+        <textarea
+        onchange="handleChange2()"
+          style="line-height: 30px;"
+          wrap="hard"
+          rows="2"
+          cols="5"
+          id="table-choice-headerText"
+          name="row"
+          placeholder="notification body text content"
+        ></textarea> -->
         <label id="headerColor" for="row">Header Color</label>
+        <p style="font-size:12px; padding-left: 1.5%;">If background image was added, header color may not be visible if the image has no empty space.</p>
         <input
           type="color"
           id="table-choice-headerColor"
           name="row"
           placeholder="Header color"
         />
-
+        
         <label id="textColorLabel" for="row">Text Color</label>
         <input
           type="color"
@@ -101,7 +113,23 @@
           name="row"
           placeholder="informational text/body text color"
         /> 
-        <p style="text-align: center; padding-left: 3%; padding-right: 3%"> * Body text content will be set to the default value shown in the example above, but can be edited in the rich text field or code editor once the HTML is pasted into NAVEX IRM. *</p> 
+        <label id="headerSystem" for="row">Text Font</label>
+        <select id="table-choice-font" name="template">
+          <option value="" selected disabled hidden>Select an Option</option>
+          <option value="Courier New">'Courier New'</option>
+          <option value="Franklin Gothic Medium">'Franklin Gothic Medium'</option>
+          <option value="Gill Sans">'Gill Sans', 'Gill Sans MT'</option>
+          <option value="Lucida Sans">'Lucida Sans'</option>
+          <option value="Segoe UI">'Segoe UI'</option>
+          <option value="Times New Roman">'Times New Roman'</option>
+          <option value="Trebuchet MS">'Trebuchet MS'</option>
+          <option value="Arial">'Arial'</option>
+          <option value="Cambria">'Cambria'</option>
+          <option value="Georgia">'Georgia'</option>
+          <option value="Impact">'Impact'</option>
+          <option value="Verdana">Verdana</option>
+        </select>
+        <p style="text-align: center; padding-left: 3%; padding-right: 3%"> * Body text content will be set to a blank value, but can easily be edited in the rich text field or code editor once the HTML is pasted into NAVEX IRM. *</p> 
         
         <label id="textContentLabel" for="row" style="display: none">Body Text</label>
         <textarea
@@ -118,7 +146,7 @@
      <!-- <button class="unHideExample" id="unHideExample2" type="button" style="display:visible; margin-top: 10px;">Show Example</button>
         <img id="example2" style="display:none;" width="700" src="adding a list item.png">
         <button class="hideExample" id="hideExample2" type="button" style="display:none; margin-top: 10px;">Hide Example</button> -->
-        <label id="textContentLabelL" for="row">Requested Actions</label>
+        <label id="textContentLabelL" for="row">Actions</label>
         <input
         type="text"
           id="table-choice-textContentL"
@@ -133,16 +161,16 @@
           type="text"
           id="table-choice-text"
           name="row"
-          placeholder="Add a custom recipient name to the options below"
+          placeholder="Add a recipient name to the options below if not already present"
         />
         <button id="submitCustom" type="button">Add a Recipient</button>
 
         <label id="headerSystem" for="row">Recipient Options</label>
         <select id="table-choice-system" name="template">
           <option value="" selected disabled hidden>Select an Option</option>
-          <option value="[VendorContact]">[VendorContact]</option>
-          <option value="[FirstName] [LastName]">[FirstName] [LastName]</option>
-          <option value="[VendorName]">[VendorName]</option>
+          <option value="[RecipientUser]">[RecipientUser]</option>
+          <option value="[CreationUser]">[CreationUser]</option>
+          <option value="[TransitionUser]">[TransitionUser]</option>
         </select>
 
         <label id="footerLabel" for="row">Footer Text</label>
@@ -152,7 +180,7 @@
           cols="5"
           id="table-choice-footer"
           name="row"
-          placeholder="Add footer text content"
+          placeholder="Add footer text if option is not already present below"
         ></textarea>
 
         <button id="submitCustomFooter" type="button">
@@ -167,6 +195,40 @@
           <option value="">None</option>
           <option value="[LockpathUrl]">NAVEX IRM Portal URL</option>
         
+        </select>
+
+        <label id="headerColor" for="row">Footer Color</label>
+        
+        <input
+          type="color"
+          id="table-choice-headerColor"
+          name="row"
+          placeholder="Header color"
+        />
+
+        <label id="headerColor" for="row">Footer Text Color</label>
+        
+        <input
+          type="color"
+          id="table-choice-headerColor"
+          name="row"
+          placeholder="Header color"
+        />
+        <label id="headerSystem" for="row">Footer Text Font</label>
+        <select id="table-choice-footerFont" name="template">
+          <option value="" selected disabled hidden>Select an Option</option>
+          <option value="Courier New">'Courier New'</option>
+          <option value="Franklin Gothic Medium">'Franklin Gothic Medium'</option>
+          <option value="Gill Sans">'Gill Sans', 'Gill Sans MT'</option>
+          <option value="Lucida Sans">'Lucida Sans'</option>
+          <option value="Segoe UI">'Segoe UI'</option>
+          <option value="Times New Roman">'Times New Roman'</option>
+          <option value="Trebuchet MS">'Trebuchet MS'</option>
+          <option value="Arial">'Arial'</option>
+          <option value="Cambria">'Cambria'</option>
+          <option value="Georgia">'Georgia'</option>
+          <option value="Impact">'Impact'</option>
+          <option value="Verdana">Verdana</option>
         </select>
 
         <input id="submit" type="submit" value="Submit" />
@@ -204,7 +266,7 @@
                   <td
                     id="headerCopyColor"
                     align="Center"
-                    style="padding-bottom: 25px; background: #faf9f8"
+                    style=" background: #faf9f8"
                   >
                     <img id="logo" src="" width="100%" />
                   </td>
@@ -227,7 +289,6 @@
                             style="
                               font-size: 24px;
                               margin: 0 0 10px 0;
-
                               font-family: Arial, sans-serif;
                             "
                           >
@@ -252,13 +313,13 @@
                                   width: 290px;
                                   padding: 0;
                                   vertical-align: top;
-                                  color: #153643;
+                                  
                                 "
                               >
                                 <p
                                   style="
                                     margin: 0 0 25px 0;
-                                    font-size: 16px;
+                                    font-size: 18px;
                                     line-height: 24px;
                                     font-family: Arial, sans-serif;
                                   "
@@ -268,7 +329,7 @@
                                   class="mainText2"
                                   style="
                                     margin: 0 0 12px 0;
-                                    font-size: 16px;
+                                    font-size: 18px;
                                     line-height: 24px;
                                     font-family: Arial, sans-serif;
                                     word-break: break-word;
@@ -282,7 +343,7 @@
                                   class="mainText2"
                                   style="
                                     margin: 0 0 12px 0;
-                                    font-size: 16px;
+                                    font-size: 18px;
                                     line-height: 24px;
                                     font-family: Arial, sans-serif;
                                     word-break: break-word;
@@ -296,7 +357,7 @@
                                   class="mainText2"
                                   style="
                                     margin: 0 0 12px 0;
-                                    font-size: 16px;
+                                    font-size: 18px;
                                     line-height: 24px;
                                     font-family: Arial, sans-serif;
                                     word-break: break-word;
@@ -310,7 +371,7 @@
                                   class="mainText2"
                                   style="
                                     margin: 0 0 12px 0;
-                                    font-size: 16px;
+                                    font-size: 18px;
                                     line-height: 24px;
                                     font-family: Arial, sans-serif;
                                     word-break: break-word;
@@ -323,7 +384,7 @@
                                   class="mainText2"
                                   style="
                                     margin: 0 0 12px 0;
-                                    font-size: 16px;
+                                    font-size: 18px;
                                     line-height: 24px;
                                     font-family: Arial, sans-serif;
                                     word-break: break-word;
@@ -353,8 +414,9 @@
                             
 
                               <td
+                                id="actionPane"
                                 style="
-                                 width: 150px; border: solid black 1px; background-color: #eeece9; filter: drop-shadow(16px -16px 0px rgba(52,89,93, 0.8)); padding-right: 15px; vertical-align: top; color: #153643;
+                                 width: 150px; border: solid black 1px; background-color: #eeece9; filter: drop-shadow(16px -16px 0px rgba(7, 7, 7, 0.8)); padding-right: 15px; vertical-align: top;
                                  
                                 "
                               >
@@ -378,7 +440,7 @@
                                     font-size: 12px;
                                     line-height: 24px;
                                     word-break: break-word;
-                                    font-family: Arial, sans-serif;
+                                   
                                   "
                                 >
                                  
@@ -392,7 +454,7 @@
                   </td>
                 </tr>
                 <tr>
-                  <td style="padding: 30px; background: #ef700c">
+                  <td id="footer" style="padding: 30px; background: #ef700c">
                     <table
                       role="presentation"
                       style="
@@ -413,7 +475,7 @@
                               line-height: 16px;
                               word-wrap: break-word;
                               word-break: break-all;
-                              font-family: Arial, sans-serif;
+                              
                               color: #ffffff;
                             "
                             id="footerText"

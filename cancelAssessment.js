@@ -28,12 +28,12 @@ function hide() {
   hideExample.style = "display:none";
   unHideExample.style = "display:visible";
 }
-function hide2() {
-    var example2 = document.getElementById("example2");
-    example2.style = "display:none";
-    hideExample2.style = "display:none";
-    unHideExample2.style = "display:visible";
-  }
+// function hide2() {
+//     var example2 = document.getElementById("example2");
+//     example2.style = "display:none";
+//     hideExample2.style = "display:none";
+//     unHideExample2.style = "display:visible";
+//   }
 // const isHidden = () => toggleBox.classList.contains("example--hidden"); 
 // toggleBox.addEventListener("transitionend", function () {
 //     if (isHidden()) {
@@ -187,6 +187,76 @@ function clearAll(parent) {
   form.reset();
 }
 
+let toggle = true;
+let saved = localStorage.getItem("savedItem");
+if (saved) {
+  showSavedMain();
+  toggle = false;
+}
+function showSavedMain() {
+  var copyToClipBoardSaved = document.createElement("button");
+
+  var hideSavedButton = document.createElement("button");
+  hideSavedButton.setAttribute("id", "copy1");
+  if ((toggle = true)) {
+    var savedButton = document.createElement("button");
+    savedButton.setAttribute("id", "copy");
+    savedButton.style =
+      "margin-top:1%; margin-bottom:1%; margin-left: 35%; margin-right: 35%;";
+
+    savedButton.textContent = "Show Last Copied Template";
+    contain.appendChild(savedButton);
+  }
+    function showSaved() {
+      savedButton.style="display:none"
+      var contain = document.getElementById("contain");
+      var savedTemplate = document.createElement("div");
+      savedTemplate.setAttribute("id", "saveTemp");
+      contain.appendChild(savedTemplate);
+      var savedTemplateEl = document.createElement("p");
+      var savedId = Date.now().toString();
+      savedTemplateEl.setAttribute("id", savedId);
+      savedTemplate.appendChild(savedTemplateEl);
+      savedTemplateEl.outerHTML = saved;
+      savedButton.style =
+        "display:none; margin-top:1%; margin-bottom:1%; margin-left: 35%; margin-right: 35%;";
+
+      hideSavedButton.setAttribute("id", "copy");
+      hideSavedButton.textContent = "Hide Last Saved Template";
+      savedTemplate.after(hideSavedButton);
+      hideSavedButton.style =
+        "display:visible;margin-top:1%; margin-bottom:1%; margin-left: 35%; margin-right: 35%; ";
+      var butt = document.getElementById("button");
+
+      console.log(copyToClipBoardSaved);
+      hideSavedButton.after(copyToClipBoardSaved);
+      if (copyToClipBoardSaved.textContent !== "Copy HTML to clipboard brah") {
+        copyToClipBoardSaved.textContent = "Copy saved HTML to clipboard";
+        copyToClipBoardSaved.setAttribute("id", "copy");
+        copyToClipBoardSaved.onclick = async () => {
+          await navigator.clipboard.writeText(saved);
+         
+        };
+        copyToClipBoardSaved.style =
+          "display:visible;margin-top:1%; margin-bottom:1%; margin-left: 35%; margin-right: 35%;";
+         
+      }
+      function hideSaved() {
+        var savedTemplate = document.getElementById("saveTemp");
+        if (savedTemplate) {
+          savedTemplate.remove();
+        }
+        savedButton.style =
+          "display:visible; margin-top:1%; margin-bottom:1%; margin-left: 35%; margin-right: 35%;";
+        hideSavedButton.style = "display:none";
+        copyToClipBoardSaved.style = "display:none";
+      }
+
+      hideSavedButton.addEventListener("click", hideSaved);
+    }
+  
+  savedButton.addEventListener("click", showSaved);
+}
 //submitting the form
 function handleSubmit(event) {
   console.log(event);
@@ -234,25 +304,19 @@ function handleSubmit(event) {
     logo.setAttribute("src", event.target[0].value);
   }
   headerBackground.style=`background:${event.target[1].value}`
-//   emailHeader.style = `font-size:24px`;
-  emailHeader.style= `color:${event.target[2].value}; font-size:24px;`
-  emailHeader.textContent = "Hello " + `${event.target[8].value}` + ",";
+  emailHeader.style= `color:${event.target[2].value}; font-size:24px; font-family:${event.target[3].value}`
+  emailHeader.textContent = "Hello " + `${event.target[9].value}` + ",";
   footerText.textContent = `${event.target[11].value}`;
   if(footerText.textContent === "Default"||footerText.textContent ==="None"){
    footerText.outerHTML = `<p id="footerText" style="margin: 0; font-size: 16px; line-height: 20px; font-family: Arial, sans-serif; color: #ffffff;"><strong>Vision:</strong> Deliver the world's smartest <strong>integrated</strong> platform that enables organizations to <strong>predict</strong> and <strong>mitigate</strong> risk.</p>`
   } else{
   footerText.textContent = `${event.target[11].value}`;
   }
-  //   mainText.style = `color:${event.target[1].value};`
-  //   mainText.textContent = `${event.target[3].value}`
-  mainText1.style = `color:${event.target[2].value}; font-size:16px`
-//   mainText2.style = `color:${event.target[2].value};`
-  mainText3.style = `color:${event.target[2].value}; font-size:16px`
-  mainText4.style = `color:${event.target[2].value}; font-size:16px`
-  mainText5.style = `color:${event.target[2].value}; font-size:16px`
-  // mainText3.style = `color:${event.target[7].value};`
-  // mainText2.textContent = `${event.target[9].value}`
-  // mainText3.textContent = `${event.target[10].value}`
+  console.log(event.target[3].value)
+  mainText1.style = `color:${event.target[2].value}; font-family:${event.target[3].value}; font-size:20px;`
+  mainText3.style = `color:${event.target[2].value}; font-family:${event.target[3].value}; font-size:20px;`
+  mainText4.style = `color:${event.target[2].value}; font-family:${event.target[3].value}; font-size:20px;`
+  mainText5.style = `color:${event.target[2].value}; font-family:${event.target[3].value}; font-size:20px;`
 
   var clear = document.createElement("button");
   clear.setAttribute("id", "clear");
@@ -272,5 +336,6 @@ function handleSubmit(event) {
 
   copyToClipBoard.onclick = async () => {
     await navigator.clipboard.writeText(emailNot.outerHTML);
+    localStorage.setItem("savedItem", emailNot.outerHTML);
   };
 }

@@ -263,10 +263,6 @@ function showSavedMain() {
 
 //submitting the form
 function handleSubmit(event) {
-    
-  
- 
-
   console.log(event);
   event.preventDefault();
   console.log("submitted");
@@ -297,7 +293,7 @@ function handleSubmit(event) {
   var emailHeader = document.getElementById("emailHeader");
   var headerBackground = document.getElementById("headerCopyColor");
   var footerText = document.getElementById("footerText");
-
+  var textFont = document.getElementById("table-choice-font")
   var logo = document.getElementById("logo");
   var mainText1 = document.getElementById("mainText1");
   var mainText2 = document.getElementById("mainText2");
@@ -314,28 +310,23 @@ function handleSubmit(event) {
     logo.setAttribute("src", event.target[0].value);
   }
   headerBackground.style = `background:${event.target[1].value}`;
-  emailHeader.style = `font-size:24px`;
-  emailHeader.style = `color:${event.target[2].value}`;
-  emailHeader.textContent = "Hello " + `${event.target[10].value}` + ",";
-  footerText.textContent = `${event.target[13].value}`;
+  emailHeader.style = `font-size:24px; color:${event.target[2].value}; font-family:${event.target[3].value}`;
+  emailHeader.textContent = "Hello " + `${event.target[11].value}` + ",";
+  footerText.textContent = `${event.target[14].value}`;
   if (
     footerText.textContent === "Default" ||
     footerText.textContent === "None"
   ) {
     footerText.outerHTML = `<p id="footerText" style="margin: 0; font-size: 16px; line-height: 20px; font-family: Arial, sans-serif; color: #ffffff;"><strong>Vision:</strong> Deliver the world's smartest <strong>integrated</strong> platform that enables organizations to <strong>predict</strong> and <strong>mitigate</strong> risk.</p>`;
   } else {
-    footerText.textContent = `${event.target[13].value}`;
+    footerText.textContent = `${event.target[14].value}`;
   }
-  //   mainText.style = `color:${event.target[1].value};`
-  //   mainText.textContent = `${event.target[3].value}`
-  mainText1.style = `color:${event.target[2].value};`;
-  mainText2.style = `color:${event.target[2].value};`;
-  mainText3.style = `color:${event.target[2].value};`;
-  mainText4.style = `color:${event.target[2].value};`;
-  mainText5.style = `color:${event.target[2].value};`;
-  // mainText3.style = `color:${event.target[7].value};`
-  // mainText2.textContent = `${event.target[9].value}`
-  // mainText3.textContent = `${event.target[10].value}`
+  
+  mainText1.style = `color:${event.target[2].value}; font-family:${event.target[3].value}`;
+  mainText2.style = `color:${event.target[2].value}; font-family:${event.target[3].value}`;
+  mainText3.style = `color:${event.target[2].value}; font-family:${event.target[3].value}`;
+  mainText4.style = `color:${event.target[2].value}; font-family:${event.target[3].value}`;
+  mainText5.style = `color:${event.target[2].value}; font-family:${event.target[3].value}`;
 
   var clear = document.createElement("button");
   clear.setAttribute("id", "clear");
@@ -350,16 +341,11 @@ function handleSubmit(event) {
   });
   var copyToClipBoard = document.createElement("button");
   clear.after(copyToClipBoard);
-  console.log("here");
   copyToClipBoard.textContent = "Copy HTML to clipboard";
   copyToClipBoard.setAttribute("id", "copy");
 
   copyToClipBoard.onclick = async () => {
     await navigator.clipboard.writeText(emailNot.outerHTML);
-    localStorage.setItem("savedItem", emailNot.outerHTML);
-    let saved = localStorage.getItem("savedItem");
-    showSavedMain()
-    
-    
+    localStorage.setItem("savedItem", emailNot.outerHTML); 
   };
 }

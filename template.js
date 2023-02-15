@@ -4,8 +4,8 @@ var form = document.getElementById("form");
 form.addEventListener("submit", handleSubmit);
 var customSubmitButton = document.getElementById("submitCustom");
 customSubmitButton.addEventListener("click", customHeader);
-// var customSubmitActionButton = document.getElementById("submitCustomAction");
-// customSubmitActionButton.addEventListener("click", customActions);
+var customSubmitActionButton = document.getElementById("submitCustomAction");
+customSubmitActionButton.addEventListener("click", customActions);
 var customFooterButton = document.getElementById("submitCustomFooter");
 customFooterButton.addEventListener("click", customFooter);
 var userTemp = document.getElementById("userTemplate");
@@ -17,11 +17,42 @@ var hideExample = document.querySelector("#hideExample");
 hideExample.addEventListener("click", hide);
 var unHideExample = document.querySelector("#unHideExample");
 unHideExample.addEventListener("click", unHide);
+var logoBack = document.getElementById("table-choice-header")
+var logoBackLabel = document.getElementById("headerLabel")
+var headerTextLabel = document.getElementById("headerTextContentLabel")
+    var headerText = document.getElementById("table-choice-headerText")
+    var p = document.getElementById("logoP")
 // var hideExample2 = document.querySelector("#hideExample2");
 // hideExample2.addEventListener("click", hide2);
 // var unHideExample2 = document.querySelector("#unHideExample2");
 // unHideExample2.addEventListener("click", unHide2);
-
+// logoBack.onchange = function handleChange(){
+//     headerText.style="display:none"
+//     headerTextLabel.style="display:none"
+//     if(logoBack.value===""||logoBack.value===null){
+//       headerText.style="display:visible"
+//     headerTextLabel.style="display:visible"
+//     }  
+//     if(headerText.value===""||headerText.value===null){
+//       logoBack.style="display:visible"
+//     logoBackLabel.style="display:visible"
+//     }
+//   }
+//     headerText.onchange = function handleChange2(){
+//       var p = document.getElementById("logoP")
+//       p.style="display:none"
+//       logoBack.style="display:none"
+//       logoBackLabel.style="display:none"
+//       if(logoBack.value===""||logoBack.value===null){
+//         headerText.style="display:visible"
+//       headerTextLabel.style="display:visible"
+//       }  
+//       if(headerText.value===""||headerText.value===null){
+//         logoBack.style="display:visible"
+//       logoBackLabel.style="display:visible"
+//       }
+     
+// }
 function hide() {
   var example = document.getElementById("example");
   example.style = "display:none; ";
@@ -148,11 +179,17 @@ function customActions() {
   } 
   inputVal.value = "";  
 }
-
+let toggle = true;
+let saved = localStorage.getItem("savedItem");
+if (saved) {
+  showSavedMain();
+  toggle = false;
+}
 //clears the form and makes the submit button visible again
 function clearAll(parent) { 
     hide();
     // hide2();
+    form.reset()
   while (parent.firstChild) {
     parent.removeChild(parent.firstChild);
   } 
@@ -181,9 +218,75 @@ function clearAll(parent) {
   form.reset();
 }
 
+function showSavedMain() {
+  var copyToClipBoardSaved = document.createElement("button");
+
+  var hideSavedButton = document.createElement("button");
+  hideSavedButton.setAttribute("id", "copy1");
+  if ((toggle = true)) {
+    var savedButton = document.createElement("button");
+    savedButton.setAttribute("id", "copy");
+    savedButton.style =
+      "margin-top:1%; margin-bottom:1%; margin-left: 35%; margin-right: 35%;";
+
+    savedButton.textContent = "Show Last Copied Template";
+    contain.appendChild(savedButton);
+  }
+    function showSaved() {
+      savedButton.style="display:none"
+      var contain = document.getElementById("contain");
+      var savedTemplate = document.createElement("div");
+      savedTemplate.setAttribute("id", "saveTemp");
+      contain.appendChild(savedTemplate);
+      var savedTemplateEl = document.createElement("p");
+      var savedId = Date.now().toString();
+      savedTemplateEl.setAttribute("id", savedId);
+      savedTemplate.appendChild(savedTemplateEl);
+      savedTemplateEl.outerHTML = saved;
+      savedButton.style =
+        "display:none; margin-top:1%; margin-bottom:1%; margin-left: 35%; margin-right: 35%;";
+
+      hideSavedButton.setAttribute("id", "copy");
+      hideSavedButton.textContent = "Hide Last Saved Template";
+      savedTemplate.after(hideSavedButton);
+      hideSavedButton.style =
+        "display:visible;margin-top:1%; margin-bottom:1%; margin-left: 35%; margin-right: 35%; ";
+      var butt = document.getElementById("button");
+
+      console.log(copyToClipBoardSaved);
+      hideSavedButton.after(copyToClipBoardSaved);
+      if (copyToClipBoardSaved.textContent !== "Copy HTML to clipboard brah") {
+        copyToClipBoardSaved.textContent = "Copy saved HTML to clipboard";
+        copyToClipBoardSaved.setAttribute("id", "copy");
+        copyToClipBoardSaved.onclick = async () => {
+          await navigator.clipboard.writeText(saved);
+         
+        };
+        copyToClipBoardSaved.style =
+          "display:visible;margin-top:1%; margin-bottom:1%; margin-left: 35%; margin-right: 35%;";
+         
+      }
+      function hideSaved() {
+        var savedTemplate = document.getElementById("saveTemp");
+        if (savedTemplate) {
+          savedTemplate.remove();
+        }
+        savedButton.style =
+          "display:visible; margin-top:1%; margin-bottom:1%; margin-left: 35%; margin-right: 35%;";
+        hideSavedButton.style = "display:none";
+        copyToClipBoardSaved.style = "display:none";
+      }
+
+      hideSavedButton.addEventListener("click", hideSaved);
+    }
+  
+  savedButton.addEventListener("click", showSaved);
+}
+
 //submitting the form
 function handleSubmit(event) {
-  console.log(event);
+  console.log(event.target[0].value);
+  console.log(event.target[1].value);
   event.preventDefault();
   console.log("submitted");
   var hideCustom = document.getElementById("submitCustom");
@@ -218,32 +321,37 @@ function handleSubmit(event) {
   var mainText3 = document.getElementById("mainText3")
   var mainText4 = document.getElementById("mainText4")
   var mainText5 = document.getElementById("mainText5")
-
+  var actionPane = document.getElementById("actionPane")
+  var footer = document.getElementById("footer")
   if (event.target[0].value === "") {
     logo.setAttribute(
       "src",
-      "https://images.g2crowd.com/uploads/optimized_product_banner/image/815/a94e25efd798e04b4bf6fed25cf304d1.png"
+      ""
     );
+    headerBackground.style=`background:${event.target[1].value}; padding:30px`
   } else {
     logo.setAttribute("src", event.target[0].value);
+    headerBackground.style=`background:${event.target[1].value}`
   }
-  headerBackground.style=`background:${event.target[1].value}`
-
-  emailHeader.style= `color:${event.target[2].value}; font-size:24px`
-  emailHeader.textContent = "Hello " + `${event.target[8].value}` + ",";
-  footerText.textContent = `${event.target[11].value}`;
+ 
+  emailHeader.style= `color:${event.target[2].value}; font-size:24px; font-family:${event.target[3].value}`
+  emailHeader.textContent = "Hello " + `${event.target[9].value}` + ",";
+  footerText.textContent = `${event.target[12].value}`;
   if(footerText.textContent === "Default"||footerText.textContent ==="None"){
    footerText.outerHTML = `<p id="footerText" style="margin: 0; font-size: 16px; line-height: 20px; font-family: Arial, sans-serif; color: #ffffff;"><strong>Vision:</strong> Deliver the world's smartest <strong>integrated</strong> platform that enables organizations to <strong>predict</strong> and <strong>mitigate</strong> risk.</p>`
   } else{
-  footerText.textContent = `${event.target[11].value}`;
+  footerText.textContent = `${event.target[12].value}`;
+  footer.style=`background:${event.target[13].value}; padding: 30px;`
+  footerText.style=`color:${event.target[14].value}; font-size:16px; font-family:${event.target[15].value}`
   }
   //   mainText.style = `color:${event.target[1].value};`
   //   mainText.textContent = `${event.target[3].value}`
-  mainText1.style = `color:${event.target[2].value}; font-size:16px`
-  mainText2.style = `color:${event.target[2].value}; font-size:16px`
-  mainText3.style = `color:${event.target[2].value}; font-size:16px`
-  mainText4.style = `color:${event.target[2].value}; font-size:16px`
-  mainText5.style = `color:${event.target[2].value}; font-size:16px`
+  mainText1.style = `color:${event.target[2].value}; font-family:${event.target[3].value}; font-size:18px;`
+  mainText2.style = `color:${event.target[2].value}; font-family:${event.target[3].value}; font-size:18px;`
+  mainText3.style = `color:${event.target[2].value}; font-family:${event.target[3].value}; font-size:18px;`
+  mainText4.style = `color:${event.target[2].value}; font-family:${event.target[3].value}; font-size:18px;`
+  mainText5.style = `color:${event.target[2].value}; font-family:${event.target[3].value}; font-size:18px;`
+  actionPane.style = ` font-family:${event.target[3].value}; width: 150px; border: solid black 1px; background-color: #eeece9; filter: drop-shadow(16px -16px 0px ${event.target[1].value}); padding-right: 15px; padding-left:15px; vertical-align: top; color:${event.target[2].value}`
   // mainText3.style = `color:${event.target[7].value};`
   // mainText2.textContent = `${event.target[9].value}`
   // mainText3.textContent = `${event.target[10].value}`
@@ -257,6 +365,7 @@ function handleSubmit(event) {
     count = 0;
     emailNot.style = "display:none;";
     clearAll(clearBtnDiv);
+    
     form.addEventListener("submit", function handleSubmit() {});
   });
   var copyToClipBoard = document.createElement("button");
@@ -266,6 +375,7 @@ function handleSubmit(event) {
 
   copyToClipBoard.onclick = async () => {
     await navigator.clipboard.writeText(emailNot.outerHTML);
+    localStorage.setItem("savedItem", emailNot.outerHTML); 
   };
 }
 
