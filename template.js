@@ -342,7 +342,7 @@ function handleSubmit(event) {
   } else{
   footerText.textContent = `${event.target[12].value}`;
   footer.style=`background:${event.target[13].value}; padding: 30px;`
-  footerText.style=`color:${event.target[14].value}; font-size:16px; font-family:${event.target[15].value}`
+  footerText.style=`color:${event.target[14].value}; font-size:16px; font-family:${event.target[15].value}; word-break:break-word`
   }
   //   mainText.style = `color:${event.target[1].value};`
   //   mainText.textContent = `${event.target[3].value}`
