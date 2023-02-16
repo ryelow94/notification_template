@@ -189,7 +189,7 @@
 
         <label id="footerSystem" for="row">Footer Text Options</label>
         <p style="text-align:left; padding-left: 1%; padding-right: 3%; font-size:12px">If no footer text value is selected, the default footer will be displayed</p>
-        <select id="table-choice-footer-system" name="template">
+        <select id="table-choice-footer-system" name="template" onchange="defaultFooter()">
           <option value="None" selected disabled hidden>Select an Option</option>
           <option value="Default">Default</option>
           <option value="">None</option>
@@ -197,25 +197,25 @@
         
         </select>
 
-        <label id="headerColor" for="row">Footer Color</label>
+        <label id="f1" for="row">Footer Color</label>
         
         <input
           type="color"
-          id="table-choice-headerColor"
+          id="f2"
           name="row"
           placeholder="Header color"
         />
 
-        <label id="headerColor" for="row">Footer Text Color</label>
+        <label id="f3" for="row">Footer Text Color</label>
         
         <input
           type="color"
-          id="table-choice-headerColor"
+          id="f4"
           name="row"
           placeholder="Header color"
         />
-        <label id="headerSystem" for="row">Footer Text Font</label>
-        <select id="table-choice-footerFont" name="template">
+        <label id="f5" for="row">Footer Text Font</label>
+        <select id="f6" name="template">
           <option value="" selected disabled hidden>Select an Option</option>
           <option value="Courier New">'Courier New'</option>
           <option value="Franklin Gothic Medium">'Franklin Gothic Medium'</option>
@@ -412,7 +412,7 @@
                                 &nbsp;
                               </td>
                             
-
+                               
                               <td
                                 id="actionPane"
                                 style="
@@ -445,7 +445,8 @@
                                 >
                                  
                                 </ol>
-                              </td>                             
+                              </td>  
+                                                           
                             </tr>
                           </table>
                         </td>

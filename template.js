@@ -22,37 +22,29 @@ var logoBackLabel = document.getElementById("headerLabel")
 var headerTextLabel = document.getElementById("headerTextContentLabel")
     var headerText = document.getElementById("table-choice-headerText")
     var p = document.getElementById("logoP")
+var footerHide = document.getElementById("table-choice-footer-system")
 // var hideExample2 = document.querySelector("#hideExample2");
 // hideExample2.addEventListener("click", hide2);
 // var unHideExample2 = document.querySelector("#unHideExample2");
 // unHideExample2.addEventListener("click", unHide2);
-// logoBack.onchange = function handleChange(){
-//     headerText.style="display:none"
-//     headerTextLabel.style="display:none"
-//     if(logoBack.value===""||logoBack.value===null){
-//       headerText.style="display:visible"
-//     headerTextLabel.style="display:visible"
-//     }  
-//     if(headerText.value===""||headerText.value===null){
-//       logoBack.style="display:visible"
-//     logoBackLabel.style="display:visible"
-//     }
-//   }
-//     headerText.onchange = function handleChange2(){
-//       var p = document.getElementById("logoP")
-//       p.style="display:none"
-//       logoBack.style="display:none"
-//       logoBackLabel.style="display:none"
-//       if(logoBack.value===""||logoBack.value===null){
-//         headerText.style="display:visible"
-//       headerTextLabel.style="display:visible"
-//       }  
-//       if(headerText.value===""||headerText.value===null){
-//         logoBack.style="display:visible"
-//       logoBackLabel.style="display:visible"
-//       }
-     
-// }
+//
+footerHide.addEventListener("change",defaultFooter)
+ function defaultFooter(){
+  console.log("called")
+ let footArr = ["f1","f2","f3","f4","f5","f6"]
+ if(footerHide.value==="Default"){
+ for (let i = 0; i < footArr.length; i++) {
+  const element = footArr[i];
+  document.getElementById(element).style="display:none"
+ }
+}else {
+  for (let i = 0; i < footArr.length; i++) {
+    const element = footArr[i];
+    document.getElementById(element).style="display:visible"
+   }
+ }
+}
+footerHide.addEventListener("change",defaultFooter)
 function hide() {
   var example = document.getElementById("example");
   example.style = "display:none; ";
@@ -165,7 +157,10 @@ function customActions() {
   submitCustomButton.after(actionDiv)
   var addedAction = document.createElement("p");
   actionDiv.appendChild(addedAction)
-  let actionDisplay = Array.from(document.getElementsByClassName("addedAction"));
+  let actionDisplay = Array.from(document.getElementsByClassName("actionItem"));
+  
+    
+
   addedAction.setAttribute("class", "addedAction");
   addedAction.textContent = "Action Added: " + `${inputVal.value}`;
   
